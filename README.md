@@ -6,7 +6,7 @@ This library provides convenient access to the Discord API REST API from server-
 
 The REST API documentation can be found on [docs.discord-api.com](https://docs.discord-api.com). The full API of this library can be found in [api.md](api.md).
 
-It is generated with [Stainless](https://www.stainlessapi.com/).
+It is generated with [Stainless](https://www.stainless.com/).
 
 ## Installation
 
