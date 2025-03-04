@@ -168,7 +168,7 @@ export declare namespace WebhookCreateParams {
     /**
      * Body param:
      */
-    allowed_mentions?: WebhookCreateParams.IncomingWebhookRequestPartial.AllowedMentions | null;
+    allowed_mentions?: IncomingWebhookRequestPartial.AllowedMentions | null;
 
     /**
      * Body param:
@@ -178,7 +178,7 @@ export declare namespace WebhookCreateParams {
     /**
      * Body param:
      */
-    attachments?: Array<WebhookCreateParams.IncomingWebhookRequestPartial.Attachment> | null;
+    attachments?: Array<IncomingWebhookRequestPartial.Attachment> | null;
 
     /**
      * Body param:
@@ -188,7 +188,7 @@ export declare namespace WebhookCreateParams {
     /**
      * Body param:
      */
-    components?: Array<WebhookCreateParams.IncomingWebhookRequestPartial.Component> | null;
+    components?: Array<IncomingWebhookRequestPartial.Component> | null;
 
     /**
      * Body param:
@@ -198,7 +198,7 @@ export declare namespace WebhookCreateParams {
     /**
      * Body param:
      */
-    embeds?: Array<WebhookCreateParams.IncomingWebhookRequestPartial.Embed> | null;
+    embeds?: Array<IncomingWebhookRequestPartial.Embed> | null;
 
     /**
      * Body param:
@@ -208,7 +208,7 @@ export declare namespace WebhookCreateParams {
     /**
      * Body param:
      */
-    poll?: WebhookCreateParams.IncomingWebhookRequestPartial.Poll | null;
+    poll?: IncomingWebhookRequestPartial.Poll | null;
 
     /**
      * Body param:
@@ -676,17 +676,17 @@ export declare namespace WebhookCreateParams {
     /**
      * Body param:
      */
-    allowed_mentions?: WebhookCreateParams.IncomingWebhookUpdateRequestPartial.AllowedMentions | null;
+    allowed_mentions?: IncomingWebhookUpdateRequestPartial.AllowedMentions | null;
 
     /**
      * Body param:
      */
-    attachments?: Array<WebhookCreateParams.IncomingWebhookUpdateRequestPartial.Attachment> | null;
+    attachments?: Array<IncomingWebhookUpdateRequestPartial.Attachment> | null;
 
     /**
      * Body param:
      */
-    components?: Array<WebhookCreateParams.IncomingWebhookUpdateRequestPartial.Component> | null;
+    components?: Array<IncomingWebhookUpdateRequestPartial.Component> | null;
 
     /**
      * Body param:
@@ -696,7 +696,7 @@ export declare namespace WebhookCreateParams {
     /**
      * Body param:
      */
-    embeds?: Array<WebhookCreateParams.IncomingWebhookUpdateRequestPartial.Embed> | null;
+    embeds?: Array<IncomingWebhookUpdateRequestPartial.Embed> | null;
 
     /**
      * Body param:
@@ -706,7 +706,7 @@ export declare namespace WebhookCreateParams {
     /**
      * Body param:
      */
-    poll?: WebhookCreateParams.IncomingWebhookUpdateRequestPartial.Poll | null;
+    poll?: IncomingWebhookUpdateRequestPartial.Poll | null;
   }
 
   export namespace IncomingWebhookUpdateRequestPartial {
