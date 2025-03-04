@@ -114,7 +114,7 @@ export type ThreadCreateParams =
 
 export declare namespace ThreadCreateParams {
   export interface CreateForumThreadRequest {
-    message: ThreadCreateParams.CreateForumThreadRequest.Message;
+    message: CreateForumThreadRequest.Message;
 
     name: string;
 
