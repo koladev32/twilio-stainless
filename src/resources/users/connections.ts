@@ -1,7 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as ConnectionsAPI from './connections';
 
 export class Connections extends APIResource {
   list(options?: Core.RequestOptions): Core.APIPromise<ConnectionListResponse | null> {
@@ -18,31 +21,7 @@ export interface ConnectedAccountResponse {
 
   two_way_link: boolean;
 
-  type:
-    | 'battlenet'
-    | 'bluesky'
-    | 'bungie'
-    | 'ebay'
-    | 'epicgames'
-    | 'facebook'
-    | 'github'
-    | 'instagram'
-    | 'mastodon'
-    | 'leagueoflegends'
-    | 'paypal'
-    | 'playstation'
-    | 'reddit'
-    | 'riotgames'
-    | 'roblox'
-    | 'skype'
-    | 'spotify'
-    | 'steam'
-    | 'tiktok'
-    | 'twitch'
-    | 'twitter'
-    | 'xbox'
-    | 'youtube'
-    | 'domain';
+  type: 'battlenet' | 'bluesky' | 'bungie' | 'ebay' | 'epicgames' | 'facebook' | 'github' | 'instagram' | 'mastodon' | 'leagueoflegends' | 'paypal' | 'playstation' | 'reddit' | 'riotgames' | 'roblox' | 'skype' | 'spotify' | 'steam' | 'tiktok' | 'twitch' | 'twitter' | 'xbox' | 'youtube' | 'domain';
 
   verified: boolean;
 
@@ -83,11 +62,11 @@ export namespace ConnectedAccountResponse {
   }
 }
 
-export type ConnectionListResponse = Array<ConnectedAccountResponse>;
+export type ConnectionListResponse = Array<ConnectedAccountResponse>
 
 export declare namespace Connections {
   export {
     type ConnectedAccountResponse as ConnectedAccountResponse,
-    type ConnectionListResponse as ConnectionListResponse,
+    type ConnectionListResponse as ConnectionListResponse
   };
 }

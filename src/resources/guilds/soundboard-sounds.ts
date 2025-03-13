@@ -1,33 +1,23 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as SoundboardSoundsAPI from './soundboard-sounds';
 import * as SoundboardDefaultSoundsAPI from '../soundboard-default-sounds';
 import * as UsersAPI from '../users/users';
 
 export class SoundboardSounds extends APIResource {
-  create(
-    guildId: string,
-    body: SoundboardSoundCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<SoundboardDefaultSoundsAPI.SoundboardSoundResponse> {
+  create(guildId: string, body: SoundboardSoundCreateParams, options?: Core.RequestOptions): Core.APIPromise<SoundboardDefaultSoundsAPI.SoundboardSoundResponse> {
     return this._client.post(`/guilds/${guildId}/soundboard-sounds`, { body, ...options });
   }
 
-  retrieve(
-    guildId: string,
-    soundId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<SoundboardDefaultSoundsAPI.SoundboardSoundResponse> {
+  retrieve(guildId: string, soundId: string, options?: Core.RequestOptions): Core.APIPromise<SoundboardDefaultSoundsAPI.SoundboardSoundResponse> {
     return this._client.get(`/guilds/${guildId}/soundboard-sounds/${soundId}`, options);
   }
 
-  update(
-    guildId: string,
-    soundId: string,
-    body: SoundboardSoundUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<SoundboardDefaultSoundsAPI.SoundboardSoundResponse> {
+  update(guildId: string, soundId: string, body: SoundboardSoundUpdateParams, options?: Core.RequestOptions): Core.APIPromise<SoundboardDefaultSoundsAPI.SoundboardSoundResponse> {
     return this._client.patch(`/guilds/${guildId}/soundboard-sounds/${soundId}`, { body, ...options });
   }
 
@@ -36,10 +26,7 @@ export class SoundboardSounds extends APIResource {
   }
 
   delete(guildId: string, soundId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/guilds/${guildId}/soundboard-sounds/${soundId}`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+    return this._client.delete(`/guilds/${guildId}/soundboard-sounds/${soundId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 }
 
@@ -92,6 +79,6 @@ export declare namespace SoundboardSounds {
     type SoundboardSound as SoundboardSound,
     type SoundboardSoundListResponse as SoundboardSoundListResponse,
     type SoundboardSoundCreateParams as SoundboardSoundCreateParams,
-    type SoundboardSoundUpdateParams as SoundboardSoundUpdateParams,
+    type SoundboardSoundUpdateParams as SoundboardSoundUpdateParams
   };
 }

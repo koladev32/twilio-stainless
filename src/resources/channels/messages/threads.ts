@@ -1,17 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
+import { isRequestOptions } from '../../../core';
+import { APIPromise } from '../../../core';
 import * as Core from '../../../core';
+import * as ThreadsAPI from './threads';
 import * as ChannelsAPI from '../channels';
 import * as ThreadMembersAPI from '../thread-members/thread-members';
 
 export class Threads extends APIResource {
-  create(
-    channelId: string,
-    messageId: string,
-    body: ThreadCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<ChannelsAPI.Thread> {
+  create(channelId: string, messageId: string, body: ThreadCreateParams, options?: Core.RequestOptions): Core.APIPromise<ChannelsAPI.Thread> {
     return this._client.post(`/channels/${channelId}/messages/${messageId}/threads`, { body, ...options });
   }
 }
@@ -118,5 +116,8 @@ export interface ThreadCreateParams {
 }
 
 export declare namespace Threads {
-  export { type ThreadResponse as ThreadResponse, type ThreadCreateParams as ThreadCreateParams };
+  export {
+    type ThreadResponse as ThreadResponse,
+    type ThreadCreateParams as ThreadCreateParams
+  };
 }

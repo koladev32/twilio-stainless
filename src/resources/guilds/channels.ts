@@ -1,26 +1,21 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as GuildsChannelsAPI from './channels';
 import * as Shared from '../shared';
 import * as ChannelsAPI from '../channels/channels';
 import * as UsersChannelsAPI from '../users/channels';
 
 export class Channels extends APIResource {
-  create(
-    guildId: string,
-    body: ChannelCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.GuildChannel> {
+  create(guildId: string, body: ChannelCreateParams, options?: Core.RequestOptions): Core.APIPromise<Shared.GuildChannel> {
     return this._client.post(`/guilds/${guildId}/channels`, { body, ...options });
   }
 
   update(guildId: string, body: ChannelUpdateParams, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.patch(`/guilds/${guildId}/channels`, {
-      body,
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+    return this._client.patch(`/guilds/${guildId}/channels`, { body, ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
   list(guildId: string, options?: Core.RequestOptions): Core.APIPromise<ChannelListResponse | null> {
@@ -28,12 +23,7 @@ export class Channels extends APIResource {
   }
 }
 
-export type ChannelListResponse = Array<
-  | Shared.GuildChannel
-  | UsersChannelsAPI.PrivateChannelResponse
-  | UsersChannelsAPI.PrivateGroupChannelResponse
-  | ChannelsAPI.Thread
->;
+export type ChannelListResponse = Array<Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>
 
 export interface ChannelCreateParams {
   name: string;
@@ -137,7 +127,7 @@ export namespace ChannelCreateParams {
   }
 }
 
-export type ChannelUpdateParams = Array<ChannelUpdateParams.Body>;
+export type ChannelUpdateParams = Array<ChannelUpdateParams.Body>
 
 export namespace ChannelUpdateParams {
   export interface Body {
@@ -155,6 +145,6 @@ export declare namespace Channels {
   export {
     type ChannelListResponse as ChannelListResponse,
     type ChannelCreateParams as ChannelCreateParams,
-    type ChannelUpdateParams as ChannelUpdateParams,
+    type ChannelUpdateParams as ChannelUpdateParams
   };
 }

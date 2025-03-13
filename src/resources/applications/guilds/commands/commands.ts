@@ -2,7 +2,9 @@
 
 import { APIResource } from '../../../../resource';
 import { isRequestOptions } from '../../../../core';
+import { APIPromise } from '../../../../core';
 import * as Core from '../../../../core';
+import * as CommandsCommandsAPI from './commands';
 import * as CommandsAPI from '../../commands/commands';
 import * as PermissionsAPI from './permissions';
 import { PermissionUpdateParams, Permissions } from './permissions';
@@ -10,91 +12,33 @@ import { PermissionUpdateParams, Permissions } from './permissions';
 export class Commands extends APIResource {
   permissions: PermissionsAPI.Permissions = new PermissionsAPI.Permissions(this._client);
 
-  create(
-    applicationId: string,
-    guildId: string,
-    body: CommandCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CommandsAPI.ApplicationCommandResponse> {
-    return this._client.post(`/applications/${applicationId}/guilds/${guildId}/commands`, {
-      body,
-      ...options,
-    });
+  create(applicationId: string, guildId: string, body: CommandCreateParams, options?: Core.RequestOptions): Core.APIPromise<CommandsAPI.ApplicationCommandResponse> {
+    return this._client.post(`/applications/${applicationId}/guilds/${guildId}/commands`, { body, ...options });
   }
 
-  retrieve(
-    applicationId: string,
-    guildId: string,
-    commandId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CommandsAPI.ApplicationCommandResponse> {
-    return this._client.get(
-      `/applications/${applicationId}/guilds/${guildId}/commands/${commandId}`,
-      options,
-    );
+  retrieve(applicationId: string, guildId: string, commandId: string, options?: Core.RequestOptions): Core.APIPromise<CommandsAPI.ApplicationCommandResponse> {
+    return this._client.get(`/applications/${applicationId}/guilds/${guildId}/commands/${commandId}`, options);
   }
 
-  update(
-    applicationId: string,
-    guildId: string,
-    commandId: string,
-    body: CommandUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CommandsAPI.ApplicationCommandResponse> {
-    return this._client.patch(`/applications/${applicationId}/guilds/${guildId}/commands/${commandId}`, {
-      body,
-      ...options,
-    });
+  update(applicationId: string, guildId: string, commandId: string, body: CommandUpdateParams, options?: Core.RequestOptions): Core.APIPromise<CommandsAPI.ApplicationCommandResponse> {
+    return this._client.patch(`/applications/${applicationId}/guilds/${guildId}/commands/${commandId}`, { body, ...options });
   }
 
-  list(
-    applicationId: string,
-    guildId: string,
-    query?: CommandListParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CommandListResponse | null>;
-  list(
-    applicationId: string,
-    guildId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CommandListResponse | null>;
-  list(
-    applicationId: string,
-    guildId: string,
-    query: CommandListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CommandListResponse | null> {
+  list(applicationId: string, guildId: string, query?: CommandListParams, options?: Core.RequestOptions): Core.APIPromise<CommandListResponse | null>
+  list(applicationId: string, guildId: string, options?: Core.RequestOptions): Core.APIPromise<CommandListResponse | null>
+  list(applicationId: string, guildId: string, query: CommandListParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<CommandListResponse | null> {
     if (isRequestOptions(query)) {
       return this.list(applicationId, guildId, {}, query);
     }
-    return this._client.get(`/applications/${applicationId}/guilds/${guildId}/commands`, {
-      query,
-      ...options,
-    });
+    return this._client.get(`/applications/${applicationId}/guilds/${guildId}/commands`, { query, ...options });
   }
 
-  delete(
-    applicationId: string,
-    guildId: string,
-    commandId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void> {
-    return this._client.delete(`/applications/${applicationId}/guilds/${guildId}/commands/${commandId}`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+  delete(applicationId: string, guildId: string, commandId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.delete(`/applications/${applicationId}/guilds/${guildId}/commands/${commandId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
-  put(
-    applicationId: string,
-    guildId: string,
-    body: CommandPutParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CommandPutResponse | null> {
-    return this._client.put(`/applications/${applicationId}/guilds/${guildId}/commands`, {
-      body,
-      ...options,
-    });
+  put(applicationId: string, guildId: string, body: CommandPutParams, options?: Core.RequestOptions): Core.APIPromise<CommandPutResponse | null> {
+    return this._client.put(`/applications/${applicationId}/guilds/${guildId}/commands`, { body, ...options });
   }
 }
 
@@ -139,19 +83,7 @@ export interface ApplicationCommandResponse {
 
   nsfw?: boolean | null;
 
-  options?: Array<
-    | ApplicationCommandResponse.ApplicationCommandAttachmentOptionResponse
-    | ApplicationCommandResponse.ApplicationCommandBooleanOptionResponse
-    | ApplicationCommandResponse.ApplicationCommandChannelOptionResponse
-    | ApplicationCommandResponse.ApplicationCommandIntegerOptionResponse
-    | ApplicationCommandResponse.ApplicationCommandMentionableOptionResponse
-    | ApplicationCommandResponse.ApplicationCommandNumberOptionResponse
-    | ApplicationCommandResponse.ApplicationCommandRoleOptionResponse
-    | ApplicationCommandResponse.ApplicationCommandStringOptionResponse
-    | ApplicationCommandResponse.ApplicationCommandSubcommandGroupOptionResponse
-    | ApplicationCommandResponse.ApplicationCommandSubcommandOptionResponse
-    | ApplicationCommandResponse.ApplicationCommandUserOptionResponse
-  > | null;
+  options?: Array<ApplicationCommandResponse.ApplicationCommandAttachmentOptionResponse | ApplicationCommandResponse.ApplicationCommandBooleanOptionResponse | ApplicationCommandResponse.ApplicationCommandChannelOptionResponse | ApplicationCommandResponse.ApplicationCommandIntegerOptionResponse | ApplicationCommandResponse.ApplicationCommandMentionableOptionResponse | ApplicationCommandResponse.ApplicationCommandNumberOptionResponse | ApplicationCommandResponse.ApplicationCommandRoleOptionResponse | ApplicationCommandResponse.ApplicationCommandStringOptionResponse | ApplicationCommandResponse.ApplicationCommandSubcommandGroupOptionResponse | ApplicationCommandResponse.ApplicationCommandSubcommandOptionResponse | ApplicationCommandResponse.ApplicationCommandUserOptionResponse> | null;
 }
 
 export namespace ApplicationCommandResponse {
@@ -537,17 +469,7 @@ export namespace ApplicationCommandResponse {
 
       name_localized?: string | null;
 
-      options?: Array<
-        | Option.ApplicationCommandAttachmentOptionResponse
-        | Option.ApplicationCommandBooleanOptionResponse
-        | Option.ApplicationCommandChannelOptionResponse
-        | Option.ApplicationCommandIntegerOptionResponse
-        | Option.ApplicationCommandMentionableOptionResponse
-        | Option.ApplicationCommandNumberOptionResponse
-        | Option.ApplicationCommandRoleOptionResponse
-        | Option.ApplicationCommandStringOptionResponse
-        | Option.ApplicationCommandUserOptionResponse
-      > | null;
+      options?: Array<Option.ApplicationCommandAttachmentOptionResponse | Option.ApplicationCommandBooleanOptionResponse | Option.ApplicationCommandChannelOptionResponse | Option.ApplicationCommandIntegerOptionResponse | Option.ApplicationCommandMentionableOptionResponse | Option.ApplicationCommandNumberOptionResponse | Option.ApplicationCommandRoleOptionResponse | Option.ApplicationCommandStringOptionResponse | Option.ApplicationCommandUserOptionResponse> | null;
 
       required?: boolean | null;
     }
@@ -934,17 +856,7 @@ export namespace ApplicationCommandResponse {
 
     name_localized?: string | null;
 
-    options?: Array<
-      | ApplicationCommandSubcommandOptionResponse.ApplicationCommandAttachmentOptionResponse
-      | ApplicationCommandSubcommandOptionResponse.ApplicationCommandBooleanOptionResponse
-      | ApplicationCommandSubcommandOptionResponse.ApplicationCommandChannelOptionResponse
-      | ApplicationCommandSubcommandOptionResponse.ApplicationCommandIntegerOptionResponse
-      | ApplicationCommandSubcommandOptionResponse.ApplicationCommandMentionableOptionResponse
-      | ApplicationCommandSubcommandOptionResponse.ApplicationCommandNumberOptionResponse
-      | ApplicationCommandSubcommandOptionResponse.ApplicationCommandRoleOptionResponse
-      | ApplicationCommandSubcommandOptionResponse.ApplicationCommandStringOptionResponse
-      | ApplicationCommandSubcommandOptionResponse.ApplicationCommandUserOptionResponse
-    > | null;
+    options?: Array<ApplicationCommandSubcommandOptionResponse.ApplicationCommandAttachmentOptionResponse | ApplicationCommandSubcommandOptionResponse.ApplicationCommandBooleanOptionResponse | ApplicationCommandSubcommandOptionResponse.ApplicationCommandChannelOptionResponse | ApplicationCommandSubcommandOptionResponse.ApplicationCommandIntegerOptionResponse | ApplicationCommandSubcommandOptionResponse.ApplicationCommandMentionableOptionResponse | ApplicationCommandSubcommandOptionResponse.ApplicationCommandNumberOptionResponse | ApplicationCommandSubcommandOptionResponse.ApplicationCommandRoleOptionResponse | ApplicationCommandSubcommandOptionResponse.ApplicationCommandStringOptionResponse | ApplicationCommandSubcommandOptionResponse.ApplicationCommandUserOptionResponse> | null;
 
     required?: boolean | null;
   }
@@ -1334,9 +1246,9 @@ export namespace ApplicationCommandResponse {
   }
 }
 
-export type CommandListResponse = Array<CommandsAPI.ApplicationCommandResponse>;
+export type CommandListResponse = Array<CommandsAPI.ApplicationCommandResponse>
 
-export type CommandPutResponse = Array<CommandsAPI.ApplicationCommandResponse>;
+export type CommandPutResponse = Array<CommandsAPI.ApplicationCommandResponse>
 
 export interface CommandCreateParams {
   name: string;
@@ -1357,19 +1269,7 @@ export interface CommandCreateParams {
 
   name_localizations?: Record<string, string> | null;
 
-  options?: Array<
-    | CommandCreateParams.ApplicationCommandAttachmentOption
-    | CommandCreateParams.ApplicationCommandBooleanOption
-    | CommandCreateParams.ApplicationCommandChannelOption
-    | CommandCreateParams.ApplicationCommandIntegerOption
-    | CommandCreateParams.ApplicationCommandMentionableOption
-    | CommandCreateParams.ApplicationCommandNumberOption
-    | CommandCreateParams.ApplicationCommandRoleOption
-    | CommandCreateParams.ApplicationCommandStringOption
-    | CommandCreateParams.ApplicationCommandSubcommandGroupOption
-    | CommandCreateParams.ApplicationCommandSubcommandOption
-    | CommandCreateParams.ApplicationCommandUserOption
-  > | null;
+  options?: Array<CommandCreateParams.ApplicationCommandAttachmentOption | CommandCreateParams.ApplicationCommandBooleanOption | CommandCreateParams.ApplicationCommandChannelOption | CommandCreateParams.ApplicationCommandIntegerOption | CommandCreateParams.ApplicationCommandMentionableOption | CommandCreateParams.ApplicationCommandNumberOption | CommandCreateParams.ApplicationCommandRoleOption | CommandCreateParams.ApplicationCommandStringOption | CommandCreateParams.ApplicationCommandSubcommandGroupOption | CommandCreateParams.ApplicationCommandSubcommandOption | CommandCreateParams.ApplicationCommandUserOption> | null;
 
   /**
    * - `1` - Slash commands; a text-based command that shows up when a user types /
@@ -1719,17 +1619,7 @@ export namespace CommandCreateParams {
 
       name_localizations?: Record<string, string> | null;
 
-      options?: Array<
-        | Option.ApplicationCommandAttachmentOption
-        | Option.ApplicationCommandBooleanOption
-        | Option.ApplicationCommandChannelOption
-        | Option.ApplicationCommandIntegerOption
-        | Option.ApplicationCommandMentionableOption
-        | Option.ApplicationCommandNumberOption
-        | Option.ApplicationCommandRoleOption
-        | Option.ApplicationCommandStringOption
-        | Option.ApplicationCommandUserOption
-      > | null;
+      options?: Array<Option.ApplicationCommandAttachmentOption | Option.ApplicationCommandBooleanOption | Option.ApplicationCommandChannelOption | Option.ApplicationCommandIntegerOption | Option.ApplicationCommandMentionableOption | Option.ApplicationCommandNumberOption | Option.ApplicationCommandRoleOption | Option.ApplicationCommandStringOption | Option.ApplicationCommandUserOption> | null;
 
       required?: boolean | null;
     }
@@ -2070,17 +1960,7 @@ export namespace CommandCreateParams {
 
     name_localizations?: Record<string, string> | null;
 
-    options?: Array<
-      | ApplicationCommandSubcommandOption.ApplicationCommandAttachmentOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandBooleanOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandChannelOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandIntegerOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandMentionableOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandNumberOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandRoleOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandStringOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandUserOption
-    > | null;
+    options?: Array<ApplicationCommandSubcommandOption.ApplicationCommandAttachmentOption | ApplicationCommandSubcommandOption.ApplicationCommandBooleanOption | ApplicationCommandSubcommandOption.ApplicationCommandChannelOption | ApplicationCommandSubcommandOption.ApplicationCommandIntegerOption | ApplicationCommandSubcommandOption.ApplicationCommandMentionableOption | ApplicationCommandSubcommandOption.ApplicationCommandNumberOption | ApplicationCommandSubcommandOption.ApplicationCommandRoleOption | ApplicationCommandSubcommandOption.ApplicationCommandStringOption | ApplicationCommandSubcommandOption.ApplicationCommandUserOption> | null;
 
     required?: boolean | null;
   }
@@ -2443,19 +2323,7 @@ export interface CommandUpdateParams {
 
   name_localizations?: Record<string, string> | null;
 
-  options?: Array<
-    | CommandUpdateParams.ApplicationCommandAttachmentOption
-    | CommandUpdateParams.ApplicationCommandBooleanOption
-    | CommandUpdateParams.ApplicationCommandChannelOption
-    | CommandUpdateParams.ApplicationCommandIntegerOption
-    | CommandUpdateParams.ApplicationCommandMentionableOption
-    | CommandUpdateParams.ApplicationCommandNumberOption
-    | CommandUpdateParams.ApplicationCommandRoleOption
-    | CommandUpdateParams.ApplicationCommandStringOption
-    | CommandUpdateParams.ApplicationCommandSubcommandGroupOption
-    | CommandUpdateParams.ApplicationCommandSubcommandOption
-    | CommandUpdateParams.ApplicationCommandUserOption
-  > | null;
+  options?: Array<CommandUpdateParams.ApplicationCommandAttachmentOption | CommandUpdateParams.ApplicationCommandBooleanOption | CommandUpdateParams.ApplicationCommandChannelOption | CommandUpdateParams.ApplicationCommandIntegerOption | CommandUpdateParams.ApplicationCommandMentionableOption | CommandUpdateParams.ApplicationCommandNumberOption | CommandUpdateParams.ApplicationCommandRoleOption | CommandUpdateParams.ApplicationCommandStringOption | CommandUpdateParams.ApplicationCommandSubcommandGroupOption | CommandUpdateParams.ApplicationCommandSubcommandOption | CommandUpdateParams.ApplicationCommandUserOption> | null;
 }
 
 export namespace CommandUpdateParams {
@@ -2795,17 +2663,7 @@ export namespace CommandUpdateParams {
 
       name_localizations?: Record<string, string> | null;
 
-      options?: Array<
-        | Option.ApplicationCommandAttachmentOption
-        | Option.ApplicationCommandBooleanOption
-        | Option.ApplicationCommandChannelOption
-        | Option.ApplicationCommandIntegerOption
-        | Option.ApplicationCommandMentionableOption
-        | Option.ApplicationCommandNumberOption
-        | Option.ApplicationCommandRoleOption
-        | Option.ApplicationCommandStringOption
-        | Option.ApplicationCommandUserOption
-      > | null;
+      options?: Array<Option.ApplicationCommandAttachmentOption | Option.ApplicationCommandBooleanOption | Option.ApplicationCommandChannelOption | Option.ApplicationCommandIntegerOption | Option.ApplicationCommandMentionableOption | Option.ApplicationCommandNumberOption | Option.ApplicationCommandRoleOption | Option.ApplicationCommandStringOption | Option.ApplicationCommandUserOption> | null;
 
       required?: boolean | null;
     }
@@ -3146,17 +3004,7 @@ export namespace CommandUpdateParams {
 
     name_localizations?: Record<string, string> | null;
 
-    options?: Array<
-      | ApplicationCommandSubcommandOption.ApplicationCommandAttachmentOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandBooleanOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandChannelOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandIntegerOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandMentionableOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandNumberOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandRoleOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandStringOption
-      | ApplicationCommandSubcommandOption.ApplicationCommandUserOption
-    > | null;
+    options?: Array<ApplicationCommandSubcommandOption.ApplicationCommandAttachmentOption | ApplicationCommandSubcommandOption.ApplicationCommandBooleanOption | ApplicationCommandSubcommandOption.ApplicationCommandChannelOption | ApplicationCommandSubcommandOption.ApplicationCommandIntegerOption | ApplicationCommandSubcommandOption.ApplicationCommandMentionableOption | ApplicationCommandSubcommandOption.ApplicationCommandNumberOption | ApplicationCommandSubcommandOption.ApplicationCommandRoleOption | ApplicationCommandSubcommandOption.ApplicationCommandStringOption | ApplicationCommandSubcommandOption.ApplicationCommandUserOption> | null;
 
     required?: boolean | null;
   }
@@ -3504,7 +3352,7 @@ export interface CommandListParams {
   with_localizations?: boolean;
 }
 
-export type CommandPutParams = Array<CommandPutParams.Body> | null;
+export type CommandPutParams = Array<CommandPutParams.Body> | null
 
 export namespace CommandPutParams {
   export interface Body {
@@ -3528,19 +3376,7 @@ export namespace CommandPutParams {
 
     name_localizations?: Record<string, string> | null;
 
-    options?: Array<
-      | Body.ApplicationCommandAttachmentOption
-      | Body.ApplicationCommandBooleanOption
-      | Body.ApplicationCommandChannelOption
-      | Body.ApplicationCommandIntegerOption
-      | Body.ApplicationCommandMentionableOption
-      | Body.ApplicationCommandNumberOption
-      | Body.ApplicationCommandRoleOption
-      | Body.ApplicationCommandStringOption
-      | Body.ApplicationCommandSubcommandGroupOption
-      | Body.ApplicationCommandSubcommandOption
-      | Body.ApplicationCommandUserOption
-    > | null;
+    options?: Array<Body.ApplicationCommandAttachmentOption | Body.ApplicationCommandBooleanOption | Body.ApplicationCommandChannelOption | Body.ApplicationCommandIntegerOption | Body.ApplicationCommandMentionableOption | Body.ApplicationCommandNumberOption | Body.ApplicationCommandRoleOption | Body.ApplicationCommandStringOption | Body.ApplicationCommandSubcommandGroupOption | Body.ApplicationCommandSubcommandOption | Body.ApplicationCommandUserOption> | null;
 
     /**
      * - `1` - Slash commands; a text-based command that shows up when a user types /
@@ -3890,17 +3726,7 @@ export namespace CommandPutParams {
 
         name_localizations?: Record<string, string> | null;
 
-        options?: Array<
-          | Option.ApplicationCommandAttachmentOption
-          | Option.ApplicationCommandBooleanOption
-          | Option.ApplicationCommandChannelOption
-          | Option.ApplicationCommandIntegerOption
-          | Option.ApplicationCommandMentionableOption
-          | Option.ApplicationCommandNumberOption
-          | Option.ApplicationCommandRoleOption
-          | Option.ApplicationCommandStringOption
-          | Option.ApplicationCommandUserOption
-        > | null;
+        options?: Array<Option.ApplicationCommandAttachmentOption | Option.ApplicationCommandBooleanOption | Option.ApplicationCommandChannelOption | Option.ApplicationCommandIntegerOption | Option.ApplicationCommandMentionableOption | Option.ApplicationCommandNumberOption | Option.ApplicationCommandRoleOption | Option.ApplicationCommandStringOption | Option.ApplicationCommandUserOption> | null;
 
         required?: boolean | null;
       }
@@ -4241,17 +4067,7 @@ export namespace CommandPutParams {
 
       name_localizations?: Record<string, string> | null;
 
-      options?: Array<
-        | ApplicationCommandSubcommandOption.ApplicationCommandAttachmentOption
-        | ApplicationCommandSubcommandOption.ApplicationCommandBooleanOption
-        | ApplicationCommandSubcommandOption.ApplicationCommandChannelOption
-        | ApplicationCommandSubcommandOption.ApplicationCommandIntegerOption
-        | ApplicationCommandSubcommandOption.ApplicationCommandMentionableOption
-        | ApplicationCommandSubcommandOption.ApplicationCommandNumberOption
-        | ApplicationCommandSubcommandOption.ApplicationCommandRoleOption
-        | ApplicationCommandSubcommandOption.ApplicationCommandStringOption
-        | ApplicationCommandSubcommandOption.ApplicationCommandUserOption
-      > | null;
+      options?: Array<ApplicationCommandSubcommandOption.ApplicationCommandAttachmentOption | ApplicationCommandSubcommandOption.ApplicationCommandBooleanOption | ApplicationCommandSubcommandOption.ApplicationCommandChannelOption | ApplicationCommandSubcommandOption.ApplicationCommandIntegerOption | ApplicationCommandSubcommandOption.ApplicationCommandMentionableOption | ApplicationCommandSubcommandOption.ApplicationCommandNumberOption | ApplicationCommandSubcommandOption.ApplicationCommandRoleOption | ApplicationCommandSubcommandOption.ApplicationCommandStringOption | ApplicationCommandSubcommandOption.ApplicationCommandUserOption> | null;
 
       required?: boolean | null;
     }
@@ -4606,8 +4422,11 @@ export declare namespace Commands {
     type CommandCreateParams as CommandCreateParams,
     type CommandUpdateParams as CommandUpdateParams,
     type CommandListParams as CommandListParams,
-    type CommandPutParams as CommandPutParams,
+    type CommandPutParams as CommandPutParams
   };
 
-  export { Permissions as Permissions, type PermissionUpdateParams as PermissionUpdateParams };
+  export {
+    Permissions as Permissions,
+    type PermissionUpdateParams as PermissionUpdateParams
+  };
 }

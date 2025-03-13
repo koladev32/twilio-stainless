@@ -1,7 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as IntegrationsAPI from './integrations';
 import * as UsersAPI from '../users/users';
 
 export class Integrations extends APIResource {
@@ -10,18 +13,11 @@ export class Integrations extends APIResource {
   }
 
   delete(guildId: string, integrationId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/guilds/${guildId}/integrations/${integrationId}`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+    return this._client.delete(`/guilds/${guildId}/integrations/${integrationId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 }
 
-export type IntegrationListResponse = Array<
-  | IntegrationListResponse.DiscordIntegrationResponse
-  | IntegrationListResponse.ExternalConnectionIntegrationResponse
-  | IntegrationListResponse.GuildSubscriptionIntegrationResponse
->;
+export type IntegrationListResponse = Array<IntegrationListResponse.DiscordIntegrationResponse | IntegrationListResponse.ExternalConnectionIntegrationResponse | IntegrationListResponse.GuildSubscriptionIntegrationResponse>
 
 export namespace IntegrationListResponse {
   export interface DiscordIntegrationResponse {
@@ -29,42 +25,7 @@ export namespace IntegrationListResponse {
 
     application: DiscordIntegrationResponse.Application;
 
-    scopes: Array<
-      | 'identify'
-      | 'email'
-      | 'connections'
-      | 'guilds'
-      | 'guilds.join'
-      | 'guilds.members.read'
-      | 'gdm.join'
-      | 'bot'
-      | 'rpc'
-      | 'rpc.notifications.read'
-      | 'rpc.voice.read'
-      | 'rpc.voice.write'
-      | 'rpc.video.read'
-      | 'rpc.video.write'
-      | 'rpc.screenshare.read'
-      | 'rpc.screenshare.write'
-      | 'rpc.activities.write'
-      | 'webhook.incoming'
-      | 'messages.read'
-      | 'applications.builds.upload'
-      | 'applications.builds.read'
-      | 'applications.commands'
-      | 'applications.commands.permissions.update'
-      | 'applications.commands.update'
-      | 'applications.store.update'
-      | 'applications.entitlements'
-      | 'activities.read'
-      | 'activities.write'
-      | 'activities.invites.write'
-      | 'relationships.read'
-      | 'voice'
-      | 'dm_channels.read'
-      | 'role_connections.write'
-      | 'openid'
-    >;
+    scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
 
     type: 'discord' | 'twitch' | 'youtube' | 'guild_subscription';
 
@@ -174,5 +135,7 @@ export namespace IntegrationListResponse {
 }
 
 export declare namespace Integrations {
-  export { type IntegrationListResponse as IntegrationListResponse };
+  export {
+    type IntegrationListResponse as IntegrationListResponse
+  };
 }

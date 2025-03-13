@@ -1,14 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import DiscordAPI from 'discord-api';
+import DiscordAPI, { toFile } from 'discord-api';
 import { Response } from 'node-fetch';
 
-const client = new DiscordAPI({
-  botToken: 'My Bot Token',
-  clientId: 'My Client ID',
-  clientSecret: 'My Client Secret',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-});
+const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
 
 describe('resource invites', () => {
   test('retrieve', async () => {
@@ -24,20 +19,16 @@ describe('resource invites', () => {
 
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.invites.retrieve('code', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      DiscordAPI.NotFoundError,
-    );
+    await expect(client.invites.retrieve('code', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(DiscordAPI.NotFoundError);
   });
 
   test('retrieve: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.invites.retrieve(
-        'code',
-        { guild_scheduled_event_id: '891', with_counts: true },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(DiscordAPI.NotFoundError);
+    await expect(client.invites.retrieve('code', { guild_scheduled_event_id: '891', with_counts: true }, { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(DiscordAPI.NotFoundError);
   });
 
   test('delete', async () => {
@@ -53,8 +44,8 @@ describe('resource invites', () => {
 
   test('delete: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.invites.delete('code', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      DiscordAPI.NotFoundError,
-    );
+    await expect(client.invites.delete('code', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(DiscordAPI.NotFoundError);
   });
 });

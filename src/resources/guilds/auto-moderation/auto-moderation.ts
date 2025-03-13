@@ -1,21 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
+import { isRequestOptions } from '../../../core';
+import { APIPromise } from '../../../core';
+import * as Core from '../../../core';
 import * as RulesAPI from './rules';
-import {
-  DefaultKeywordRuleResponse,
-  KeywordRuleResponse,
-  MentionSpamRuleResponse,
-  MlSpamRuleResponse,
-  RuleCreateParams,
-  RuleCreateResponse,
-  RuleListResponse,
-  RuleRetrieveResponse,
-  RuleUpdateParams,
-  RuleUpdateResponse,
-  Rules,
-  SpamLinkRuleResponse,
-} from './rules';
+import { DefaultKeywordRuleResponse, KeywordRuleResponse, MentionSpamRuleResponse, MlSpamRuleResponse, RuleCreateParams, RuleCreateResponse, RuleListResponse, RuleRetrieveResponse, RuleUpdateParams, RuleUpdateResponse, Rules, SpamLinkRuleResponse } from './rules';
 
 export class AutoModeration extends APIResource {
   rules: RulesAPI.Rules = new RulesAPI.Rules(this._client);
@@ -36,6 +26,6 @@ export declare namespace AutoModeration {
     type RuleUpdateResponse as RuleUpdateResponse,
     type RuleListResponse as RuleListResponse,
     type RuleCreateParams as RuleCreateParams,
-    type RuleUpdateParams as RuleUpdateParams,
+    type RuleUpdateParams as RuleUpdateParams
   };
 }
