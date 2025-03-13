@@ -2,93 +2,39 @@
 
 import { APIResource } from '../../../resource';
 import { isRequestOptions } from '../../../core';
+import { APIPromise } from '../../../core';
 import * as Core from '../../../core';
+import * as ReactionsAPI from './reactions';
 import * as UsersAPI from '../../users/users';
 
 export class Reactions extends APIResource {
-  add(
-    channelId: string,
-    messageId: string,
-    emojiName: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void> {
-    return this._client.put(`/channels/${channelId}/messages/${messageId}/reactions/${emojiName}/@me`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+  add(channelId: string, messageId: string, emojiName: string, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.put(`/channels/${channelId}/messages/${messageId}/reactions/${emojiName}/@me`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
   clear(channelId: string, messageId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/channels/${channelId}/messages/${messageId}/reactions`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+    return this._client.delete(`/channels/${channelId}/messages/${messageId}/reactions`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
-  remove(
-    channelId: string,
-    messageId: string,
-    emojiName: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void> {
-    return this._client.delete(`/channels/${channelId}/messages/${messageId}/reactions/${emojiName}/@me`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+  remove(channelId: string, messageId: string, emojiName: string, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.delete(`/channels/${channelId}/messages/${messageId}/reactions/${emojiName}/@me`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
-  removeEmoji(
-    channelId: string,
-    messageId: string,
-    emojiName: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void> {
-    return this._client.delete(`/channels/${channelId}/messages/${messageId}/reactions/${emojiName}`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+  removeEmoji(channelId: string, messageId: string, emojiName: string, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.delete(`/channels/${channelId}/messages/${messageId}/reactions/${emojiName}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
-  removeForUser(
-    channelId: string,
-    messageId: string,
-    emojiName: string,
-    userId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void> {
-    return this._client.delete(
-      `/channels/${channelId}/messages/${messageId}/reactions/${emojiName}/${userId}`,
-      { ...options, headers: { Accept: '*/*', ...options?.headers } },
-    );
+  removeForUser(channelId: string, messageId: string, emojiName: string, userId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.delete(`/channels/${channelId}/messages/${messageId}/reactions/${emojiName}/${userId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
-  retrieveAll(
-    channelId: string,
-    messageId: string,
-    emojiName: string,
-    query?: ReactionRetrieveAllParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<ReactionRetrieveAllResponse>;
-  retrieveAll(
-    channelId: string,
-    messageId: string,
-    emojiName: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<ReactionRetrieveAllResponse>;
-  retrieveAll(
-    channelId: string,
-    messageId: string,
-    emojiName: string,
-    query: ReactionRetrieveAllParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<ReactionRetrieveAllResponse> {
+  retrieveAll(channelId: string, messageId: string, emojiName: string, query?: ReactionRetrieveAllParams, options?: Core.RequestOptions): Core.APIPromise<ReactionRetrieveAllResponse>
+  retrieveAll(channelId: string, messageId: string, emojiName: string, options?: Core.RequestOptions): Core.APIPromise<ReactionRetrieveAllResponse>
+  retrieveAll(channelId: string, messageId: string, emojiName: string, query: ReactionRetrieveAllParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<ReactionRetrieveAllResponse> {
     if (isRequestOptions(query)) {
       return this.retrieveAll(channelId, messageId, emojiName, {}, query);
     }
-    return this._client.get(`/channels/${channelId}/messages/${messageId}/reactions/${emojiName}`, {
-      query,
-      ...options,
-    });
+    return this._client.get(`/channels/${channelId}/messages/${messageId}/reactions/${emojiName}`, { query, ...options });
   }
 }
 
@@ -128,7 +74,7 @@ export namespace UserResponse {
   }
 }
 
-export type ReactionRetrieveAllResponse = Array<UsersAPI.User>;
+export type ReactionRetrieveAllResponse = Array<UsersAPI.User>
 
 export interface ReactionRetrieveAllParams {
   after?: string;
@@ -146,6 +92,6 @@ export declare namespace Reactions {
   export {
     type UserResponse as UserResponse,
     type ReactionRetrieveAllResponse as ReactionRetrieveAllResponse,
-    type ReactionRetrieveAllParams as ReactionRetrieveAllParams,
+    type ReactionRetrieveAllParams as ReactionRetrieveAllParams
   };
 }

@@ -1,7 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as ChannelsAPI from './channels';
 import * as Shared from '../shared';
 import * as FollowersAPI from './followers';
 import { ChannelFollowerResponse, FollowerCreateParams, Followers } from './followers';
@@ -12,36 +15,17 @@ import { PermissionUpdateParams, Permissions } from './permissions';
 import * as PinsAPI from './pins';
 import { PinListResponse, Pins } from './pins';
 import * as RecipientsAPI from './recipients';
-import {
-  PrivateChannelResponse,
-  PrivateGroupChannelResponse,
-  RecipientUpdateParams,
-  RecipientUpdateResponse,
-  Recipients,
-} from './recipients';
+import { PrivateChannelResponse, PrivateGroupChannelResponse, RecipientUpdateParams, RecipientUpdateResponse, Recipients } from './recipients';
 import * as WebhooksAPI from './webhooks';
 import { WebhookCreateParams, WebhookListResponse, Webhooks } from './webhooks';
 import * as UsersChannelsAPI from '../users/channels';
 import * as UsersAPI from '../users/users';
 import * as MessagesAPI from './messages/messages';
-import {
-  MessageBulkDeleteParams,
-  MessageCreateParams,
-  MessageListParams,
-  MessageListResponse,
-  MessageUpdateParams,
-  Messages,
-} from './messages/messages';
+import { MessageBulkDeleteParams, MessageCreateParams, MessageListParams, MessageListResponse, MessageUpdateParams, Messages } from './messages/messages';
 import * as PollsAPI from './polls/polls';
 import { PollAnswerDetailsResponse, Polls } from './polls/polls';
 import * as ThreadMembersAPI from './thread-members/thread-members';
-import {
-  ThreadMemberListParams,
-  ThreadMemberListResponse,
-  ThreadMemberResponse,
-  ThreadMemberRetrieveParams,
-  ThreadMembers,
-} from './thread-members/thread-members';
+import { ThreadMemberListParams, ThreadMemberListResponse, ThreadMemberResponse, ThreadMemberRetrieveParams, ThreadMembers } from './thread-members/thread-members';
 import * as ThreadsAPI from './threads/threads';
 import { CreatedThread, ThreadCreateParams, Threads } from './threads/threads';
 import * as UsersUsersAPI from './users/users';
@@ -64,11 +48,7 @@ export class Channels extends APIResource {
     return this._client.get(`/channels/${channelId}`, options);
   }
 
-  update(
-    channelId: string,
-    body: ChannelUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<ChannelUpdateResponse> {
+  update(channelId: string, body: ChannelUpdateParams, options?: Core.RequestOptions): Core.APIPromise<ChannelUpdateResponse> {
     return this._client.patch(`/channels/${channelId}`, { body, ...options });
   }
 
@@ -76,16 +56,8 @@ export class Channels extends APIResource {
     return this._client.delete(`/channels/${channelId}`, options);
   }
 
-  sendSoundboardSound(
-    channelId: string,
-    body: ChannelSendSoundboardSoundParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void> {
-    return this._client.post(`/channels/${channelId}/send-soundboard-sound`, {
-      body,
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+  sendSoundboardSound(channelId: string, body: ChannelSendSoundboardSoundParams, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.post(`/channels/${channelId}/send-soundboard-sound`, { body, ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
   typing(channelId: string, options?: Core.RequestOptions): Core.APIPromise<unknown> {
@@ -252,30 +224,15 @@ export namespace Thread {
   }
 }
 
-export type TypingIndicator = unknown;
+export type TypingIndicator = unknown
 
-export type ChannelRetrieveResponse =
-  | Shared.GuildChannel
-  | UsersChannelsAPI.PrivateChannelResponse
-  | UsersChannelsAPI.PrivateGroupChannelResponse
-  | Thread;
+export type ChannelRetrieveResponse = Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | Thread
 
-export type ChannelUpdateResponse =
-  | Shared.GuildChannel
-  | UsersChannelsAPI.PrivateChannelResponse
-  | UsersChannelsAPI.PrivateGroupChannelResponse
-  | Thread;
+export type ChannelUpdateResponse = Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | Thread
 
-export type ChannelDeleteResponse =
-  | Shared.GuildChannel
-  | UsersChannelsAPI.PrivateChannelResponse
-  | UsersChannelsAPI.PrivateGroupChannelResponse
-  | Thread;
+export type ChannelDeleteResponse = Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | Thread
 
-export type ChannelUpdateParams =
-  | ChannelUpdateParams.PrivateChannelRequestPartial
-  | ChannelUpdateParams.UpdateGuildChannelRequestPartial
-  | ChannelUpdateParams.UpdateThreadRequestPartial;
+export type ChannelUpdateParams = ChannelUpdateParams.PrivateChannelRequestPartial | ChannelUpdateParams.UpdateGuildChannelRequestPartial | ChannelUpdateParams.UpdateThreadRequestPartial
 
 export declare namespace ChannelUpdateParams {
   export interface PrivateChannelRequestPartial {
@@ -455,10 +412,12 @@ export declare namespace Channels {
     type ChannelUpdateResponse as ChannelUpdateResponse,
     type ChannelDeleteResponse as ChannelDeleteResponse,
     type ChannelUpdateParams as ChannelUpdateParams,
-    type ChannelSendSoundboardSoundParams as ChannelSendSoundboardSoundParams,
+    type ChannelSendSoundboardSoundParams as ChannelSendSoundboardSoundParams
   };
 
-  export { Users as Users };
+  export {
+    Users as Users
+  };
 
   export {
     Messages as Messages,
@@ -466,13 +425,13 @@ export declare namespace Channels {
     type MessageCreateParams as MessageCreateParams,
     type MessageUpdateParams as MessageUpdateParams,
     type MessageListParams as MessageListParams,
-    type MessageBulkDeleteParams as MessageBulkDeleteParams,
+    type MessageBulkDeleteParams as MessageBulkDeleteParams
   };
 
   export {
     Threads as Threads,
     type CreatedThread as CreatedThread,
-    type ThreadCreateParams as ThreadCreateParams,
+    type ThreadCreateParams as ThreadCreateParams
   };
 
   export {
@@ -480,39 +439,48 @@ export declare namespace Channels {
     type ThreadMemberResponse as ThreadMemberResponse,
     type ThreadMemberListResponse as ThreadMemberListResponse,
     type ThreadMemberRetrieveParams as ThreadMemberRetrieveParams,
-    type ThreadMemberListParams as ThreadMemberListParams,
+    type ThreadMemberListParams as ThreadMemberListParams
   };
 
-  export { Polls as Polls, type PollAnswerDetailsResponse as PollAnswerDetailsResponse };
+  export {
+    Polls as Polls,
+    type PollAnswerDetailsResponse as PollAnswerDetailsResponse
+  };
 
-  export { Permissions as Permissions, type PermissionUpdateParams as PermissionUpdateParams };
+  export {
+    Permissions as Permissions,
+    type PermissionUpdateParams as PermissionUpdateParams
+  };
 
   export {
     Recipients as Recipients,
     type PrivateChannelResponse as PrivateChannelResponse,
     type PrivateGroupChannelResponse as PrivateGroupChannelResponse,
     type RecipientUpdateResponse as RecipientUpdateResponse,
-    type RecipientUpdateParams as RecipientUpdateParams,
+    type RecipientUpdateParams as RecipientUpdateParams
   };
 
   export {
     Followers as Followers,
     type ChannelFollowerResponse as ChannelFollowerResponse,
-    type FollowerCreateParams as FollowerCreateParams,
+    type FollowerCreateParams as FollowerCreateParams
   };
 
   export {
     Webhooks as Webhooks,
     type WebhookListResponse as WebhookListResponse,
-    type WebhookCreateParams as WebhookCreateParams,
+    type WebhookCreateParams as WebhookCreateParams
   };
 
   export {
     Invites as Invites,
     type InviteCreateResponse as InviteCreateResponse,
     type InviteListResponse as InviteListResponse,
-    type InviteCreateParams as InviteCreateParams,
+    type InviteCreateParams as InviteCreateParams
   };
 
-  export { Pins as Pins, type PinListResponse as PinListResponse };
+  export {
+    Pins as Pins,
+    type PinListResponse as PinListResponse
+  };
 }

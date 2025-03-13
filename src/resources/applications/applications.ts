@@ -1,46 +1,24 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as ApplicationsAPI from './applications';
 import * as Shared from '../shared';
 import * as ActivityInstancesAPI from './activity-instances';
 import { ActivityInstances, EmbeddedActivityInstance } from './activity-instances';
 import * as AttachmentAPI from './attachment';
 import { ActivitiesAttachmentResponse, Attachment, AttachmentCreateParams } from './attachment';
 import * as EmojisAPI from './emojis';
-import {
-  EmojiCreateParams,
-  EmojiResponse,
-  EmojiUpdateParams,
-  Emojis,
-  ListApplicationEmojisResponse,
-} from './emojis';
+import { EmojiCreateParams, EmojiResponse, EmojiUpdateParams, Emojis, ListApplicationEmojisResponse } from './emojis';
 import * as EntitlementsAPI from './entitlements';
-import {
-  EntitlementCreateParams,
-  EntitlementListParams,
-  EntitlementListResponse,
-  EntitlementResponse,
-  Entitlements,
-} from './entitlements';
+import { EntitlementCreateParams, EntitlementListParams, EntitlementListResponse, EntitlementResponse, Entitlements } from './entitlements';
 import * as RoleConnectionsMetadataAPI from './role-connections-metadata';
-import {
-  RoleConnectionsMetadata,
-  RoleConnectionsMetadataUpdateParams,
-  RoleConnectionsMetadataUpdateResponse,
-} from './role-connections-metadata';
+import { RoleConnectionsMetadata, RoleConnectionsMetadataUpdateParams, RoleConnectionsMetadataUpdateResponse } from './role-connections-metadata';
 import * as UsersAPI from '../users/users';
 import * as CommandsAPI from './commands/commands';
-import {
-  ApplicationCommandResponse,
-  CommandCreateParams,
-  CommandListParams,
-  CommandListResponse,
-  CommandPermissionsResponse,
-  CommandUpdateParams,
-  CommandUpdateResponse,
-  Commands,
-} from './commands/commands';
+import { ApplicationCommandResponse, CommandCreateParams, CommandListParams, CommandListResponse, CommandPermissionsResponse, CommandUpdateParams, CommandUpdateResponse, Commands } from './commands/commands';
 import * as GuildsAPI from './guilds/guilds';
 import { Guilds } from './guilds/guilds';
 import * as RoleConnectionsAPI from './role-connections/role-connections';
@@ -50,27 +28,17 @@ export class Applications extends APIResource {
   commands: CommandsAPI.Commands = new CommandsAPI.Commands(this._client);
   guilds: GuildsAPI.Guilds = new GuildsAPI.Guilds(this._client);
   roleConnections: RoleConnectionsAPI.RoleConnections = new RoleConnectionsAPI.RoleConnections(this._client);
-  roleConnectionsMetadata: RoleConnectionsMetadataAPI.RoleConnectionsMetadata =
-    new RoleConnectionsMetadataAPI.RoleConnectionsMetadata(this._client);
+  roleConnectionsMetadata: RoleConnectionsMetadataAPI.RoleConnectionsMetadata = new RoleConnectionsMetadataAPI.RoleConnectionsMetadata(this._client);
   entitlements: EntitlementsAPI.Entitlements = new EntitlementsAPI.Entitlements(this._client);
-  activityInstances: ActivityInstancesAPI.ActivityInstances = new ActivityInstancesAPI.ActivityInstances(
-    this._client,
-  );
+  activityInstances: ActivityInstancesAPI.ActivityInstances = new ActivityInstancesAPI.ActivityInstances(this._client);
   attachment: AttachmentAPI.Attachment = new AttachmentAPI.Attachment(this._client);
   emojis: EmojisAPI.Emojis = new EmojisAPI.Emojis(this._client);
 
-  retrieve(
-    applicationId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.PrivateApplicationResponse> {
+  retrieve(applicationId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.PrivateApplicationResponse> {
     return this._client.get(`/applications/${applicationId}`, options);
   }
 
-  update(
-    applicationId: string,
-    body: ApplicationUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.PrivateApplicationResponse> {
+  update(applicationId: string, body: ApplicationUpdateParams, options?: Core.RequestOptions): Core.APIPromise<Shared.PrivateApplicationResponse> {
     return this._client.patch(`/applications/${applicationId}`, { body, ...options });
   }
 }
@@ -145,42 +113,7 @@ export namespace PrivateApplication {
   export interface InstallParams {
     permissions: string;
 
-    scopes: Array<
-      | 'identify'
-      | 'email'
-      | 'connections'
-      | 'guilds'
-      | 'guilds.join'
-      | 'guilds.members.read'
-      | 'gdm.join'
-      | 'bot'
-      | 'rpc'
-      | 'rpc.notifications.read'
-      | 'rpc.voice.read'
-      | 'rpc.voice.write'
-      | 'rpc.video.read'
-      | 'rpc.video.write'
-      | 'rpc.screenshare.read'
-      | 'rpc.screenshare.write'
-      | 'rpc.activities.write'
-      | 'webhook.incoming'
-      | 'messages.read'
-      | 'applications.builds.upload'
-      | 'applications.builds.read'
-      | 'applications.commands'
-      | 'applications.commands.permissions.update'
-      | 'applications.commands.update'
-      | 'applications.store.update'
-      | 'applications.entitlements'
-      | 'activities.read'
-      | 'activities.write'
-      | 'activities.invites.write'
-      | 'relationships.read'
-      | 'voice'
-      | 'dm_channels.read'
-      | 'role_connections.write'
-      | 'openid'
-    >;
+    scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
   }
 
   export interface IntegrationTypesConfig {
@@ -191,42 +124,7 @@ export namespace PrivateApplication {
     export interface Oauth2InstallParams {
       permissions: string;
 
-      scopes: Array<
-        | 'identify'
-        | 'email'
-        | 'connections'
-        | 'guilds'
-        | 'guilds.join'
-        | 'guilds.members.read'
-        | 'gdm.join'
-        | 'bot'
-        | 'rpc'
-        | 'rpc.notifications.read'
-        | 'rpc.voice.read'
-        | 'rpc.voice.write'
-        | 'rpc.video.read'
-        | 'rpc.video.write'
-        | 'rpc.screenshare.read'
-        | 'rpc.screenshare.write'
-        | 'rpc.activities.write'
-        | 'webhook.incoming'
-        | 'messages.read'
-        | 'applications.builds.upload'
-        | 'applications.builds.read'
-        | 'applications.commands'
-        | 'applications.commands.permissions.update'
-        | 'applications.commands.update'
-        | 'applications.store.update'
-        | 'applications.entitlements'
-        | 'activities.read'
-        | 'activities.write'
-        | 'activities.invites.write'
-        | 'relationships.read'
-        | 'voice'
-        | 'dm_channels.read'
-        | 'role_connections.write'
-        | 'openid'
-      >;
+      scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
     }
   }
 
@@ -301,42 +199,7 @@ export namespace ApplicationUpdateParams {
   export interface InstallParams {
     permissions?: number | null;
 
-    scopes?: Array<
-      | 'identify'
-      | 'email'
-      | 'connections'
-      | 'guilds'
-      | 'guilds.join'
-      | 'guilds.members.read'
-      | 'gdm.join'
-      | 'bot'
-      | 'rpc'
-      | 'rpc.notifications.read'
-      | 'rpc.voice.read'
-      | 'rpc.voice.write'
-      | 'rpc.video.read'
-      | 'rpc.video.write'
-      | 'rpc.screenshare.read'
-      | 'rpc.screenshare.write'
-      | 'rpc.activities.write'
-      | 'webhook.incoming'
-      | 'messages.read'
-      | 'applications.builds.upload'
-      | 'applications.builds.read'
-      | 'applications.commands'
-      | 'applications.commands.permissions.update'
-      | 'applications.commands.update'
-      | 'applications.store.update'
-      | 'applications.entitlements'
-      | 'activities.read'
-      | 'activities.write'
-      | 'activities.invites.write'
-      | 'relationships.read'
-      | 'voice'
-      | 'dm_channels.read'
-      | 'role_connections.write'
-      | 'openid'
-    > | null;
+    scopes?: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'> | null;
   }
 
   export interface IntegrationTypesConfig {
@@ -347,42 +210,7 @@ export namespace ApplicationUpdateParams {
     export interface Oauth2InstallParams {
       permissions?: number | null;
 
-      scopes?: Array<
-        | 'identify'
-        | 'email'
-        | 'connections'
-        | 'guilds'
-        | 'guilds.join'
-        | 'guilds.members.read'
-        | 'gdm.join'
-        | 'bot'
-        | 'rpc'
-        | 'rpc.notifications.read'
-        | 'rpc.voice.read'
-        | 'rpc.voice.write'
-        | 'rpc.video.read'
-        | 'rpc.video.write'
-        | 'rpc.screenshare.read'
-        | 'rpc.screenshare.write'
-        | 'rpc.activities.write'
-        | 'webhook.incoming'
-        | 'messages.read'
-        | 'applications.builds.upload'
-        | 'applications.builds.read'
-        | 'applications.commands'
-        | 'applications.commands.permissions.update'
-        | 'applications.commands.update'
-        | 'applications.store.update'
-        | 'applications.entitlements'
-        | 'activities.read'
-        | 'activities.write'
-        | 'activities.invites.write'
-        | 'relationships.read'
-        | 'voice'
-        | 'dm_channels.read'
-        | 'role_connections.write'
-        | 'openid'
-      > | null;
+      scopes?: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'> | null;
     }
   }
 }
@@ -399,7 +227,7 @@ Applications.Emojis = Emojis;
 export declare namespace Applications {
   export {
     type PrivateApplication as PrivateApplication,
-    type ApplicationUpdateParams as ApplicationUpdateParams,
+    type ApplicationUpdateParams as ApplicationUpdateParams
   };
 
   export {
@@ -410,17 +238,21 @@ export declare namespace Applications {
     type CommandListResponse as CommandListResponse,
     type CommandCreateParams as CommandCreateParams,
     type CommandUpdateParams as CommandUpdateParams,
-    type CommandListParams as CommandListParams,
+    type CommandListParams as CommandListParams
   };
 
-  export { Guilds as Guilds };
+  export {
+    Guilds as Guilds
+  };
 
-  export { RoleConnections as RoleConnections };
+  export {
+    RoleConnections as RoleConnections
+  };
 
   export {
     RoleConnectionsMetadata as RoleConnectionsMetadata,
     type RoleConnectionsMetadataUpdateResponse as RoleConnectionsMetadataUpdateResponse,
-    type RoleConnectionsMetadataUpdateParams as RoleConnectionsMetadataUpdateParams,
+    type RoleConnectionsMetadataUpdateParams as RoleConnectionsMetadataUpdateParams
   };
 
   export {
@@ -428,18 +260,18 @@ export declare namespace Applications {
     type EntitlementResponse as EntitlementResponse,
     type EntitlementListResponse as EntitlementListResponse,
     type EntitlementCreateParams as EntitlementCreateParams,
-    type EntitlementListParams as EntitlementListParams,
+    type EntitlementListParams as EntitlementListParams
   };
 
   export {
     ActivityInstances as ActivityInstances,
-    type EmbeddedActivityInstance as EmbeddedActivityInstance,
+    type EmbeddedActivityInstance as EmbeddedActivityInstance
   };
 
   export {
     Attachment as Attachment,
     type ActivitiesAttachmentResponse as ActivitiesAttachmentResponse,
-    type AttachmentCreateParams as AttachmentCreateParams,
+    type AttachmentCreateParams as AttachmentCreateParams
   };
 
   export {
@@ -447,6 +279,6 @@ export declare namespace Applications {
     type EmojiResponse as EmojiResponse,
     type ListApplicationEmojisResponse as ListApplicationEmojisResponse,
     type EmojiCreateParams as EmojiCreateParams,
-    type EmojiUpdateParams as EmojiUpdateParams,
+    type EmojiUpdateParams as EmojiUpdateParams
   };
 }

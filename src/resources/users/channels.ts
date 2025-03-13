@@ -1,7 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as ChannelsAPI from './channels';
 import * as UsersAPI from './users';
 
 export class Channels extends APIResource {
@@ -82,7 +85,7 @@ export interface PrivateGroupChannelResponse {
   owner_id?: string | null;
 }
 
-export type ChannelCreateResponse = PrivateChannelResponse | PrivateGroupChannelResponse;
+export type ChannelCreateResponse = PrivateChannelResponse | PrivateGroupChannelResponse
 
 export interface ChannelCreateParams {
   access_tokens?: Array<string> | null;
@@ -97,6 +100,6 @@ export declare namespace Channels {
     type PrivateChannelResponse as PrivateChannelResponse,
     type PrivateGroupChannelResponse as PrivateGroupChannelResponse,
     type ChannelCreateResponse as ChannelCreateResponse,
-    type ChannelCreateParams as ChannelCreateParams,
+    type ChannelCreateParams as ChannelCreateParams
   };
 }

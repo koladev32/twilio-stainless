@@ -1,18 +1,17 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as WelcomeScreenAPI from './welcome-screen';
 
 export class WelcomeScreen extends APIResource {
   retrieve(guildId: string, options?: Core.RequestOptions): Core.APIPromise<GuildWelcomeScreen> {
     return this._client.get(`/guilds/${guildId}/welcome-screen`, options);
   }
 
-  update(
-    guildId: string,
-    body: WelcomeScreenUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<GuildWelcomeScreen> {
+  update(guildId: string, body: WelcomeScreenUpdateParams, options?: Core.RequestOptions): Core.APIPromise<GuildWelcomeScreen> {
     return this._client.patch(`/guilds/${guildId}/welcome-screen`, { body, ...options });
   }
 }
@@ -58,6 +57,6 @@ export namespace WelcomeScreenUpdateParams {
 export declare namespace WelcomeScreen {
   export {
     type GuildWelcomeScreen as GuildWelcomeScreen,
-    type WelcomeScreenUpdateParams as WelcomeScreenUpdateParams,
+    type WelcomeScreenUpdateParams as WelcomeScreenUpdateParams
   };
 }

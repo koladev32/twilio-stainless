@@ -1,14 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as ActivityInstancesAPI from './activity-instances';
 
 export class ActivityInstances extends APIResource {
-  retrieve(
-    applicationId: string,
-    instanceId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<EmbeddedActivityInstance> {
+  retrieve(applicationId: string, instanceId: string, options?: Core.RequestOptions): Core.APIPromise<EmbeddedActivityInstance> {
     return this._client.get(`/applications/${applicationId}/activity-instances/${instanceId}`, options);
   }
 }
@@ -22,10 +21,7 @@ export interface EmbeddedActivityInstance {
 
   users: Array<string>;
 
-  location?:
-    | EmbeddedActivityInstance.GuildChannelLocation
-    | EmbeddedActivityInstance.PrivateChannelLocation
-    | null;
+  location?: EmbeddedActivityInstance.GuildChannelLocation | EmbeddedActivityInstance.PrivateChannelLocation | null;
 }
 
 export namespace EmbeddedActivityInstance {
@@ -57,5 +53,7 @@ export namespace EmbeddedActivityInstance {
 }
 
 export declare namespace ActivityInstances {
-  export { type EmbeddedActivityInstance as EmbeddedActivityInstance };
+  export {
+    type EmbeddedActivityInstance as EmbeddedActivityInstance
+  };
 }

@@ -1,19 +1,16 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as AttachmentAPI from './attachment';
+import { multipartFormRequestOptions } from '../../core';
 import * as UsersAPI from '../users/users';
 
 export class Attachment extends APIResource {
-  create(
-    applicationId: string,
-    body: AttachmentCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<ActivitiesAttachmentResponse> {
-    return this._client.post(
-      `/applications/${applicationId}/attachment`,
-      Core.multipartFormRequestOptions({ body, ...options }),
-    );
+  create(applicationId: string, body: AttachmentCreateParams, options?: Core.RequestOptions): Core.APIPromise<ActivitiesAttachmentResponse> {
+    return this._client.post(`/applications/${applicationId}/attachment`, Core.multipartFormRequestOptions({ body, ...options }));
   }
 }
 
@@ -107,42 +104,7 @@ export namespace ActivitiesAttachmentResponse {
       export interface InstallParams {
         permissions: string;
 
-        scopes: Array<
-          | 'identify'
-          | 'email'
-          | 'connections'
-          | 'guilds'
-          | 'guilds.join'
-          | 'guilds.members.read'
-          | 'gdm.join'
-          | 'bot'
-          | 'rpc'
-          | 'rpc.notifications.read'
-          | 'rpc.voice.read'
-          | 'rpc.voice.write'
-          | 'rpc.video.read'
-          | 'rpc.video.write'
-          | 'rpc.screenshare.read'
-          | 'rpc.screenshare.write'
-          | 'rpc.activities.write'
-          | 'webhook.incoming'
-          | 'messages.read'
-          | 'applications.builds.upload'
-          | 'applications.builds.read'
-          | 'applications.commands'
-          | 'applications.commands.permissions.update'
-          | 'applications.commands.update'
-          | 'applications.store.update'
-          | 'applications.entitlements'
-          | 'activities.read'
-          | 'activities.write'
-          | 'activities.invites.write'
-          | 'relationships.read'
-          | 'voice'
-          | 'dm_channels.read'
-          | 'role_connections.write'
-          | 'openid'
-        >;
+        scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
       }
 
       export interface IntegrationTypesConfig {
@@ -153,42 +115,7 @@ export namespace ActivitiesAttachmentResponse {
         export interface Oauth2InstallParams {
           permissions: string;
 
-          scopes: Array<
-            | 'identify'
-            | 'email'
-            | 'connections'
-            | 'guilds'
-            | 'guilds.join'
-            | 'guilds.members.read'
-            | 'gdm.join'
-            | 'bot'
-            | 'rpc'
-            | 'rpc.notifications.read'
-            | 'rpc.voice.read'
-            | 'rpc.voice.write'
-            | 'rpc.video.read'
-            | 'rpc.video.write'
-            | 'rpc.screenshare.read'
-            | 'rpc.screenshare.write'
-            | 'rpc.activities.write'
-            | 'webhook.incoming'
-            | 'messages.read'
-            | 'applications.builds.upload'
-            | 'applications.builds.read'
-            | 'applications.commands'
-            | 'applications.commands.permissions.update'
-            | 'applications.commands.update'
-            | 'applications.store.update'
-            | 'applications.entitlements'
-            | 'activities.read'
-            | 'activities.write'
-            | 'activities.invites.write'
-            | 'relationships.read'
-            | 'voice'
-            | 'dm_channels.read'
-            | 'role_connections.write'
-            | 'openid'
-          >;
+          scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
         }
       }
     }
@@ -202,6 +129,6 @@ export interface AttachmentCreateParams {
 export declare namespace Attachment {
   export {
     type ActivitiesAttachmentResponse as ActivitiesAttachmentResponse,
-    type AttachmentCreateParams as AttachmentCreateParams,
+    type AttachmentCreateParams as AttachmentCreateParams
   };
 }

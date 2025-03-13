@@ -1,32 +1,24 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
+import { isRequestOptions } from '../core';
+import { APIPromise } from '../core';
 import * as Core from '../core';
+import * as InteractionsAPI from './interactions';
+import { maybeMultipartFormRequestOptions } from '../core';
 import * as Shared from './shared';
 
 export class Interactions extends APIResource {
-  callback(
-    interactionId: string,
-    interactionToken: string,
-    params: InteractionCallbackParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<InteractionCallbackResponse> {
+  callback(interactionId: string, interactionToken: string, params: InteractionCallbackParams, options?: Core.RequestOptions): Core.APIPromise<InteractionCallbackResponse> {
     const { with_response, ...body } = params;
-    return this._client.post(
-      `/interactions/${interactionId}/${interactionToken}/callback`,
-      Core.maybeMultipartFormRequestOptions({ query: { with_response }, body, ...options }),
-    );
+    return this._client.post(`/interactions/${interactionId}/${interactionToken}/callback`, Core.maybeMultipartFormRequestOptions({ query: { with_response }, body, ...options }));
   }
 }
 
 export interface InteractionCallbackResponse {
   interaction: InteractionCallbackResponse.Interaction;
 
-  resource?:
-    | InteractionCallbackResponse.CreateMessageInteractionCallbackResponse
-    | InteractionCallbackResponse.LaunchActivityInteractionCallbackResponse
-    | InteractionCallbackResponse.UpdateMessageInteractionCallbackResponse
-    | null;
+  resource?: InteractionCallbackResponse.CreateMessageInteractionCallbackResponse | InteractionCallbackResponse.LaunchActivityInteractionCallbackResponse | InteractionCallbackResponse.UpdateMessageInteractionCallbackResponse | null;
 }
 
 export namespace InteractionCallbackResponse {
@@ -71,23 +63,14 @@ export namespace InteractionCallbackResponse {
   }
 }
 
-export type InteractionCallbackParams =
-  | InteractionCallbackParams.ApplicationCommandAutocompleteCallbackRequest
-  | InteractionCallbackParams.CreateMessageInteractionCallbackRequest
-  | InteractionCallbackParams.LaunchActivityInteractionCallbackRequest
-  | InteractionCallbackParams.ModalInteractionCallbackRequest
-  | InteractionCallbackParams.PongInteractionCallbackRequest
-  | InteractionCallbackParams.UpdateMessageInteractionCallbackRequest;
+export type InteractionCallbackParams = InteractionCallbackParams.ApplicationCommandAutocompleteCallbackRequest | InteractionCallbackParams.CreateMessageInteractionCallbackRequest | InteractionCallbackParams.LaunchActivityInteractionCallbackRequest | InteractionCallbackParams.ModalInteractionCallbackRequest | InteractionCallbackParams.PongInteractionCallbackRequest | InteractionCallbackParams.UpdateMessageInteractionCallbackRequest
 
 export declare namespace InteractionCallbackParams {
   export interface ApplicationCommandAutocompleteCallbackRequest {
     /**
      * Body param:
      */
-    data:
-      | ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackIntegerData
-      | ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackNumberData
-      | ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackStringData;
+    data: ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackIntegerData | ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackNumberData | ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackStringData;
 
     /**
      * Body param:
@@ -208,14 +191,7 @@ export declare namespace InteractionCallbackParams {
       }
 
       export interface Component {
-        components: Array<
-          | Component.ButtonComponentForMessageRequest
-          | Component.ChannelSelectComponentForMessageRequest
-          | Component.MentionableSelectComponentForMessageRequest
-          | Component.RoleSelectComponentForMessageRequest
-          | Component.StringSelectComponentForMessageRequest
-          | Component.UserSelectComponentForMessageRequest
-        >;
+        components: Array<Component.ButtonComponentForMessageRequest | Component.ChannelSelectComponentForMessageRequest | Component.MentionableSelectComponentForMessageRequest | Component.RoleSelectComponentForMessageRequest | Component.StringSelectComponentForMessageRequest | Component.UserSelectComponentForMessageRequest>;
 
         /**
          * - `1` - Container for other components
@@ -318,10 +294,7 @@ export declare namespace InteractionCallbackParams {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          default_values?: Array<
-            | MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue
-            | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue
-          > | null;
+          default_values?: Array<MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue> | null;
 
           disabled?: boolean | null;
 
@@ -782,14 +755,7 @@ export declare namespace InteractionCallbackParams {
       }
 
       export interface Component {
-        components: Array<
-          | Component.ButtonComponentForMessageRequest
-          | Component.ChannelSelectComponentForMessageRequest
-          | Component.MentionableSelectComponentForMessageRequest
-          | Component.RoleSelectComponentForMessageRequest
-          | Component.StringSelectComponentForMessageRequest
-          | Component.UserSelectComponentForMessageRequest
-        >;
+        components: Array<Component.ButtonComponentForMessageRequest | Component.ChannelSelectComponentForMessageRequest | Component.MentionableSelectComponentForMessageRequest | Component.RoleSelectComponentForMessageRequest | Component.StringSelectComponentForMessageRequest | Component.UserSelectComponentForMessageRequest>;
 
         /**
          * - `1` - Container for other components
@@ -892,10 +858,7 @@ export declare namespace InteractionCallbackParams {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          default_values?: Array<
-            | MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue
-            | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue
-          > | null;
+          default_values?: Array<MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue> | null;
 
           disabled?: boolean | null;
 
@@ -1143,6 +1106,6 @@ export declare namespace InteractionCallbackParams {
 export declare namespace Interactions {
   export {
     type InteractionCallbackResponse as InteractionCallbackResponse,
-    type InteractionCallbackParams as InteractionCallbackParams,
+    type InteractionCallbackParams as InteractionCallbackParams
   };
 }

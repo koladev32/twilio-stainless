@@ -1,23 +1,21 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as RoleConnectionsMetadataAPI from './role-connections-metadata';
 import * as MetadataAPI from './role-connections/metadata';
 
 export class RoleConnectionsMetadata extends APIResource {
-  update(
-    applicationId: string,
-    body: RoleConnectionsMetadataUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RoleConnectionsMetadataUpdateResponse | null> {
+  update(applicationId: string, body: RoleConnectionsMetadataUpdateParams, options?: Core.RequestOptions): Core.APIPromise<RoleConnectionsMetadataUpdateResponse | null> {
     return this._client.put(`/applications/${applicationId}/role-connections/metadata`, { body, ...options });
   }
 }
 
-export type RoleConnectionsMetadataUpdateResponse =
-  Array<MetadataAPI.ApplicationRoleConnectionsMetadataItemResponse>;
+export type RoleConnectionsMetadataUpdateResponse = Array<MetadataAPI.ApplicationRoleConnectionsMetadataItemResponse>
 
-export type RoleConnectionsMetadataUpdateParams = Array<RoleConnectionsMetadataUpdateParams.Body> | null;
+export type RoleConnectionsMetadataUpdateParams = Array<RoleConnectionsMetadataUpdateParams.Body> | null
 
 export namespace RoleConnectionsMetadataUpdateParams {
   export interface Body {
@@ -56,6 +54,6 @@ export namespace RoleConnectionsMetadataUpdateParams {
 export declare namespace RoleConnectionsMetadata {
   export {
     type RoleConnectionsMetadataUpdateResponse as RoleConnectionsMetadataUpdateResponse,
-    type RoleConnectionsMetadataUpdateParams as RoleConnectionsMetadataUpdateParams,
+    type RoleConnectionsMetadataUpdateParams as RoleConnectionsMetadataUpdateParams
   };
 }

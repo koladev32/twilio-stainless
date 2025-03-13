@@ -2,7 +2,9 @@
 
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as GuildsAPI from './guilds';
 import * as Shared from '../shared';
 import * as EmojisAPI from '../applications/emojis';
 import * as ChannelsAPI from '../channels/channels';
@@ -13,13 +15,7 @@ import { BanListParams, BanListResponse, BanUpdateParams, Bans, GuildBan } from 
 import * as GuildsChannelsAPI from './channels';
 import { ChannelCreateParams, ChannelListResponse, ChannelUpdateParams, Channels } from './channels';
 import * as GuildsEmojisAPI from './emojis';
-import {
-  Emoji as EmojisAPIEmoji,
-  EmojiCreateParams,
-  EmojiListResponse,
-  EmojiUpdateParams,
-  Emojis,
-} from './emojis';
+import { Emoji as EmojisAPIEmoji, EmojiCreateParams, EmojiListResponse, EmojiUpdateParams, Emojis } from './emojis';
 import * as IntegrationsAPI from './integrations';
 import { IntegrationListResponse, Integrations } from './integrations';
 import * as InvitesAPI from './invites';
@@ -35,44 +31,19 @@ import { GuildPrune, Prune, PruneRetrieveParams } from './prune';
 import * as RegionsAPI from './regions';
 import { RegionListResponse, Regions, VoiceRegion } from './regions';
 import * as RolesAPI from './roles';
-import {
-  GuildRole,
-  RoleCreateParams,
-  RoleListResponse,
-  RoleUpdateParams,
-  RoleUpdateResponse,
-  Roles,
-} from './roles';
+import { GuildRole, RoleCreateParams, RoleListResponse, RoleUpdateParams, RoleUpdateResponse, Roles } from './roles';
 import * as SoundboardSoundsAPI from './soundboard-sounds';
-import {
-  SoundboardSound,
-  SoundboardSoundCreateParams,
-  SoundboardSoundListResponse,
-  SoundboardSoundUpdateParams,
-  SoundboardSounds,
-} from './soundboard-sounds';
+import { SoundboardSound, SoundboardSoundCreateParams, SoundboardSoundListResponse, SoundboardSoundUpdateParams, SoundboardSounds } from './soundboard-sounds';
 import * as StickersAPI from './stickers';
 import { StickerCreateParams, StickerListResponse, StickerUpdateParams, Stickers } from './stickers';
 import * as TemplatesAPI from './templates';
-import {
-  GuildTemplate,
-  TemplateCreateParams,
-  TemplateListResponse,
-  TemplateUpdateParams,
-  Templates,
-} from './templates';
+import { GuildTemplate, TemplateCreateParams, TemplateListResponse, TemplateUpdateParams, Templates } from './templates';
 import * as ThreadsAPI from './threads';
 import { Threads, ThreadsResponse } from './threads';
 import * as VanityURLsAPI from './vanity-urls';
 import { VanityURLs } from './vanity-urls';
 import * as VoiceStatesAPI from './voice-states';
-import {
-  VoiceState,
-  VoiceStateResponse,
-  VoiceStateUpdateParams,
-  VoiceStateUpdateSelfParams,
-  VoiceStates,
-} from './voice-states';
+import { VoiceState, VoiceStateResponse, VoiceStateUpdateParams, VoiceStateUpdateSelfParams, VoiceStates } from './voice-states';
 import * as WebhooksAPI from './webhooks';
 import { WebhookListResponse, Webhooks } from './webhooks';
 import * as WelcomeScreenAPI from './welcome-screen';
@@ -88,32 +59,9 @@ import * as AutoModerationAPI from './auto-moderation/auto-moderation';
 import { AutoModeration } from './auto-moderation/auto-moderation';
 import * as RulesAPI from './auto-moderation/rules';
 import * as MembersAPI from './members/members';
-import {
-  GuildMember,
-  GuildMemberResponse,
-  MemberListParams,
-  MemberListResponse,
-  MemberSearchParams,
-  MemberSearchResponse,
-  MemberUpdateParams,
-  Members,
-  PrivateGuildMemberResponse,
-} from './members/members';
+import { GuildMember, GuildMemberResponse, MemberListParams, MemberListResponse, MemberSearchParams, MemberSearchResponse, MemberUpdateParams, Members, PrivateGuildMemberResponse } from './members/members';
 import * as ScheduledEventsAPI from './scheduled-events/scheduled-events';
-import {
-  ExternalScheduledEvent,
-  ScheduledEventCreateParams,
-  ScheduledEventCreateResponse,
-  ScheduledEventListParams,
-  ScheduledEventListResponse,
-  ScheduledEventRetrieveParams,
-  ScheduledEventRetrieveResponse,
-  ScheduledEventUpdateParams,
-  ScheduledEventUpdateResponse,
-  ScheduledEvents,
-  StageScheduledEvent,
-  VoiceScheduledEvent,
-} from './scheduled-events/scheduled-events';
+import { ExternalScheduledEvent, ScheduledEventCreateParams, ScheduledEventCreateResponse, ScheduledEventListParams, ScheduledEventListResponse, ScheduledEventRetrieveParams, ScheduledEventRetrieveResponse, ScheduledEventUpdateParams, ScheduledEventUpdateResponse, ScheduledEvents, StageScheduledEvent, VoiceScheduledEvent } from './scheduled-events/scheduled-events';
 
 export class Guilds extends APIResource {
   scheduledEvents: ScheduledEventsAPI.ScheduledEvents = new ScheduledEventsAPI.ScheduledEvents(this._client);
@@ -122,12 +70,8 @@ export class Guilds extends APIResource {
   members: MembersAPI.Members = new MembersAPI.Members(this._client);
   threads: ThreadsAPI.Threads = new ThreadsAPI.Threads(this._client);
   templates: TemplatesAPI.Templates = new TemplatesAPI.Templates(this._client);
-  newMemberWelcome: NewMemberWelcomeAPI.NewMemberWelcome = new NewMemberWelcomeAPI.NewMemberWelcome(
-    this._client,
-  );
-  soundboardSounds: SoundboardSoundsAPI.SoundboardSounds = new SoundboardSoundsAPI.SoundboardSounds(
-    this._client,
-  );
+  newMemberWelcome: NewMemberWelcomeAPI.NewMemberWelcome = new NewMemberWelcomeAPI.NewMemberWelcome(this._client);
+  soundboardSounds: SoundboardSoundsAPI.SoundboardSounds = new SoundboardSoundsAPI.SoundboardSounds(this._client);
   welcomeScreen: WelcomeScreenAPI.WelcomeScreen = new WelcomeScreenAPI.WelcomeScreen(this._client);
   integrations: IntegrationsAPI.Integrations = new IntegrationsAPI.Integrations(this._client);
   widgets: WidgetsAPI.Widgets = new WidgetsAPI.Widgets(this._client);
@@ -150,43 +94,24 @@ export class Guilds extends APIResource {
     return this._client.post('/guilds', { body, ...options });
   }
 
-  retrieve(
-    guildId: string,
-    query?: GuildRetrieveParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<GuildRetrieveResponse>;
-  retrieve(guildId: string, options?: Core.RequestOptions): Core.APIPromise<GuildRetrieveResponse>;
-  retrieve(
-    guildId: string,
-    query: GuildRetrieveParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<GuildRetrieveResponse> {
+  retrieve(guildId: string, query?: GuildRetrieveParams, options?: Core.RequestOptions): Core.APIPromise<GuildRetrieveResponse>
+  retrieve(guildId: string, options?: Core.RequestOptions): Core.APIPromise<GuildRetrieveResponse>
+  retrieve(guildId: string, query: GuildRetrieveParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<GuildRetrieveResponse> {
     if (isRequestOptions(query)) {
       return this.retrieve(guildId, {}, query);
     }
     return this._client.get(`/guilds/${guildId}`, { query, ...options });
   }
 
-  update(
-    guildId: string,
-    body: GuildUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.Guild> {
+  update(guildId: string, body: GuildUpdateParams, options?: Core.RequestOptions): Core.APIPromise<Shared.Guild> {
     return this._client.patch(`/guilds/${guildId}`, { body, ...options });
   }
 
   delete(guildId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/guilds/${guildId}`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+    return this._client.delete(`/guilds/${guildId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
-  bulkBan(
-    guildId: string,
-    body: GuildBulkBanParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<BulkBanUsers> {
+  bulkBan(guildId: string, body: GuildBulkBanParams, options?: Core.RequestOptions): Core.APIPromise<BulkBanUsers> {
     return this._client.post(`/guilds/${guildId}/bulk-ban`, { body, ...options });
   }
 
@@ -206,115 +131,24 @@ export interface GuildAuditLog {
 
   audit_log_entries: Array<GuildAuditLog.AuditLogEntry>;
 
-  auto_moderation_rules: Array<
-    | RulesAPI.DefaultKeywordRuleResponse
-    | RulesAPI.KeywordRuleResponse
-    | RulesAPI.MlSpamRuleResponse
-    | RulesAPI.MentionSpamRuleResponse
-    | RulesAPI.SpamLinkRuleResponse
-    | null
-  >;
+  auto_moderation_rules: Array<RulesAPI.DefaultKeywordRuleResponse | RulesAPI.KeywordRuleResponse | RulesAPI.MlSpamRuleResponse | RulesAPI.MentionSpamRuleResponse | RulesAPI.SpamLinkRuleResponse | null>;
 
-  guild_scheduled_events: Array<
-    | ScheduledEventsAPI.ExternalScheduledEvent
-    | ScheduledEventsAPI.StageScheduledEvent
-    | ScheduledEventsAPI.VoiceScheduledEvent
-  >;
+  guild_scheduled_events: Array<ScheduledEventsAPI.ExternalScheduledEvent | ScheduledEventsAPI.StageScheduledEvent | ScheduledEventsAPI.VoiceScheduledEvent>;
 
-  integrations: Array<
-    | GuildAuditLog.PartialDiscordIntegrationResponse
-    | GuildAuditLog.PartialExternalConnectionIntegrationResponse
-    | GuildAuditLog.PartialGuildSubscriptionIntegrationResponse
-  >;
+  integrations: Array<GuildAuditLog.PartialDiscordIntegrationResponse | GuildAuditLog.PartialExternalConnectionIntegrationResponse | GuildAuditLog.PartialGuildSubscriptionIntegrationResponse>;
 
   threads: Array<ChannelsAPI.Thread>;
 
   users: Array<UsersAPI.User>;
 
-  webhooks: Array<
-    | WebhooksWebhooksAPI.ApplicationIncomingWebhook
-    | WebhooksWebhooksAPI.ChannelFollowerWebhook
-    | Shared.GuildIncomingWebhook
-  >;
+  webhooks: Array<WebhooksWebhooksAPI.ApplicationIncomingWebhook | WebhooksWebhooksAPI.ChannelFollowerWebhook | Shared.GuildIncomingWebhook>;
 }
 
 export namespace GuildAuditLog {
   export interface AuditLogEntry {
     id: string;
 
-    action_type:
-      | 1
-      | 10
-      | 11
-      | 12
-      | 13
-      | 14
-      | 15
-      | 20
-      | 21
-      | 22
-      | 23
-      | 24
-      | 25
-      | 26
-      | 27
-      | 28
-      | 30
-      | 31
-      | 32
-      | 40
-      | 41
-      | 42
-      | 50
-      | 51
-      | 52
-      | 60
-      | 61
-      | 62
-      | 72
-      | 73
-      | 74
-      | 75
-      | 80
-      | 81
-      | 82
-      | 83
-      | 84
-      | 85
-      | 90
-      | 91
-      | 92
-      | 100
-      | 101
-      | 102
-      | 110
-      | 111
-      | 112
-      | 121
-      | 130
-      | 131
-      | 132
-      | 140
-      | 141
-      | 142
-      | 143
-      | 144
-      | 145
-      | 146
-      | 150
-      | 151
-      | 163
-      | 164
-      | 165
-      | 166
-      | 167
-      | 171
-      | 172
-      | 180
-      | 190
-      | 191
-      | 192
-      | 193;
+    action_type: 1 | 10 | 11 | 12 | 13 | 14 | 15 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 30 | 31 | 32 | 40 | 41 | 42 | 50 | 51 | 52 | 60 | 61 | 62 | 72 | 73 | 74 | 75 | 80 | 81 | 82 | 83 | 84 | 85 | 90 | 91 | 92 | 100 | 101 | 102 | 110 | 111 | 112 | 121 | 130 | 131 | 132 | 140 | 141 | 142 | 143 | 144 | 145 | 146 | 150 | 151 | 163 | 164 | 165 | 166 | 167 | 171 | 172 | 180 | 190 | 191 | 192 | 193;
 
     changes?: Array<AuditLogEntry.Change> | null;
 
@@ -481,35 +315,7 @@ export interface GuildResponse {
    */
   explicit_content_filter: 0 | 1 | 2;
 
-  features: Array<
-    | 'ANIMATED_BANNER'
-    | 'ANIMATED_ICON'
-    | 'APPLICATION_COMMAND_PERMISSIONS_V2'
-    | 'AUTO_MODERATION'
-    | 'BANNER'
-    | 'COMMUNITY'
-    | 'CREATOR_MONETIZABLE_PROVISIONAL'
-    | 'CREATOR_STORE_PAGE'
-    | 'DEVELOPER_SUPPORT_SERVER'
-    | 'DISCOVERABLE'
-    | 'FEATURABLE'
-    | 'INVITES_DISABLED'
-    | 'INVITE_SPLASH'
-    | 'MEMBER_VERIFICATION_GATE_ENABLED'
-    | 'MORE_STICKERS'
-    | 'NEWS'
-    | 'PARTNERED'
-    | 'PREVIEW_ENABLED'
-    | 'RAID_ALERTS_DISABLED'
-    | 'ROLE_ICONS'
-    | 'ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE'
-    | 'ROLE_SUBSCRIPTIONS_ENABLED'
-    | 'TICKETED_EVENTS_ENABLED'
-    | 'VANITY_URL'
-    | 'VERIFIED'
-    | 'VIP_REGIONS'
-    | 'WELCOME_SCREEN_ENABLED'
-  >;
+  features: Array<'ANIMATED_BANNER' | 'ANIMATED_ICON' | 'APPLICATION_COMMAND_PERMISSIONS_V2' | 'AUTO_MODERATION' | 'BANNER' | 'COMMUNITY' | 'CREATOR_MONETIZABLE_PROVISIONAL' | 'CREATOR_STORE_PAGE' | 'DEVELOPER_SUPPORT_SERVER' | 'DISCOVERABLE' | 'FEATURABLE' | 'INVITES_DISABLED' | 'INVITE_SPLASH' | 'MEMBER_VERIFICATION_GATE_ENABLED' | 'MORE_STICKERS' | 'NEWS' | 'PARTNERED' | 'PREVIEW_ENABLED' | 'RAID_ALERTS_DISABLED' | 'ROLE_ICONS' | 'ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE' | 'ROLE_SUBSCRIPTIONS_ENABLED' | 'TICKETED_EVENTS_ENABLED' | 'VANITY_URL' | 'VERIFIED' | 'VIP_REGIONS' | 'WELCOME_SCREEN_ENABLED'>;
 
   /**
    * - `0` - Guild has no MFA/2FA requirement for moderation actions
@@ -561,41 +367,7 @@ export interface GuildResponse {
    * - `zh-CN` - The zh-CN locale
    * - `zh-TW` - The zh-TW locale
    */
-  preferred_locale:
-    | 'ar'
-    | 'bg'
-    | 'cs'
-    | 'da'
-    | 'de'
-    | 'el'
-    | 'en-GB'
-    | 'en-US'
-    | 'es-419'
-    | 'es-ES'
-    | 'fi'
-    | 'fr'
-    | 'he'
-    | 'hi'
-    | 'hr'
-    | 'hu'
-    | 'id'
-    | 'it'
-    | 'ja'
-    | 'ko'
-    | 'lt'
-    | 'nl'
-    | 'no'
-    | 'pl'
-    | 'pt-BR'
-    | 'ro'
-    | 'ru'
-    | 'sv-SE'
-    | 'th'
-    | 'tr'
-    | 'uk'
-    | 'vi'
-    | 'zh-CN'
-    | 'zh-TW';
+  preferred_locale: 'ar' | 'bg' | 'cs' | 'da' | 'de' | 'el' | 'en-GB' | 'en-US' | 'es-419' | 'es-ES' | 'fi' | 'fr' | 'he' | 'hi' | 'hr' | 'hu' | 'id' | 'it' | 'ja' | 'ko' | 'lt' | 'nl' | 'no' | 'pl' | 'pt-BR' | 'ro' | 'ru' | 'sv-SE' | 'th' | 'tr' | 'uk' | 'vi' | 'zh-CN' | 'zh-TW';
 
   premium_progress_bar_enabled: boolean;
 
@@ -818,35 +590,7 @@ export interface GuildRetrieveResponse {
    */
   explicit_content_filter: 0 | 1 | 2;
 
-  features: Array<
-    | 'ANIMATED_BANNER'
-    | 'ANIMATED_ICON'
-    | 'APPLICATION_COMMAND_PERMISSIONS_V2'
-    | 'AUTO_MODERATION'
-    | 'BANNER'
-    | 'COMMUNITY'
-    | 'CREATOR_MONETIZABLE_PROVISIONAL'
-    | 'CREATOR_STORE_PAGE'
-    | 'DEVELOPER_SUPPORT_SERVER'
-    | 'DISCOVERABLE'
-    | 'FEATURABLE'
-    | 'INVITES_DISABLED'
-    | 'INVITE_SPLASH'
-    | 'MEMBER_VERIFICATION_GATE_ENABLED'
-    | 'MORE_STICKERS'
-    | 'NEWS'
-    | 'PARTNERED'
-    | 'PREVIEW_ENABLED'
-    | 'RAID_ALERTS_DISABLED'
-    | 'ROLE_ICONS'
-    | 'ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE'
-    | 'ROLE_SUBSCRIPTIONS_ENABLED'
-    | 'TICKETED_EVENTS_ENABLED'
-    | 'VANITY_URL'
-    | 'VERIFIED'
-    | 'VIP_REGIONS'
-    | 'WELCOME_SCREEN_ENABLED'
-  >;
+  features: Array<'ANIMATED_BANNER' | 'ANIMATED_ICON' | 'APPLICATION_COMMAND_PERMISSIONS_V2' | 'AUTO_MODERATION' | 'BANNER' | 'COMMUNITY' | 'CREATOR_MONETIZABLE_PROVISIONAL' | 'CREATOR_STORE_PAGE' | 'DEVELOPER_SUPPORT_SERVER' | 'DISCOVERABLE' | 'FEATURABLE' | 'INVITES_DISABLED' | 'INVITE_SPLASH' | 'MEMBER_VERIFICATION_GATE_ENABLED' | 'MORE_STICKERS' | 'NEWS' | 'PARTNERED' | 'PREVIEW_ENABLED' | 'RAID_ALERTS_DISABLED' | 'ROLE_ICONS' | 'ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE' | 'ROLE_SUBSCRIPTIONS_ENABLED' | 'TICKETED_EVENTS_ENABLED' | 'VANITY_URL' | 'VERIFIED' | 'VIP_REGIONS' | 'WELCOME_SCREEN_ENABLED'>;
 
   /**
    * - `0` - Guild has no MFA/2FA requirement for moderation actions
@@ -898,41 +642,7 @@ export interface GuildRetrieveResponse {
    * - `zh-CN` - The zh-CN locale
    * - `zh-TW` - The zh-TW locale
    */
-  preferred_locale:
-    | 'ar'
-    | 'bg'
-    | 'cs'
-    | 'da'
-    | 'de'
-    | 'el'
-    | 'en-GB'
-    | 'en-US'
-    | 'es-419'
-    | 'es-ES'
-    | 'fi'
-    | 'fr'
-    | 'he'
-    | 'hi'
-    | 'hr'
-    | 'hu'
-    | 'id'
-    | 'it'
-    | 'ja'
-    | 'ko'
-    | 'lt'
-    | 'nl'
-    | 'no'
-    | 'pl'
-    | 'pt-BR'
-    | 'ro'
-    | 'ru'
-    | 'sv-SE'
-    | 'th'
-    | 'tr'
-    | 'uk'
-    | 'vi'
-    | 'zh-CN'
-    | 'zh-TW';
+  preferred_locale: 'ar' | 'bg' | 'cs' | 'da' | 'de' | 'el' | 'en-GB' | 'en-US' | 'es-419' | 'es-ES' | 'fi' | 'fr' | 'he' | 'hi' | 'hr' | 'hu' | 'id' | 'it' | 'ja' | 'ko' | 'lt' | 'nl' | 'no' | 'pl' | 'pt-BR' | 'ro' | 'ru' | 'sv-SE' | 'th' | 'tr' | 'uk' | 'vi' | 'zh-CN' | 'zh-TW';
 
   premium_progress_bar_enabled: boolean;
 
@@ -1069,42 +779,7 @@ export interface GuildCreateParams {
    * - `zh-CN` - The zh-CN locale
    * - `zh-TW` - The zh-TW locale
    */
-  preferred_locale?:
-    | 'ar'
-    | 'bg'
-    | 'cs'
-    | 'da'
-    | 'de'
-    | 'el'
-    | 'en-GB'
-    | 'en-US'
-    | 'es-419'
-    | 'es-ES'
-    | 'fi'
-    | 'fr'
-    | 'he'
-    | 'hi'
-    | 'hr'
-    | 'hu'
-    | 'id'
-    | 'it'
-    | 'ja'
-    | 'ko'
-    | 'lt'
-    | 'nl'
-    | 'no'
-    | 'pl'
-    | 'pt-BR'
-    | 'ro'
-    | 'ru'
-    | 'sv-SE'
-    | 'th'
-    | 'tr'
-    | 'uk'
-    | 'vi'
-    | 'zh-CN'
-    | 'zh-TW'
-    | null;
+  preferred_locale?: 'ar' | 'bg' | 'cs' | 'da' | 'de' | 'el' | 'en-GB' | 'en-US' | 'es-419' | 'es-ES' | 'fi' | 'fr' | 'he' | 'hi' | 'hr' | 'hu' | 'id' | 'it' | 'ja' | 'ko' | 'lt' | 'nl' | 'no' | 'pl' | 'pt-BR' | 'ro' | 'ru' | 'sv-SE' | 'th' | 'tr' | 'uk' | 'vi' | 'zh-CN' | 'zh-TW' | null;
 
   region?: string | null;
 
@@ -1321,42 +996,7 @@ export interface GuildUpdateParams {
    * - `zh-CN` - The zh-CN locale
    * - `zh-TW` - The zh-TW locale
    */
-  preferred_locale?:
-    | 'ar'
-    | 'bg'
-    | 'cs'
-    | 'da'
-    | 'de'
-    | 'el'
-    | 'en-GB'
-    | 'en-US'
-    | 'es-419'
-    | 'es-ES'
-    | 'fi'
-    | 'fr'
-    | 'he'
-    | 'hi'
-    | 'hr'
-    | 'hu'
-    | 'id'
-    | 'it'
-    | 'ja'
-    | 'ko'
-    | 'lt'
-    | 'nl'
-    | 'no'
-    | 'pl'
-    | 'pt-BR'
-    | 'ro'
-    | 'ru'
-    | 'sv-SE'
-    | 'th'
-    | 'tr'
-    | 'uk'
-    | 'vi'
-    | 'zh-CN'
-    | 'zh-TW'
-    | null;
+  preferred_locale?: 'ar' | 'bg' | 'cs' | 'da' | 'de' | 'el' | 'en-GB' | 'en-US' | 'es-419' | 'es-ES' | 'fi' | 'fr' | 'he' | 'hi' | 'hr' | 'hu' | 'id' | 'it' | 'ja' | 'ko' | 'lt' | 'nl' | 'no' | 'pl' | 'pt-BR' | 'ro' | 'ru' | 'sv-SE' | 'th' | 'tr' | 'uk' | 'vi' | 'zh-CN' | 'zh-TW' | null;
 
   premium_progress_bar_enabled?: boolean | null;
 
@@ -1439,7 +1079,7 @@ export declare namespace Guilds {
     type GuildRetrieveParams as GuildRetrieveParams,
     type GuildUpdateParams as GuildUpdateParams,
     type GuildBulkBanParams as GuildBulkBanParams,
-    type GuildMfaParams as GuildMfaParams,
+    type GuildMfaParams as GuildMfaParams
   };
 
   export {
@@ -1454,17 +1094,19 @@ export declare namespace Guilds {
     type ScheduledEventCreateParams as ScheduledEventCreateParams,
     type ScheduledEventRetrieveParams as ScheduledEventRetrieveParams,
     type ScheduledEventUpdateParams as ScheduledEventUpdateParams,
-    type ScheduledEventListParams as ScheduledEventListParams,
+    type ScheduledEventListParams as ScheduledEventListParams
   };
 
-  export { AutoModeration as AutoModeration };
+  export {
+    AutoModeration as AutoModeration
+  };
 
   export {
     VoiceStates as VoiceStates,
     type VoiceState as VoiceState,
     type VoiceStateResponse as VoiceStateResponse,
     type VoiceStateUpdateParams as VoiceStateUpdateParams,
-    type VoiceStateUpdateSelfParams as VoiceStateUpdateSelfParams,
+    type VoiceStateUpdateSelfParams as VoiceStateUpdateSelfParams
   };
 
   export {
@@ -1476,69 +1118,98 @@ export declare namespace Guilds {
     type MemberSearchResponse as MemberSearchResponse,
     type MemberUpdateParams as MemberUpdateParams,
     type MemberListParams as MemberListParams,
-    type MemberSearchParams as MemberSearchParams,
+    type MemberSearchParams as MemberSearchParams
   };
 
-  export { Threads as Threads, type ThreadsResponse as ThreadsResponse };
+  export {
+    Threads as Threads,
+    type ThreadsResponse as ThreadsResponse
+  };
 
   export {
     Templates as Templates,
     type GuildTemplate as GuildTemplate,
     type TemplateListResponse as TemplateListResponse,
     type TemplateCreateParams as TemplateCreateParams,
-    type TemplateUpdateParams as TemplateUpdateParams,
+    type TemplateUpdateParams as TemplateUpdateParams
   };
 
-  export { NewMemberWelcome as NewMemberWelcome, type GuildHomeSettings as GuildHomeSettings };
+  export {
+    NewMemberWelcome as NewMemberWelcome,
+    type GuildHomeSettings as GuildHomeSettings
+  };
 
   export {
     SoundboardSounds as SoundboardSounds,
     type SoundboardSound as SoundboardSound,
     type SoundboardSoundListResponse as SoundboardSoundListResponse,
     type SoundboardSoundCreateParams as SoundboardSoundCreateParams,
-    type SoundboardSoundUpdateParams as SoundboardSoundUpdateParams,
+    type SoundboardSoundUpdateParams as SoundboardSoundUpdateParams
   };
 
   export {
     WelcomeScreen as WelcomeScreen,
     type GuildWelcomeScreen as GuildWelcomeScreen,
-    type WelcomeScreenUpdateParams as WelcomeScreenUpdateParams,
+    type WelcomeScreenUpdateParams as WelcomeScreenUpdateParams
   };
 
-  export { Integrations as Integrations, type IntegrationListResponse as IntegrationListResponse };
+  export {
+    Integrations as Integrations,
+    type IntegrationListResponse as IntegrationListResponse
+  };
 
-  export { Widgets as Widgets, type WidgetRetrievePngParams as WidgetRetrievePngParams };
+  export {
+    Widgets as Widgets,
+    type WidgetRetrievePngParams as WidgetRetrievePngParams
+  };
 
-  export { Onboarding as Onboarding, type OnboardingUpdateParams as OnboardingUpdateParams };
+  export {
+    Onboarding as Onboarding,
+    type OnboardingUpdateParams as OnboardingUpdateParams
+  };
 
-  export { VanityURLs as VanityURLs };
+  export {
+    VanityURLs as VanityURLs
+  };
 
-  export { AuditLogs as AuditLogs, type AuditLogRetrieveParams as AuditLogRetrieveParams };
+  export {
+    AuditLogs as AuditLogs,
+    type AuditLogRetrieveParams as AuditLogRetrieveParams
+  };
 
   export {
     Stickers as Stickers,
     type StickerListResponse as StickerListResponse,
     type StickerCreateParams as StickerCreateParams,
-    type StickerUpdateParams as StickerUpdateParams,
+    type StickerUpdateParams as StickerUpdateParams
   };
 
-  export { Webhooks as Webhooks, type WebhookListResponse as WebhookListResponse };
+  export {
+    Webhooks as Webhooks,
+    type WebhookListResponse as WebhookListResponse
+  };
 
   export {
     Channels as Channels,
     type ChannelListResponse as ChannelListResponse,
     type ChannelCreateParams as ChannelCreateParams,
-    type ChannelUpdateParams as ChannelUpdateParams,
+    type ChannelUpdateParams as ChannelUpdateParams
   };
 
-  export { Preview as Preview, type GuildPreview as GuildPreview };
+  export {
+    Preview as Preview,
+    type GuildPreview as GuildPreview
+  };
 
-  export { Invites as Invites, type InviteListResponse as InviteListResponse };
+  export {
+    Invites as Invites,
+    type InviteListResponse as InviteListResponse
+  };
 
   export {
     Regions as Regions,
     type VoiceRegion as VoiceRegion,
-    type RegionListResponse as RegionListResponse,
+    type RegionListResponse as RegionListResponse
   };
 
   export {
@@ -1546,13 +1217,13 @@ export declare namespace Guilds {
     type EmojisAPIEmoji as Emoji,
     type EmojiListResponse as EmojiListResponse,
     type EmojiCreateParams as EmojiCreateParams,
-    type EmojiUpdateParams as EmojiUpdateParams,
+    type EmojiUpdateParams as EmojiUpdateParams
   };
 
   export {
     WidgetAPIWidget as Widget,
     type WidgetSettings as WidgetSettings,
-    type WidgetUpdateParams as WidgetUpdateParams,
+    type WidgetUpdateParams as WidgetUpdateParams
   };
 
   export {
@@ -1561,16 +1232,20 @@ export declare namespace Guilds {
     type RoleUpdateResponse as RoleUpdateResponse,
     type RoleListResponse as RoleListResponse,
     type RoleCreateParams as RoleCreateParams,
-    type RoleUpdateParams as RoleUpdateParams,
+    type RoleUpdateParams as RoleUpdateParams
   };
 
-  export { Prune as Prune, type GuildPrune as GuildPrune, type PruneRetrieveParams as PruneRetrieveParams };
+  export {
+    Prune as Prune,
+    type GuildPrune as GuildPrune,
+    type PruneRetrieveParams as PruneRetrieveParams
+  };
 
   export {
     Bans as Bans,
     type GuildBan as GuildBan,
     type BanListResponse as BanListResponse,
     type BanUpdateParams as BanUpdateParams,
-    type BanListParams as BanListParams,
+    type BanListParams as BanListParams
   };
 }

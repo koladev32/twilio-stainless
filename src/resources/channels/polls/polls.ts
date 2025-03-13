@@ -1,6 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
+import { isRequestOptions } from '../../../core';
+import { APIPromise } from '../../../core';
 import * as Core from '../../../core';
 import * as Shared from '../../shared';
 import * as UsersAPI from '../../users/users';
@@ -10,11 +12,7 @@ import { AnswerRetrieveParams, Answers } from './answers';
 export class Polls extends APIResource {
   answers: AnswersAPI.Answers = new AnswersAPI.Answers(this._client);
 
-  expire(
-    channelId: string,
-    messageId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.MessageResponse> {
+  expire(channelId: string, messageId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse> {
     return this._client.post(`/channels/${channelId}/polls/${messageId}/expire`, options);
   }
 }
@@ -26,7 +24,12 @@ export interface PollAnswerDetailsResponse {
 Polls.Answers = Answers;
 
 export declare namespace Polls {
-  export { type PollAnswerDetailsResponse as PollAnswerDetailsResponse };
+  export {
+    type PollAnswerDetailsResponse as PollAnswerDetailsResponse
+  };
 
-  export { Answers as Answers, type AnswerRetrieveParams as AnswerRetrieveParams };
+  export {
+    Answers as Answers,
+    type AnswerRetrieveParams as AnswerRetrieveParams
+  };
 }
