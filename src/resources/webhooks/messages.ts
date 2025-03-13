@@ -2,59 +2,149 @@
 
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as MessagesAPI from './messages';
-import { maybeMultipartFormRequestOptions } from '../../core';
 import * as Shared from '../shared';
 
 export class Messages extends APIResource {
-  retrieve(webhookId: string, webhookToken: string, messageId: string, query?: MessageRetrieveParams, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse>
-  retrieve(webhookId: string, webhookToken: string, messageId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse>
-  retrieve(webhookId: string, webhookToken: string, messageId: string, query: MessageRetrieveParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse> {
+  retrieve(
+    webhookId: string,
+    webhookToken: string,
+    messageId: string,
+    query?: MessageRetrieveParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Shared.MessageResponse>;
+  retrieve(
+    webhookId: string,
+    webhookToken: string,
+    messageId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Shared.MessageResponse>;
+  retrieve(
+    webhookId: string,
+    webhookToken: string,
+    messageId: string,
+    query: MessageRetrieveParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Shared.MessageResponse> {
     if (isRequestOptions(query)) {
       return this.retrieve(webhookId, webhookToken, messageId, {}, query);
     }
-    return this._client.get(`/webhooks/${webhookId}/${webhookToken}/messages/${messageId}`, { query, ...options });
+    return this._client.get(`/webhooks/${webhookId}/${webhookToken}/messages/${messageId}`, {
+      query,
+      ...options,
+    });
   }
 
-  update(webhookId: string, webhookToken: string, messageId: string, params: MessageUpdateParams, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse> {
+  update(
+    webhookId: string,
+    webhookToken: string,
+    messageId: string,
+    params: MessageUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Shared.MessageResponse> {
     const { thread_id, ...body } = params;
-    return this._client.patch(`/webhooks/${webhookId}/${webhookToken}/messages/${messageId}`, Core.maybeMultipartFormRequestOptions({ query: { thread_id }, body, ...options }));
+    return this._client.patch(
+      `/webhooks/${webhookId}/${webhookToken}/messages/${messageId}`,
+      Core.maybeMultipartFormRequestOptions({ query: { thread_id }, body, ...options }),
+    );
   }
 
-  delete(webhookId: string, webhookToken: string, messageId: string, params?: MessageDeleteParams, options?: Core.RequestOptions): Core.APIPromise<void>
-  delete(webhookId: string, webhookToken: string, messageId: string, options?: Core.RequestOptions): Core.APIPromise<void>
-  delete(webhookId: string, webhookToken: string, messageId: string, params: MessageDeleteParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<void> {
+  delete(
+    webhookId: string,
+    webhookToken: string,
+    messageId: string,
+    params?: MessageDeleteParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<void>;
+  delete(
+    webhookId: string,
+    webhookToken: string,
+    messageId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<void>;
+  delete(
+    webhookId: string,
+    webhookToken: string,
+    messageId: string,
+    params: MessageDeleteParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<void> {
     if (isRequestOptions(params)) {
       return this.delete(webhookId, webhookToken, messageId, {}, params);
     }
     const { thread_id } = params;
-    return this._client.delete(`/webhooks/${webhookId}/${webhookToken}/messages/${messageId}`, { query: { thread_id }, ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.delete(`/webhooks/${webhookId}/${webhookToken}/messages/${messageId}`, {
+      query: { thread_id },
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 
-  deleteOriginal(webhookId: string, webhookToken: string, params?: MessageDeleteOriginalParams, options?: Core.RequestOptions): Core.APIPromise<void>
-  deleteOriginal(webhookId: string, webhookToken: string, options?: Core.RequestOptions): Core.APIPromise<void>
-  deleteOriginal(webhookId: string, webhookToken: string, params: MessageDeleteOriginalParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<void> {
+  deleteOriginal(
+    webhookId: string,
+    webhookToken: string,
+    params?: MessageDeleteOriginalParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<void>;
+  deleteOriginal(
+    webhookId: string,
+    webhookToken: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<void>;
+  deleteOriginal(
+    webhookId: string,
+    webhookToken: string,
+    params: MessageDeleteOriginalParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<void> {
     if (isRequestOptions(params)) {
       return this.deleteOriginal(webhookId, webhookToken, {}, params);
     }
     const { thread_id } = params;
-    return this._client.delete(`/webhooks/${webhookId}/${webhookToken}/messages/@original`, { query: { thread_id }, ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.delete(`/webhooks/${webhookId}/${webhookToken}/messages/@original`, {
+      query: { thread_id },
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 
-  retrieveOriginal(webhookId: string, webhookToken: string, query?: MessageRetrieveOriginalParams, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse>
-  retrieveOriginal(webhookId: string, webhookToken: string, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse>
-  retrieveOriginal(webhookId: string, webhookToken: string, query: MessageRetrieveOriginalParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse> {
+  retrieveOriginal(
+    webhookId: string,
+    webhookToken: string,
+    query?: MessageRetrieveOriginalParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Shared.MessageResponse>;
+  retrieveOriginal(
+    webhookId: string,
+    webhookToken: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Shared.MessageResponse>;
+  retrieveOriginal(
+    webhookId: string,
+    webhookToken: string,
+    query: MessageRetrieveOriginalParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Shared.MessageResponse> {
     if (isRequestOptions(query)) {
       return this.retrieveOriginal(webhookId, webhookToken, {}, query);
     }
-    return this._client.get(`/webhooks/${webhookId}/${webhookToken}/messages/@original`, { query, ...options });
+    return this._client.get(`/webhooks/${webhookId}/${webhookToken}/messages/@original`, {
+      query,
+      ...options,
+    });
   }
 
-  updateOriginal(webhookId: string, webhookToken: string, params: MessageUpdateOriginalParams, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse> {
+  updateOriginal(
+    webhookId: string,
+    webhookToken: string,
+    params: MessageUpdateOriginalParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Shared.MessageResponse> {
     const { thread_id, ...body } = params;
-    return this._client.patch(`/webhooks/${webhookId}/${webhookToken}/messages/@original`, Core.maybeMultipartFormRequestOptions({ query: { thread_id }, body, ...options }));
+    return this._client.patch(
+      `/webhooks/${webhookId}/${webhookToken}/messages/@original`,
+      Core.maybeMultipartFormRequestOptions({ query: { thread_id }, body, ...options }),
+    );
   }
 }
 
@@ -132,7 +222,14 @@ export namespace MessageUpdateParams {
   }
 
   export interface Component {
-    components: Array<Component.ButtonComponentForMessageRequest | Component.ChannelSelectComponentForMessageRequest | Component.MentionableSelectComponentForMessageRequest | Component.RoleSelectComponentForMessageRequest | Component.StringSelectComponentForMessageRequest | Component.UserSelectComponentForMessageRequest>;
+    components: Array<
+      | Component.ButtonComponentForMessageRequest
+      | Component.ChannelSelectComponentForMessageRequest
+      | Component.MentionableSelectComponentForMessageRequest
+      | Component.RoleSelectComponentForMessageRequest
+      | Component.StringSelectComponentForMessageRequest
+      | Component.UserSelectComponentForMessageRequest
+    >;
 
     /**
      * - `1` - Container for other components
@@ -235,7 +332,10 @@ export namespace MessageUpdateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      default_values?: Array<MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue> | null;
+      default_values?: Array<
+        | MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue
+        | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue
+      > | null;
 
       disabled?: boolean | null;
 
@@ -612,7 +712,14 @@ export namespace MessageUpdateOriginalParams {
   }
 
   export interface Component {
-    components: Array<Component.ButtonComponentForMessageRequest | Component.ChannelSelectComponentForMessageRequest | Component.MentionableSelectComponentForMessageRequest | Component.RoleSelectComponentForMessageRequest | Component.StringSelectComponentForMessageRequest | Component.UserSelectComponentForMessageRequest>;
+    components: Array<
+      | Component.ButtonComponentForMessageRequest
+      | Component.ChannelSelectComponentForMessageRequest
+      | Component.MentionableSelectComponentForMessageRequest
+      | Component.RoleSelectComponentForMessageRequest
+      | Component.StringSelectComponentForMessageRequest
+      | Component.UserSelectComponentForMessageRequest
+    >;
 
     /**
      * - `1` - Container for other components
@@ -715,7 +822,10 @@ export namespace MessageUpdateOriginalParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      default_values?: Array<MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue> | null;
+      default_values?: Array<
+        | MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue
+        | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue
+      > | null;
 
       disabled?: boolean | null;
 
@@ -1017,6 +1127,6 @@ export declare namespace Messages {
     type MessageDeleteParams as MessageDeleteParams,
     type MessageDeleteOriginalParams as MessageDeleteOriginalParams,
     type MessageRetrieveOriginalParams as MessageRetrieveOriginalParams,
-    type MessageUpdateOriginalParams as MessageUpdateOriginalParams
+    type MessageUpdateOriginalParams as MessageUpdateOriginalParams,
   };
 }

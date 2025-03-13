@@ -1,14 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as InvitesAPI from './invites';
 import * as Shared from '../shared';
 
 export class Invites extends APIResource {
-  create(channelId: string, body: InviteCreateParams, options?: Core.RequestOptions): Core.APIPromise<InviteCreateResponse> {
+  create(
+    channelId: string,
+    body: InviteCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<InviteCreateResponse> {
     return this._client.post(`/channels/${channelId}/invites`, { body, ...options });
   }
 
@@ -17,11 +18,13 @@ export class Invites extends APIResource {
   }
 }
 
-export type InviteCreateResponse = Shared.FriendInvite | Shared.GroupDmInvite | Shared.GuildInvite
+export type InviteCreateResponse = Shared.FriendInvite | Shared.GroupDmInvite | Shared.GuildInvite;
 
-export type InviteListResponse = Array<Shared.FriendInvite | Shared.GroupDmInvite | Shared.GuildInvite>
+export type InviteListResponse = Array<Shared.FriendInvite | Shared.GroupDmInvite | Shared.GuildInvite>;
 
-export type InviteCreateParams = InviteCreateParams.CreateGroupDmInviteRequest | InviteCreateParams.CreateGuildInviteRequest
+export type InviteCreateParams =
+  | InviteCreateParams.CreateGroupDmInviteRequest
+  | InviteCreateParams.CreateGuildInviteRequest;
 
 export declare namespace InviteCreateParams {
   export interface CreateGroupDmInviteRequest {
@@ -49,6 +52,6 @@ export declare namespace Invites {
   export {
     type InviteCreateResponse as InviteCreateResponse,
     type InviteListResponse as InviteListResponse,
-    type InviteCreateParams as InviteCreateParams
+    type InviteCreateParams as InviteCreateParams,
   };
 }

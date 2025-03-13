@@ -2,20 +2,35 @@
 
 import { APIResource } from '../../../resource';
 import { isRequestOptions } from '../../../core';
-import { APIPromise } from '../../../core';
 import * as Core from '../../../core';
-import * as ScheduledEventsUsersAPI from './users';
 import * as UsersAPI from '../../users/users';
 import * as MembersAPI from '../members/members';
 
 export class Users extends APIResource {
-  list(guildId: string, guildScheduledEventId: string, query?: UserListParams, options?: Core.RequestOptions): Core.APIPromise<UserListResponse | null>
-  list(guildId: string, guildScheduledEventId: string, options?: Core.RequestOptions): Core.APIPromise<UserListResponse | null>
-  list(guildId: string, guildScheduledEventId: string, query: UserListParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<UserListResponse | null> {
+  list(
+    guildId: string,
+    guildScheduledEventId: string,
+    query?: UserListParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<UserListResponse | null>;
+  list(
+    guildId: string,
+    guildScheduledEventId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<UserListResponse | null>;
+  list(
+    guildId: string,
+    guildScheduledEventId: string,
+    query: UserListParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<UserListResponse | null> {
     if (isRequestOptions(query)) {
       return this.list(guildId, guildScheduledEventId, {}, query);
     }
-    return this._client.get(`/guilds/${guildId}/scheduled-events/${guildScheduledEventId}/users`, { query, ...options });
+    return this._client.get(`/guilds/${guildId}/scheduled-events/${guildScheduledEventId}/users`, {
+      query,
+      ...options,
+    });
   }
 }
 
@@ -29,7 +44,7 @@ export interface ScheduledEventUserResponse {
   user?: UsersAPI.User | null;
 }
 
-export type UserListResponse = Array<ScheduledEventUserResponse>
+export type UserListResponse = Array<ScheduledEventUserResponse>;
 
 export interface UserListParams {
   after?: string;
@@ -45,6 +60,6 @@ export declare namespace Users {
   export {
     type ScheduledEventUserResponse as ScheduledEventUserResponse,
     type UserListResponse as UserListResponse,
-    type UserListParams as UserListParams
+    type UserListParams as UserListParams,
   };
 }

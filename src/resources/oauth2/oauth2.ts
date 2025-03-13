@@ -1,10 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as Oauth2API from './oauth2';
 import * as ApplicationsAPI from './applications';
 import { Applications } from './applications';
 import * as KeysAPI from './keys';
@@ -25,7 +22,42 @@ export interface Oauth2GetAuthorizationResponse {
 
   expires: string;
 
-  scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+  scopes: Array<
+    | 'identify'
+    | 'email'
+    | 'connections'
+    | 'guilds'
+    | 'guilds.join'
+    | 'guilds.members.read'
+    | 'gdm.join'
+    | 'bot'
+    | 'rpc'
+    | 'rpc.notifications.read'
+    | 'rpc.voice.read'
+    | 'rpc.voice.write'
+    | 'rpc.video.read'
+    | 'rpc.video.write'
+    | 'rpc.screenshare.read'
+    | 'rpc.screenshare.write'
+    | 'rpc.activities.write'
+    | 'webhook.incoming'
+    | 'messages.read'
+    | 'applications.builds.upload'
+    | 'applications.builds.read'
+    | 'applications.commands'
+    | 'applications.commands.permissions.update'
+    | 'applications.commands.update'
+    | 'applications.store.update'
+    | 'applications.entitlements'
+    | 'activities.read'
+    | 'activities.write'
+    | 'activities.invites.write'
+    | 'relationships.read'
+    | 'voice'
+    | 'dm_channels.read'
+    | 'role_connections.write'
+    | 'openid'
+  >;
 
   user?: UsersAPI.User | null;
 }
@@ -81,7 +113,42 @@ export namespace Oauth2GetAuthorizationResponse {
     export interface InstallParams {
       permissions: string;
 
-      scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+      scopes: Array<
+        | 'identify'
+        | 'email'
+        | 'connections'
+        | 'guilds'
+        | 'guilds.join'
+        | 'guilds.members.read'
+        | 'gdm.join'
+        | 'bot'
+        | 'rpc'
+        | 'rpc.notifications.read'
+        | 'rpc.voice.read'
+        | 'rpc.voice.write'
+        | 'rpc.video.read'
+        | 'rpc.video.write'
+        | 'rpc.screenshare.read'
+        | 'rpc.screenshare.write'
+        | 'rpc.activities.write'
+        | 'webhook.incoming'
+        | 'messages.read'
+        | 'applications.builds.upload'
+        | 'applications.builds.read'
+        | 'applications.commands'
+        | 'applications.commands.permissions.update'
+        | 'applications.commands.update'
+        | 'applications.store.update'
+        | 'applications.entitlements'
+        | 'activities.read'
+        | 'activities.write'
+        | 'activities.invites.write'
+        | 'relationships.read'
+        | 'voice'
+        | 'dm_channels.read'
+        | 'role_connections.write'
+        | 'openid'
+      >;
     }
 
     export interface IntegrationTypesConfig {
@@ -92,7 +159,42 @@ export namespace Oauth2GetAuthorizationResponse {
       export interface Oauth2InstallParams {
         permissions: string;
 
-        scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+        scopes: Array<
+          | 'identify'
+          | 'email'
+          | 'connections'
+          | 'guilds'
+          | 'guilds.join'
+          | 'guilds.members.read'
+          | 'gdm.join'
+          | 'bot'
+          | 'rpc'
+          | 'rpc.notifications.read'
+          | 'rpc.voice.read'
+          | 'rpc.voice.write'
+          | 'rpc.video.read'
+          | 'rpc.video.write'
+          | 'rpc.screenshare.read'
+          | 'rpc.screenshare.write'
+          | 'rpc.activities.write'
+          | 'webhook.incoming'
+          | 'messages.read'
+          | 'applications.builds.upload'
+          | 'applications.builds.read'
+          | 'applications.commands'
+          | 'applications.commands.permissions.update'
+          | 'applications.commands.update'
+          | 'applications.store.update'
+          | 'applications.entitlements'
+          | 'activities.read'
+          | 'activities.write'
+          | 'activities.invites.write'
+          | 'relationships.read'
+          | 'voice'
+          | 'dm_channels.read'
+          | 'role_connections.write'
+          | 'openid'
+        >;
       }
     }
   }
@@ -102,16 +204,9 @@ Oauth2.Applications = Applications;
 Oauth2.Keys = Keys;
 
 export declare namespace Oauth2 {
-  export {
-    type Oauth2GetAuthorizationResponse as Oauth2GetAuthorizationResponse
-  };
+  export { type Oauth2GetAuthorizationResponse as Oauth2GetAuthorizationResponse };
 
-  export {
-    Applications as Applications
-  };
+  export { Applications as Applications };
 
-  export {
-    Keys as Keys,
-    type Oauth2GetKeys as Oauth2GetKeys
-  };
+  export { Keys as Keys, type Oauth2GetKeys as Oauth2GetKeys };
 }

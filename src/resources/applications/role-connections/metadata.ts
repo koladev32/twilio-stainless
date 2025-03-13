@@ -1,10 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
-import { isRequestOptions } from '../../../core';
-import { APIPromise } from '../../../core';
 import * as Core from '../../../core';
-import * as MetadataAPI from './metadata';
 
 export class Metadata extends APIResource {
   list(applicationId: string, options?: Core.RequestOptions): Core.APIPromise<MetadataListResponse | null> {
@@ -44,11 +41,11 @@ export interface ApplicationRoleConnectionsMetadataItemResponse {
   name_localizations?: Record<string, string> | null;
 }
 
-export type MetadataListResponse = Array<ApplicationRoleConnectionsMetadataItemResponse>
+export type MetadataListResponse = Array<ApplicationRoleConnectionsMetadataItemResponse>;
 
 export declare namespace Metadata {
   export {
     type ApplicationRoleConnectionsMetadataItemResponse as ApplicationRoleConnectionsMetadataItemResponse,
-    type MetadataListResponse as MetadataListResponse
+    type MetadataListResponse as MetadataListResponse,
   };
 }

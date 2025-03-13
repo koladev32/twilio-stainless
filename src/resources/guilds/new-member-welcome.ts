@@ -1,10 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as NewMemberWelcomeAPI from './new-member-welcome';
 
 export class NewMemberWelcome extends APIResource {
   retrieve(guildId: string, options?: Core.RequestOptions): Core.APIPromise<GuildHomeSettings> {
@@ -79,7 +76,5 @@ export namespace GuildHomeSettings {
 }
 
 export declare namespace NewMemberWelcome {
-  export {
-    type GuildHomeSettings as GuildHomeSettings
-  };
+  export { type GuildHomeSettings as GuildHomeSettings };
 }
