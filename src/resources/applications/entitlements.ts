@@ -1,49 +1,30 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as EntitlementsAPI from './entitlements';
 
 export class Entitlements extends APIResource {
-  create(
-    applicationId: string,
-    body: EntitlementCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<EntitlementResponse> {
+  create(applicationId: string, body: EntitlementCreateParams, options?: Core.RequestOptions): Core.APIPromise<EntitlementResponse> {
     return this._client.post(`/applications/${applicationId}/entitlements`, { body, ...options });
   }
 
-  retrieve(
-    applicationId: string,
-    entitlementId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<EntitlementResponse> {
+  retrieve(applicationId: string, entitlementId: string, options?: Core.RequestOptions): Core.APIPromise<EntitlementResponse> {
     return this._client.get(`/applications/${applicationId}/entitlements/${entitlementId}`, options);
   }
 
-  list(
-    applicationId: string,
-    query: EntitlementListParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<EntitlementListResponse> {
+  list(applicationId: string, query: EntitlementListParams, options?: Core.RequestOptions): Core.APIPromise<EntitlementListResponse> {
     return this._client.get(`/applications/${applicationId}/entitlements`, { query, ...options });
   }
 
   delete(applicationId: string, entitlementId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/applications/${applicationId}/entitlements/${entitlementId}`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+    return this._client.delete(`/applications/${applicationId}/entitlements/${entitlementId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
-  consume(
-    applicationId: string,
-    entitlementId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void> {
-    return this._client.post(`/applications/${applicationId}/entitlements/${entitlementId}/consume`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+  consume(applicationId: string, entitlementId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.post(`/applications/${applicationId}/entitlements/${entitlementId}/consume`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 }
 
@@ -73,7 +54,7 @@ export interface EntitlementResponse {
   starts_at?: string | null;
 }
 
-export type EntitlementListResponse = Array<EntitlementResponse | null>;
+export type EntitlementListResponse = Array<EntitlementResponse | null>
 
 export interface EntitlementCreateParams {
   owner_id: string;
@@ -108,6 +89,6 @@ export declare namespace Entitlements {
     type EntitlementResponse as EntitlementResponse,
     type EntitlementListResponse as EntitlementListResponse,
     type EntitlementCreateParams as EntitlementCreateParams,
-    type EntitlementListParams as EntitlementListParams,
+    type EntitlementListParams as EntitlementListParams
   };
 }

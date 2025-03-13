@@ -1,7 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as OnboardingAPI from './onboarding';
 import * as GuildsAPI from './guilds';
 
 export class Onboarding extends APIResource {
@@ -9,11 +12,7 @@ export class Onboarding extends APIResource {
     return this._client.get(`/guilds/${guildId}/onboarding`, options);
   }
 
-  update(
-    guildId: string,
-    body: OnboardingUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<GuildsAPI.GuildOnboarding> {
+  update(guildId: string, body: OnboardingUpdateParams, options?: Core.RequestOptions): Core.APIPromise<GuildsAPI.GuildOnboarding> {
     return this._client.put(`/guilds/${guildId}/onboarding`, { body, ...options });
   }
 }
@@ -75,5 +74,7 @@ export namespace OnboardingUpdateParams {
 }
 
 export declare namespace Onboarding {
-  export { type OnboardingUpdateParams as OnboardingUpdateParams };
+  export {
+    type OnboardingUpdateParams as OnboardingUpdateParams
+  };
 }

@@ -1,14 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import DiscordAPI from 'discord-api';
+import DiscordAPI, { toFile } from 'discord-api';
 import { Response } from 'node-fetch';
 
-const client = new DiscordAPI({
-  botToken: 'My Bot Token',
-  clientId: 'My Client ID',
-  clientSecret: 'My Client Secret',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-});
+const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
 
 describe('resource commands', () => {
   test('create: only required params', async () => {
@@ -23,28 +18,7 @@ describe('resource commands', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.applications.guilds.commands.create('891', '891', {
-      name: 'x',
-      contexts: [0],
-      default_member_permissions: 0,
-      description: 'description',
-      description_localizations: { foo: 'x' },
-      dm_permission: true,
-      handler: 0,
-      integration_types: [0],
-      name_localizations: { foo: 'x' },
-      options: [
-        {
-          description: 'x',
-          name: 'x',
-          type: 1,
-          description_localizations: { foo: 'x' },
-          name_localizations: { foo: 'x' },
-          required: true,
-        },
-      ],
-      type: 1,
-    });
+    const response = await client.applications.guilds.commands.create('891', '891', { name: 'x', contexts: [0], default_member_permissions: 0, description: 'description', description_localizations: { foo: 'x' }, dm_permission: true, handler: 0, integration_types: [0], name_localizations: { foo: 'x' }, options: [{ description: 'x', name: 'x', type: 1, description_localizations: { foo: 'x' }, name_localizations: { foo: 'x' }, required: true }], type: 1 });
   });
 
   test('retrieve', async () => {
@@ -60,9 +34,9 @@ describe('resource commands', () => {
 
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.applications.guilds.commands.retrieve('891', '891', '891', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(DiscordAPI.NotFoundError);
+    await expect(client.applications.guilds.commands.retrieve('891', '891', '891', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(DiscordAPI.NotFoundError);
   });
 
   test('update', async () => {
@@ -89,21 +63,16 @@ describe('resource commands', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.applications.guilds.commands.list('891', '891', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(DiscordAPI.NotFoundError);
+    await expect(client.applications.guilds.commands.list('891', '891', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(DiscordAPI.NotFoundError);
   });
 
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.applications.guilds.commands.list(
-        '891',
-        '891',
-        { with_localizations: true },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(DiscordAPI.NotFoundError);
+    await expect(client.applications.guilds.commands.list('891', '891', { with_localizations: true }, { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(DiscordAPI.NotFoundError);
   });
 
   test('delete', async () => {
@@ -119,9 +88,9 @@ describe('resource commands', () => {
 
   test('delete: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.applications.guilds.commands.delete('891', '891', '891', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(DiscordAPI.NotFoundError);
+    await expect(client.applications.guilds.commands.delete('891', '891', '891', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(DiscordAPI.NotFoundError);
   });
 
   test('put: only required params', async () => {
@@ -136,30 +105,6 @@ describe('resource commands', () => {
   });
 
   test('put: required and optional params', async () => {
-    const response = await client.applications.guilds.commands.put('891', '891', [
-      {
-        name: 'x',
-        id: '891',
-        contexts: [0],
-        default_member_permissions: 0,
-        description: 'description',
-        description_localizations: { foo: 'x' },
-        dm_permission: true,
-        handler: 0,
-        integration_types: [0],
-        name_localizations: { foo: 'x' },
-        options: [
-          {
-            description: 'x',
-            name: 'x',
-            type: 1,
-            description_localizations: { foo: 'x' },
-            name_localizations: { foo: 'x' },
-            required: true,
-          },
-        ],
-        type: 1,
-      },
-    ]);
+    const response = await client.applications.guilds.commands.put('891', '891', [{ name: 'x', id: '891', contexts: [0], default_member_permissions: 0, description: 'description', description_localizations: { foo: 'x' }, dm_permission: true, handler: 0, integration_types: [0], name_localizations: { foo: 'x' }, options: [{ description: 'x', name: 'x', type: 1, description_localizations: { foo: 'x' }, name_localizations: { foo: 'x' }, required: true }], type: 1 }]);
   });
 });

@@ -1,15 +1,14 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import { APIPromise } from '../../core';
 import * as Core from '../../core';
+import * as TemplatesAPI from './templates';
 import * as UsersAPI from '../users/users';
 
 export class Templates extends APIResource {
-  create(
-    guildId: string,
-    body: TemplateCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<GuildTemplate> {
+  create(guildId: string, body: TemplateCreateParams, options?: Core.RequestOptions): Core.APIPromise<GuildTemplate> {
     return this._client.post(`/guilds/${guildId}/templates`, { body, ...options });
   }
 
@@ -17,12 +16,7 @@ export class Templates extends APIResource {
     return this._client.get(`/guilds/templates/${code}`, options);
   }
 
-  update(
-    guildId: string,
-    code: string,
-    body: TemplateUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<GuildTemplate> {
+  update(guildId: string, code: string, body: TemplateUpdateParams, options?: Core.RequestOptions): Core.APIPromise<GuildTemplate> {
     return this._client.patch(`/guilds/${guildId}/templates/${code}`, { body, ...options });
   }
 
@@ -117,41 +111,7 @@ export namespace GuildTemplate {
      * - `zh-CN` - The zh-CN locale
      * - `zh-TW` - The zh-TW locale
      */
-    preferred_locale:
-      | 'ar'
-      | 'bg'
-      | 'cs'
-      | 'da'
-      | 'de'
-      | 'el'
-      | 'en-GB'
-      | 'en-US'
-      | 'es-419'
-      | 'es-ES'
-      | 'fi'
-      | 'fr'
-      | 'he'
-      | 'hi'
-      | 'hr'
-      | 'hu'
-      | 'id'
-      | 'it'
-      | 'ja'
-      | 'ko'
-      | 'lt'
-      | 'nl'
-      | 'no'
-      | 'pl'
-      | 'pt-BR'
-      | 'ro'
-      | 'ru'
-      | 'sv-SE'
-      | 'th'
-      | 'tr'
-      | 'uk'
-      | 'vi'
-      | 'zh-CN'
-      | 'zh-TW';
+    preferred_locale: 'ar' | 'bg' | 'cs' | 'da' | 'de' | 'el' | 'en-GB' | 'en-US' | 'es-419' | 'es-ES' | 'fi' | 'fr' | 'he' | 'hi' | 'hr' | 'hu' | 'id' | 'it' | 'ja' | 'ko' | 'lt' | 'nl' | 'no' | 'pl' | 'pt-BR' | 'ro' | 'ru' | 'sv-SE' | 'th' | 'tr' | 'uk' | 'vi' | 'zh-CN' | 'zh-TW';
 
     roles: Array<SerializedSourceGuild.Role>;
 
@@ -298,7 +258,7 @@ export namespace GuildTemplate {
   }
 }
 
-export type TemplateListResponse = Array<GuildTemplate>;
+export type TemplateListResponse = Array<GuildTemplate>
 
 export interface TemplateCreateParams {
   name: string;
@@ -317,6 +277,6 @@ export declare namespace Templates {
     type GuildTemplate as GuildTemplate,
     type TemplateListResponse as TemplateListResponse,
     type TemplateCreateParams as TemplateCreateParams,
-    type TemplateUpdateParams as TemplateUpdateParams,
+    type TemplateUpdateParams as TemplateUpdateParams
   };
 }

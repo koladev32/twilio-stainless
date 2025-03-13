@@ -2,7 +2,10 @@
 
 import { APIResource } from '../../../resource';
 import { isRequestOptions } from '../../../core';
+import { APIPromise } from '../../../core';
 import * as Core from '../../../core';
+import * as MessagesAPI from './messages';
+import { maybeMultipartFormRequestOptions } from '../../../core';
 import * as Shared from '../../shared';
 import * as ReactionsAPI from './reactions';
 import { ReactionRetrieveAllParams, ReactionRetrieveAllResponse, Reactions, UserResponse } from './reactions';
@@ -13,48 +16,21 @@ export class Messages extends APIResource {
   reactions: ReactionsAPI.Reactions = new ReactionsAPI.Reactions(this._client);
   threads: ThreadsAPI.Threads = new ThreadsAPI.Threads(this._client);
 
-  create(
-    channelId: string,
-    body: MessageCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.MessageResponse> {
-    return this._client.post(
-      `/channels/${channelId}/messages`,
-      Core.maybeMultipartFormRequestOptions({ body, ...options }),
-    );
+  create(channelId: string, body: MessageCreateParams, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse> {
+    return this._client.post(`/channels/${channelId}/messages`, Core.maybeMultipartFormRequestOptions({ body, ...options }));
   }
 
-  retrieve(
-    channelId: string,
-    messageId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.MessageResponse> {
+  retrieve(channelId: string, messageId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse> {
     return this._client.get(`/channels/${channelId}/messages/${messageId}`, options);
   }
 
-  update(
-    channelId: string,
-    messageId: string,
-    body: MessageUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.MessageResponse> {
-    return this._client.patch(
-      `/channels/${channelId}/messages/${messageId}`,
-      Core.maybeMultipartFormRequestOptions({ body, ...options }),
-    );
+  update(channelId: string, messageId: string, body: MessageUpdateParams, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse> {
+    return this._client.patch(`/channels/${channelId}/messages/${messageId}`, Core.maybeMultipartFormRequestOptions({ body, ...options }));
   }
 
-  list(
-    channelId: string,
-    query?: MessageListParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<MessageListResponse | null>;
-  list(channelId: string, options?: Core.RequestOptions): Core.APIPromise<MessageListResponse | null>;
-  list(
-    channelId: string,
-    query: MessageListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<MessageListResponse | null> {
+  list(channelId: string, query?: MessageListParams, options?: Core.RequestOptions): Core.APIPromise<MessageListResponse | null>
+  list(channelId: string, options?: Core.RequestOptions): Core.APIPromise<MessageListResponse | null>
+  list(channelId: string, query: MessageListParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<MessageListResponse | null> {
     if (isRequestOptions(query)) {
       return this.list(channelId, {}, query);
     }
@@ -62,34 +38,19 @@ export class Messages extends APIResource {
   }
 
   delete(channelId: string, messageId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/channels/${channelId}/messages/${messageId}`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+    return this._client.delete(`/channels/${channelId}/messages/${messageId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
-  bulkDelete(
-    channelId: string,
-    body: MessageBulkDeleteParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void> {
-    return this._client.post(`/channels/${channelId}/messages/bulk-delete`, {
-      body,
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+  bulkDelete(channelId: string, body: MessageBulkDeleteParams, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.post(`/channels/${channelId}/messages/bulk-delete`, { body, ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 
-  crosspost(
-    channelId: string,
-    messageId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.MessageResponse> {
+  crosspost(channelId: string, messageId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse> {
     return this._client.post(`/channels/${channelId}/messages/${messageId}/crosspost`, options);
   }
 }
 
-export type MessageListResponse = Array<Shared.MessageResponse>;
+export type MessageListResponse = Array<Shared.MessageResponse>
 
 export interface MessageCreateParams {
   allowed_mentions?: MessageCreateParams.AllowedMentions | null;
@@ -145,14 +106,7 @@ export namespace MessageCreateParams {
   }
 
   export interface Component {
-    components: Array<
-      | Component.ButtonComponentForMessageRequest
-      | Component.ChannelSelectComponentForMessageRequest
-      | Component.MentionableSelectComponentForMessageRequest
-      | Component.RoleSelectComponentForMessageRequest
-      | Component.StringSelectComponentForMessageRequest
-      | Component.UserSelectComponentForMessageRequest
-    >;
+    components: Array<Component.ButtonComponentForMessageRequest | Component.ChannelSelectComponentForMessageRequest | Component.MentionableSelectComponentForMessageRequest | Component.RoleSelectComponentForMessageRequest | Component.StringSelectComponentForMessageRequest | Component.UserSelectComponentForMessageRequest>;
 
     /**
      * - `1` - Container for other components
@@ -255,10 +209,7 @@ export namespace MessageCreateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      default_values?: Array<
-        | MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue
-        | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue
-      > | null;
+      default_values?: Array<MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue> | null;
 
       disabled?: boolean | null;
 
@@ -612,14 +563,7 @@ export namespace MessageUpdateParams {
   }
 
   export interface Component {
-    components: Array<
-      | Component.ButtonComponentForMessageRequest
-      | Component.ChannelSelectComponentForMessageRequest
-      | Component.MentionableSelectComponentForMessageRequest
-      | Component.RoleSelectComponentForMessageRequest
-      | Component.StringSelectComponentForMessageRequest
-      | Component.UserSelectComponentForMessageRequest
-    >;
+    components: Array<Component.ButtonComponentForMessageRequest | Component.ChannelSelectComponentForMessageRequest | Component.MentionableSelectComponentForMessageRequest | Component.RoleSelectComponentForMessageRequest | Component.StringSelectComponentForMessageRequest | Component.UserSelectComponentForMessageRequest>;
 
     /**
      * - `1` - Container for other components
@@ -722,10 +666,7 @@ export namespace MessageUpdateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      default_values?: Array<
-        | MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue
-        | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue
-      > | null;
+      default_values?: Array<MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue> | null;
 
       disabled?: boolean | null;
 
@@ -991,19 +932,19 @@ export declare namespace Messages {
     type MessageCreateParams as MessageCreateParams,
     type MessageUpdateParams as MessageUpdateParams,
     type MessageListParams as MessageListParams,
-    type MessageBulkDeleteParams as MessageBulkDeleteParams,
+    type MessageBulkDeleteParams as MessageBulkDeleteParams
   };
 
   export {
     Reactions as Reactions,
     type UserResponse as UserResponse,
     type ReactionRetrieveAllResponse as ReactionRetrieveAllResponse,
-    type ReactionRetrieveAllParams as ReactionRetrieveAllParams,
+    type ReactionRetrieveAllParams as ReactionRetrieveAllParams
   };
 
   export {
     Threads as Threads,
     type ThreadResponse as ThreadResponse,
-    type ThreadCreateParams as ThreadCreateParams,
+    type ThreadCreateParams as ThreadCreateParams
   };
 }

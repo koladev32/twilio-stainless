@@ -2,21 +2,15 @@
 
 import { APIResource } from '../../../../resource';
 import { isRequestOptions } from '../../../../core';
+import { APIPromise } from '../../../../core';
 import * as Core from '../../../../core';
+import * as PublicAPI from './public';
 import * as Shared from '../../../shared';
 
 export class Public extends APIResource {
-  list(
-    channelId: string,
-    query?: PublicListParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.ThreadsResponse>;
-  list(channelId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.ThreadsResponse>;
-  list(
-    channelId: string,
-    query: PublicListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.ThreadsResponse> {
+  list(channelId: string, query?: PublicListParams, options?: Core.RequestOptions): Core.APIPromise<Shared.ThreadsResponse>
+  list(channelId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.ThreadsResponse>
+  list(channelId: string, query: PublicListParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<Shared.ThreadsResponse> {
     if (isRequestOptions(query)) {
       return this.list(channelId, {}, query);
     }
@@ -31,5 +25,7 @@ export interface PublicListParams {
 }
 
 export declare namespace Public {
-  export { type PublicListParams as PublicListParams };
+  export {
+    type PublicListParams as PublicListParams
+  };
 }
