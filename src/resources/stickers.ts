@@ -1,10 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
-import { isRequestOptions } from '../core';
-import { APIPromise } from '../core';
 import * as Core from '../core';
-import * as StickersAPI from './stickers';
 import * as Shared from './shared';
 
 export class Stickers extends APIResource {
@@ -36,11 +33,8 @@ export interface StandardSticker {
   format_type?: 1 | 2 | 3 | 4 | null;
 }
 
-export type StickerRetrieveResponse = Shared.GuildSticker | StandardSticker
+export type StickerRetrieveResponse = Shared.GuildSticker | StandardSticker;
 
 export declare namespace Stickers {
-  export {
-    type StandardSticker as StandardSticker,
-    type StickerRetrieveResponse as StickerRetrieveResponse
-  };
+  export { type StandardSticker as StandardSticker, type StickerRetrieveResponse as StickerRetrieveResponse };
 }

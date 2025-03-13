@@ -1,23 +1,33 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as GuildsEmojisAPI from './emojis';
 import * as EmojisAPI from '../applications/emojis';
 import * as UsersAPI from '../users/users';
 
 export class Emojis extends APIResource {
-  create(guildId: string, body: EmojiCreateParams, options?: Core.RequestOptions): Core.APIPromise<EmojisAPI.EmojiResponse> {
+  create(
+    guildId: string,
+    body: EmojiCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EmojisAPI.EmojiResponse> {
     return this._client.post(`/guilds/${guildId}/emojis`, { body, ...options });
   }
 
-  retrieve(guildId: string, emojiId: string, options?: Core.RequestOptions): Core.APIPromise<EmojisAPI.EmojiResponse> {
+  retrieve(
+    guildId: string,
+    emojiId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EmojisAPI.EmojiResponse> {
     return this._client.get(`/guilds/${guildId}/emojis/${emojiId}`, options);
   }
 
-  update(guildId: string, emojiId: string, body: EmojiUpdateParams, options?: Core.RequestOptions): Core.APIPromise<EmojisAPI.EmojiResponse> {
+  update(
+    guildId: string,
+    emojiId: string,
+    body: EmojiUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EmojisAPI.EmojiResponse> {
     return this._client.patch(`/guilds/${guildId}/emojis/${emojiId}`, { body, ...options });
   }
 
@@ -26,7 +36,10 @@ export class Emojis extends APIResource {
   }
 
   delete(guildId: string, emojiId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/guilds/${guildId}/emojis/${emojiId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.delete(`/guilds/${guildId}/emojis/${emojiId}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 }
 
@@ -48,7 +61,7 @@ export interface Emoji {
   user?: UsersAPI.User | null;
 }
 
-export type EmojiListResponse = Array<EmojisAPI.EmojiResponse>
+export type EmojiListResponse = Array<EmojisAPI.EmojiResponse>;
 
 export interface EmojiCreateParams {
   image: string;
@@ -69,6 +82,6 @@ export declare namespace Emojis {
     type Emoji as Emoji,
     type EmojiListResponse as EmojiListResponse,
     type EmojiCreateParams as EmojiCreateParams,
-    type EmojiUpdateParams as EmojiUpdateParams
+    type EmojiUpdateParams as EmojiUpdateParams,
   };
 }

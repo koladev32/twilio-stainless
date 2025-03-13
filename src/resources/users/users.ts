@@ -1,12 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as UsersAPI from './users';
 import * as ChannelsAPI from './channels';
-import { ChannelCreateParams, ChannelCreateResponse, Channels, PrivateChannelResponse, PrivateGroupChannelResponse } from './channels';
+import {
+  ChannelCreateParams,
+  ChannelCreateResponse,
+  Channels,
+  PrivateChannelResponse,
+  PrivateGroupChannelResponse,
+} from './channels';
 import * as ConnectionsAPI from './connections';
 import { ConnectedAccountResponse, ConnectionListResponse, Connections } from './connections';
 import * as ApplicationsAPI from './applications/applications';
@@ -112,7 +115,41 @@ export interface UserPiiResponse {
    * - `zh-CN` - The zh-CN locale
    * - `zh-TW` - The zh-TW locale
    */
-  locale: 'ar' | 'bg' | 'cs' | 'da' | 'de' | 'el' | 'en-GB' | 'en-US' | 'es-419' | 'es-ES' | 'fi' | 'fr' | 'he' | 'hi' | 'hr' | 'hu' | 'id' | 'it' | 'ja' | 'ko' | 'lt' | 'nl' | 'no' | 'pl' | 'pt-BR' | 'ro' | 'ru' | 'sv-SE' | 'th' | 'tr' | 'uk' | 'vi' | 'zh-CN' | 'zh-TW';
+  locale:
+    | 'ar'
+    | 'bg'
+    | 'cs'
+    | 'da'
+    | 'de'
+    | 'el'
+    | 'en-GB'
+    | 'en-US'
+    | 'es-419'
+    | 'es-ES'
+    | 'fi'
+    | 'fr'
+    | 'he'
+    | 'hi'
+    | 'hr'
+    | 'hu'
+    | 'id'
+    | 'it'
+    | 'ja'
+    | 'ko'
+    | 'lt'
+    | 'nl'
+    | 'no'
+    | 'pl'
+    | 'pt-BR'
+    | 'ro'
+    | 'ru'
+    | 'sv-SE'
+    | 'th'
+    | 'tr'
+    | 'uk'
+    | 'vi'
+    | 'zh-CN'
+    | 'zh-TW';
 
   mfa_enabled: boolean;
 
@@ -174,13 +211,13 @@ export declare namespace Users {
   export {
     type User as User,
     type UserPiiResponse as UserPiiResponse,
-    type UserUpdateMeParams as UserUpdateMeParams
+    type UserUpdateMeParams as UserUpdateMeParams,
   };
 
   export {
     Connections as Connections,
     type ConnectedAccountResponse as ConnectedAccountResponse,
-    type ConnectionListResponse as ConnectionListResponse
+    type ConnectionListResponse as ConnectionListResponse,
   };
 
   export {
@@ -188,17 +225,15 @@ export declare namespace Users {
     type PrivateChannelResponse as PrivateChannelResponse,
     type PrivateGroupChannelResponse as PrivateGroupChannelResponse,
     type ChannelCreateResponse as ChannelCreateResponse,
-    type ChannelCreateParams as ChannelCreateParams
+    type ChannelCreateParams as ChannelCreateParams,
   };
 
   export {
     Guilds as Guilds,
     type MyGuildResponse as MyGuildResponse,
     type GuildListResponse as GuildListResponse,
-    type GuildListParams as GuildListParams
+    type GuildListParams as GuildListParams,
   };
 
-  export {
-    Applications as Applications
-  };
+  export { Applications as Applications };
 }

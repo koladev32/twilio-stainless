@@ -1,21 +1,31 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
-import { isRequestOptions } from '../../../core';
-import { APIPromise } from '../../../core';
 import * as Core from '../../../core';
-import * as RulesAPI from './rules';
 
 export class Rules extends APIResource {
-  create(guildId: string, body: RuleCreateParams, options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse> {
+  create(
+    guildId: string,
+    body: RuleCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<RuleCreateResponse> {
     return this._client.post(`/guilds/${guildId}/auto-moderation/rules`, { body, ...options });
   }
 
-  retrieve(guildId: string, ruleId: string, options?: Core.RequestOptions): Core.APIPromise<RuleRetrieveResponse> {
+  retrieve(
+    guildId: string,
+    ruleId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<RuleRetrieveResponse> {
     return this._client.get(`/guilds/${guildId}/auto-moderation/rules/${ruleId}`, options);
   }
 
-  update(guildId: string, ruleId: string, body: RuleUpdateParams, options?: Core.RequestOptions): Core.APIPromise<RuleUpdateResponse> {
+  update(
+    guildId: string,
+    ruleId: string,
+    body: RuleUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<RuleUpdateResponse> {
     return this._client.patch(`/guilds/${guildId}/auto-moderation/rules/${ruleId}`, { body, ...options });
   }
 
@@ -24,14 +34,22 @@ export class Rules extends APIResource {
   }
 
   delete(guildId: string, ruleId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/guilds/${guildId}/auto-moderation/rules/${ruleId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.delete(`/guilds/${guildId}/auto-moderation/rules/${ruleId}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 }
 
 export interface DefaultKeywordRuleResponse {
   id: string;
 
-  actions: Array<DefaultKeywordRuleResponse.BlockMessageActionResponse | DefaultKeywordRuleResponse.FlagToChannelActionResponse | DefaultKeywordRuleResponse.QuarantineUserActionResponse | DefaultKeywordRuleResponse.UserCommunicationDisabledActionResponse>;
+  actions: Array<
+    | DefaultKeywordRuleResponse.BlockMessageActionResponse
+    | DefaultKeywordRuleResponse.FlagToChannelActionResponse
+    | DefaultKeywordRuleResponse.QuarantineUserActionResponse
+    | DefaultKeywordRuleResponse.UserCommunicationDisabledActionResponse
+  >;
 
   creator_id: string;
 
@@ -157,7 +175,12 @@ export namespace DefaultKeywordRuleResponse {
 export interface KeywordRuleResponse {
   id: string;
 
-  actions: Array<KeywordRuleResponse.BlockMessageActionResponse | KeywordRuleResponse.FlagToChannelActionResponse | KeywordRuleResponse.QuarantineUserActionResponse | KeywordRuleResponse.UserCommunicationDisabledActionResponse>;
+  actions: Array<
+    | KeywordRuleResponse.BlockMessageActionResponse
+    | KeywordRuleResponse.FlagToChannelActionResponse
+    | KeywordRuleResponse.QuarantineUserActionResponse
+    | KeywordRuleResponse.UserCommunicationDisabledActionResponse
+  >;
 
   creator_id: string;
 
@@ -285,7 +308,12 @@ export namespace KeywordRuleResponse {
 export interface MentionSpamRuleResponse {
   id: string;
 
-  actions: Array<MentionSpamRuleResponse.BlockMessageActionResponse | MentionSpamRuleResponse.FlagToChannelActionResponse | MentionSpamRuleResponse.QuarantineUserActionResponse | MentionSpamRuleResponse.UserCommunicationDisabledActionResponse>;
+  actions: Array<
+    | MentionSpamRuleResponse.BlockMessageActionResponse
+    | MentionSpamRuleResponse.FlagToChannelActionResponse
+    | MentionSpamRuleResponse.QuarantineUserActionResponse
+    | MentionSpamRuleResponse.UserCommunicationDisabledActionResponse
+  >;
 
   creator_id: string;
 
@@ -411,7 +439,12 @@ export namespace MentionSpamRuleResponse {
 export interface MlSpamRuleResponse {
   id: string;
 
-  actions: Array<MlSpamRuleResponse.BlockMessageActionResponse | MlSpamRuleResponse.FlagToChannelActionResponse | MlSpamRuleResponse.QuarantineUserActionResponse | MlSpamRuleResponse.UserCommunicationDisabledActionResponse>;
+  actions: Array<
+    | MlSpamRuleResponse.BlockMessageActionResponse
+    | MlSpamRuleResponse.FlagToChannelActionResponse
+    | MlSpamRuleResponse.QuarantineUserActionResponse
+    | MlSpamRuleResponse.UserCommunicationDisabledActionResponse
+  >;
 
   creator_id: string;
 
@@ -531,7 +564,12 @@ export namespace MlSpamRuleResponse {
 export interface SpamLinkRuleResponse {
   id: string;
 
-  actions: Array<SpamLinkRuleResponse.BlockMessageActionResponse | SpamLinkRuleResponse.FlagToChannelActionResponse | SpamLinkRuleResponse.QuarantineUserActionResponse | SpamLinkRuleResponse.UserCommunicationDisabledActionResponse>;
+  actions: Array<
+    | SpamLinkRuleResponse.BlockMessageActionResponse
+    | SpamLinkRuleResponse.FlagToChannelActionResponse
+    | SpamLinkRuleResponse.QuarantineUserActionResponse
+    | SpamLinkRuleResponse.UserCommunicationDisabledActionResponse
+  >;
 
   creator_id: string;
 
@@ -648,15 +686,41 @@ export namespace SpamLinkRuleResponse {
   }
 }
 
-export type RuleCreateResponse = DefaultKeywordRuleResponse | KeywordRuleResponse | MlSpamRuleResponse | MentionSpamRuleResponse | SpamLinkRuleResponse
+export type RuleCreateResponse =
+  | DefaultKeywordRuleResponse
+  | KeywordRuleResponse
+  | MlSpamRuleResponse
+  | MentionSpamRuleResponse
+  | SpamLinkRuleResponse;
 
-export type RuleRetrieveResponse = DefaultKeywordRuleResponse | KeywordRuleResponse | MlSpamRuleResponse | MentionSpamRuleResponse | SpamLinkRuleResponse
+export type RuleRetrieveResponse =
+  | DefaultKeywordRuleResponse
+  | KeywordRuleResponse
+  | MlSpamRuleResponse
+  | MentionSpamRuleResponse
+  | SpamLinkRuleResponse;
 
-export type RuleUpdateResponse = DefaultKeywordRuleResponse | KeywordRuleResponse | MlSpamRuleResponse | MentionSpamRuleResponse | SpamLinkRuleResponse
+export type RuleUpdateResponse =
+  | DefaultKeywordRuleResponse
+  | KeywordRuleResponse
+  | MlSpamRuleResponse
+  | MentionSpamRuleResponse
+  | SpamLinkRuleResponse;
 
-export type RuleListResponse = Array<DefaultKeywordRuleResponse | KeywordRuleResponse | MlSpamRuleResponse | MentionSpamRuleResponse | SpamLinkRuleResponse | null>
+export type RuleListResponse = Array<
+  | DefaultKeywordRuleResponse
+  | KeywordRuleResponse
+  | MlSpamRuleResponse
+  | MentionSpamRuleResponse
+  | SpamLinkRuleResponse
+  | null
+>;
 
-export type RuleCreateParams = RuleCreateParams.DefaultKeywordListUpsertRequest | RuleCreateParams.KeywordUpsertRequest | RuleCreateParams.MlSpamUpsertRequest | RuleCreateParams.MentionSpamUpsertRequest
+export type RuleCreateParams =
+  | RuleCreateParams.DefaultKeywordListUpsertRequest
+  | RuleCreateParams.KeywordUpsertRequest
+  | RuleCreateParams.MlSpamUpsertRequest
+  | RuleCreateParams.MentionSpamUpsertRequest;
 
 export declare namespace RuleCreateParams {
   export interface DefaultKeywordListUpsertRequest {
@@ -680,7 +744,12 @@ export declare namespace RuleCreateParams {
      */
     trigger_type: 1 | 2 | 3 | 4 | 5;
 
-    actions?: Array<DefaultKeywordListUpsertRequest.BlockMessageAction | DefaultKeywordListUpsertRequest.FlagToChannelAction | DefaultKeywordListUpsertRequest.QuarantineUserAction | DefaultKeywordListUpsertRequest.UserCommunicationDisabledAction> | null;
+    actions?: Array<
+      | DefaultKeywordListUpsertRequest.BlockMessageAction
+      | DefaultKeywordListUpsertRequest.FlagToChannelAction
+      | DefaultKeywordListUpsertRequest.QuarantineUserAction
+      | DefaultKeywordListUpsertRequest.UserCommunicationDisabledAction
+    > | null;
 
     enabled?: boolean | null;
 
@@ -798,7 +867,12 @@ export declare namespace RuleCreateParams {
      */
     trigger_type: 1 | 2 | 3 | 4 | 5;
 
-    actions?: Array<KeywordUpsertRequest.BlockMessageAction | KeywordUpsertRequest.FlagToChannelAction | KeywordUpsertRequest.QuarantineUserAction | KeywordUpsertRequest.UserCommunicationDisabledAction> | null;
+    actions?: Array<
+      | KeywordUpsertRequest.BlockMessageAction
+      | KeywordUpsertRequest.FlagToChannelAction
+      | KeywordUpsertRequest.QuarantineUserAction
+      | KeywordUpsertRequest.UserCommunicationDisabledAction
+    > | null;
 
     enabled?: boolean | null;
 
@@ -920,7 +994,12 @@ export declare namespace RuleCreateParams {
      */
     trigger_type: 1 | 2 | 3 | 4 | 5;
 
-    actions?: Array<MlSpamUpsertRequest.BlockMessageAction | MlSpamUpsertRequest.FlagToChannelAction | MlSpamUpsertRequest.QuarantineUserAction | MlSpamUpsertRequest.UserCommunicationDisabledAction> | null;
+    actions?: Array<
+      | MlSpamUpsertRequest.BlockMessageAction
+      | MlSpamUpsertRequest.FlagToChannelAction
+      | MlSpamUpsertRequest.QuarantineUserAction
+      | MlSpamUpsertRequest.UserCommunicationDisabledAction
+    > | null;
 
     enabled?: boolean | null;
 
@@ -1034,7 +1113,12 @@ export declare namespace RuleCreateParams {
      */
     trigger_type: 1 | 2 | 3 | 4 | 5;
 
-    actions?: Array<MentionSpamUpsertRequest.BlockMessageAction | MentionSpamUpsertRequest.FlagToChannelAction | MentionSpamUpsertRequest.QuarantineUserAction | MentionSpamUpsertRequest.UserCommunicationDisabledAction> | null;
+    actions?: Array<
+      | MentionSpamUpsertRequest.BlockMessageAction
+      | MentionSpamUpsertRequest.FlagToChannelAction
+      | MentionSpamUpsertRequest.QuarantineUserAction
+      | MentionSpamUpsertRequest.UserCommunicationDisabledAction
+    > | null;
 
     enabled?: boolean | null;
 
@@ -1136,11 +1220,20 @@ export declare namespace RuleCreateParams {
   }
 }
 
-export type RuleUpdateParams = RuleUpdateParams.DefaultKeywordListUpsertRequestPartial | RuleUpdateParams.KeywordUpsertRequestPartial | RuleUpdateParams.MlSpamUpsertRequestPartial | RuleUpdateParams.MentionSpamUpsertRequestPartial
+export type RuleUpdateParams =
+  | RuleUpdateParams.DefaultKeywordListUpsertRequestPartial
+  | RuleUpdateParams.KeywordUpsertRequestPartial
+  | RuleUpdateParams.MlSpamUpsertRequestPartial
+  | RuleUpdateParams.MentionSpamUpsertRequestPartial;
 
 export declare namespace RuleUpdateParams {
   export interface DefaultKeywordListUpsertRequestPartial {
-    actions?: Array<DefaultKeywordListUpsertRequestPartial.BlockMessageAction | DefaultKeywordListUpsertRequestPartial.FlagToChannelAction | DefaultKeywordListUpsertRequestPartial.QuarantineUserAction | DefaultKeywordListUpsertRequestPartial.UserCommunicationDisabledAction> | null;
+    actions?: Array<
+      | DefaultKeywordListUpsertRequestPartial.BlockMessageAction
+      | DefaultKeywordListUpsertRequestPartial.FlagToChannelAction
+      | DefaultKeywordListUpsertRequestPartial.QuarantineUserAction
+      | DefaultKeywordListUpsertRequestPartial.UserCommunicationDisabledAction
+    > | null;
 
     enabled?: boolean | null;
 
@@ -1260,7 +1353,12 @@ export declare namespace RuleUpdateParams {
   }
 
   export interface KeywordUpsertRequestPartial {
-    actions?: Array<KeywordUpsertRequestPartial.BlockMessageAction | KeywordUpsertRequestPartial.FlagToChannelAction | KeywordUpsertRequestPartial.QuarantineUserAction | KeywordUpsertRequestPartial.UserCommunicationDisabledAction> | null;
+    actions?: Array<
+      | KeywordUpsertRequestPartial.BlockMessageAction
+      | KeywordUpsertRequestPartial.FlagToChannelAction
+      | KeywordUpsertRequestPartial.QuarantineUserAction
+      | KeywordUpsertRequestPartial.UserCommunicationDisabledAction
+    > | null;
 
     enabled?: boolean | null;
 
@@ -1382,7 +1480,12 @@ export declare namespace RuleUpdateParams {
   }
 
   export interface MlSpamUpsertRequestPartial {
-    actions?: Array<MlSpamUpsertRequestPartial.BlockMessageAction | MlSpamUpsertRequestPartial.FlagToChannelAction | MlSpamUpsertRequestPartial.QuarantineUserAction | MlSpamUpsertRequestPartial.UserCommunicationDisabledAction> | null;
+    actions?: Array<
+      | MlSpamUpsertRequestPartial.BlockMessageAction
+      | MlSpamUpsertRequestPartial.FlagToChannelAction
+      | MlSpamUpsertRequestPartial.QuarantineUserAction
+      | MlSpamUpsertRequestPartial.UserCommunicationDisabledAction
+    > | null;
 
     enabled?: boolean | null;
 
@@ -1496,7 +1599,12 @@ export declare namespace RuleUpdateParams {
   }
 
   export interface MentionSpamUpsertRequestPartial {
-    actions?: Array<MentionSpamUpsertRequestPartial.BlockMessageAction | MentionSpamUpsertRequestPartial.FlagToChannelAction | MentionSpamUpsertRequestPartial.QuarantineUserAction | MentionSpamUpsertRequestPartial.UserCommunicationDisabledAction> | null;
+    actions?: Array<
+      | MentionSpamUpsertRequestPartial.BlockMessageAction
+      | MentionSpamUpsertRequestPartial.FlagToChannelAction
+      | MentionSpamUpsertRequestPartial.QuarantineUserAction
+      | MentionSpamUpsertRequestPartial.UserCommunicationDisabledAction
+    > | null;
 
     enabled?: boolean | null;
 
@@ -1628,6 +1736,6 @@ export declare namespace Rules {
     type RuleUpdateResponse as RuleUpdateResponse,
     type RuleListResponse as RuleListResponse,
     type RuleCreateParams as RuleCreateParams,
-    type RuleUpdateParams as RuleUpdateParams
+    type RuleUpdateParams as RuleUpdateParams,
   };
 }

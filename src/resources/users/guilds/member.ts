@@ -1,10 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
-import { isRequestOptions } from '../../../core';
-import { APIPromise } from '../../../core';
 import * as Core from '../../../core';
-import * as MemberAPI from './member';
 import * as UsersAPI from '../users';
 
 export class Member extends APIResource {
@@ -50,7 +47,5 @@ export namespace PrivateGuildMemberResponse {
 }
 
 export declare namespace Member {
-  export {
-    type PrivateGuildMemberResponse as PrivateGuildMemberResponse
-  };
+  export { type PrivateGuildMemberResponse as PrivateGuildMemberResponse };
 }

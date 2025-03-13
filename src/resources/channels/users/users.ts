@@ -1,9 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
-import { isRequestOptions } from '../../../core';
-import { APIPromise } from '../../../core';
-import * as Core from '../../../core';
 import * as ThreadsAPI from './threads/threads';
 import { Threads } from './threads/threads';
 
@@ -14,7 +11,5 @@ export class Users extends APIResource {
 Users.Threads = Threads;
 
 export declare namespace Users {
-  export {
-    Threads as Threads
-  };
+  export { Threads as Threads };
 }

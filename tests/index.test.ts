@@ -12,7 +12,7 @@ describe('instantiate client', () => {
     jest.resetModules();
     process.env = { ...env };
 
-console.warn = jest.fn();
+    console.warn = jest.fn();
   });
 
   afterEach(() => {
@@ -20,7 +20,13 @@ console.warn = jest.fn();
   });
 
   describe('defaultHeaders', () => {
-    const client = new DiscordAPI({ baseURL: 'http://localhost:5000/', defaultHeaders: { 'X-My-Default-Header': '2' }, botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' })
+    const client = new DiscordAPI({
+      baseURL: 'http://localhost:5000/',
+      defaultHeaders: { 'X-My-Default-Header': '2' },
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+    });
 
     test('they are used in the request', () => {
       const { req } = client.buildRequest({ path: '/foo', method: 'post' });
@@ -48,29 +54,53 @@ console.warn = jest.fn();
 
   describe('defaultQuery', () => {
     test('with null query params given', () => {
-      const client = new DiscordAPI({ baseURL: 'http://localhost:5000/', defaultQuery: { apiVersion: 'foo' }, botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
+      const client = new DiscordAPI({
+        baseURL: 'http://localhost:5000/',
+        defaultQuery: { apiVersion: 'foo' },
+        botToken: 'My Bot Token',
+        clientId: 'My Client ID',
+        clientSecret: 'My Client Secret',
+      });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo');
     });
 
     test('multiple default query params', () => {
-      const client = new DiscordAPI({ baseURL: 'http://localhost:5000/', defaultQuery: { apiVersion: 'foo', hello: 'world' }, botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
+      const client = new DiscordAPI({
+        baseURL: 'http://localhost:5000/',
+        defaultQuery: { apiVersion: 'foo', hello: 'world' },
+        botToken: 'My Bot Token',
+        clientId: 'My Client ID',
+        clientSecret: 'My Client Secret',
+      });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo&hello=world');
     });
 
     test('overriding with `undefined`', () => {
-      const client = new DiscordAPI({ baseURL: 'http://localhost:5000/', defaultQuery: { hello: 'world' }, botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' })
+      const client = new DiscordAPI({
+        baseURL: 'http://localhost:5000/',
+        defaultQuery: { hello: 'world' },
+        botToken: 'My Bot Token',
+        clientId: 'My Client ID',
+        clientSecret: 'My Client Secret',
+      });
       expect(client.buildURL('/foo', { hello: undefined })).toEqual('http://localhost:5000/foo');
     });
   });
 
   test('custom fetch', async () => {
-    const client = new DiscordAPI({ baseURL: 'http://localhost:5000/', botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', fetch: (url) => {
-  return Promise.resolve(
-    new Response(JSON.stringify({ url, custom: true }), {
-      headers: { 'Content-Type': 'application/json' },
-    }),
-  );
-} });
+    const client = new DiscordAPI({
+      baseURL: 'http://localhost:5000/',
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+      fetch: (url) => {
+        return Promise.resolve(
+          new Response(JSON.stringify({ url, custom: true }), {
+            headers: { 'Content-Type': 'application/json' },
+          }),
+        );
+      },
+    });
 
     const response = await client.get('/foo');
     expect(response).toEqual({ url: 'http://localhost:5000/foo', custom: true });
@@ -78,30 +108,40 @@ console.warn = jest.fn();
 
   test('explicit global fetch', async () => {
     // make sure the global fetch type is assignable to our Fetch type
-    const client = new DiscordAPI({ baseURL: 'http://localhost:5000/', botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', fetch: defaultFetch });
+    const client = new DiscordAPI({
+      baseURL: 'http://localhost:5000/',
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+      fetch: defaultFetch,
+    });
   });
 
   test('custom signal', async () => {
-    const client = new DiscordAPI({ baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010', botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', fetch: (...args) => {
-  return new Promise((resolve, reject) =>
-    setTimeout(
-      () =>
-        defaultFetch(...args)
-          .then(resolve)
-          .catch(reject),
-      300,
-    ),
-  );
-} });
+    const client = new DiscordAPI({
+      baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+      fetch: (...args) => {
+        return new Promise((resolve, reject) =>
+          setTimeout(
+            () =>
+              defaultFetch(...args)
+                .then(resolve)
+                .catch(reject),
+            300,
+          ),
+        );
+      },
+    });
 
     const controller = new AbortController();
     setTimeout(() => controller.abort(), 200);
 
     const spy = jest.spyOn(client, 'request');
 
-    await expect(client.get('/foo', { signal: controller.signal })).rejects.toThrowError(
-      APIUserAbortError,
-    );
+    await expect(client.get('/foo', { signal: controller.signal })).rejects.toThrowError(APIUserAbortError);
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
@@ -112,7 +152,13 @@ console.warn = jest.fn();
       return new Response(JSON.stringify({}), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new DiscordAPI({ baseURL: 'http://localhost:5000/', botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', fetch: testFetch });
+    const client = new DiscordAPI({
+      baseURL: 'http://localhost:5000/',
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+      fetch: testFetch,
+    });
 
     await client.patch('/foo');
     expect(capturedRequest?.method).toEqual('PATCH');
@@ -120,12 +166,22 @@ console.warn = jest.fn();
 
   describe('baseUrl', () => {
     test('trailing slash', () => {
-      const client = new DiscordAPI({ baseURL: 'http://localhost:5000/custom/path/', botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
+      const client = new DiscordAPI({
+        baseURL: 'http://localhost:5000/custom/path/',
+        botToken: 'My Bot Token',
+        clientId: 'My Client ID',
+        clientSecret: 'My Client Secret',
+      });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
     test('no trailing slash', () => {
-      const client = new DiscordAPI({ baseURL: 'http://localhost:5000/custom/path', botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
+      const client = new DiscordAPI({
+        baseURL: 'http://localhost:5000/custom/path',
+        botToken: 'My Bot Token',
+        clientId: 'My Client ID',
+        clientSecret: 'My Client Secret',
+      });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
@@ -134,36 +190,61 @@ console.warn = jest.fn();
     });
 
     test('explicit option', () => {
-      const client = new DiscordAPI({ baseURL: 'https://example.com', botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
+      const client = new DiscordAPI({
+        baseURL: 'https://example.com',
+        botToken: 'My Bot Token',
+        clientId: 'My Client ID',
+        clientSecret: 'My Client Secret',
+      });
       expect(client.baseURL).toEqual('https://example.com');
     });
 
     test('env variable', () => {
       process.env['DISCORD_API_BASE_URL'] = 'https://example.com/from_env';
-      const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
+      const client = new DiscordAPI({
+        botToken: 'My Bot Token',
+        clientId: 'My Client ID',
+        clientSecret: 'My Client Secret',
+      });
       expect(client.baseURL).toEqual('https://example.com/from_env');
     });
 
     test('empty env variable', () => {
       process.env['DISCORD_API_BASE_URL'] = ''; // empty
-      const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
-      expect(client.baseURL).toEqual('https://discord.com/api/v10')
+      const client = new DiscordAPI({
+        botToken: 'My Bot Token',
+        clientId: 'My Client ID',
+        clientSecret: 'My Client Secret',
+      });
+      expect(client.baseURL).toEqual('https://discord.com/api/v10');
     });
 
     test('blank env variable', () => {
       process.env['DISCORD_API_BASE_URL'] = '  '; // blank
-      const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
-      expect(client.baseURL).toEqual('https://discord.com/api/v10')
+      const client = new DiscordAPI({
+        botToken: 'My Bot Token',
+        clientId: 'My Client ID',
+        clientSecret: 'My Client Secret',
+      });
+      expect(client.baseURL).toEqual('https://discord.com/api/v10');
     });
-
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new DiscordAPI({ maxRetries: 4, botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
+    const client = new DiscordAPI({
+      maxRetries: 4,
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+    });
     expect(client.maxRetries).toEqual(4);
 
     // default
-    const client2 = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
+    const client2 = new DiscordAPI({
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+    });
     expect(client2.maxRetries).toEqual(2);
   });
 
@@ -183,7 +264,11 @@ console.warn = jest.fn();
     process.env['BOT_TOKEN'] = 'another My Bot Token';
     process.env['CLIENT_ID'] = 'another My Client ID';
     process.env['CLIENT_SECRET'] = 'another My Client Secret';
-    const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
+    const client = new DiscordAPI({
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+    });
     expect(client.botToken).toBe('My Bot Token');
     expect(client.clientId).toBe('My Client ID');
     expect(client.clientSecret).toBe('My Client Secret');
@@ -191,7 +276,11 @@ console.warn = jest.fn();
 });
 
 describe('request building', () => {
-  const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret' });
+  const client = new DiscordAPI({
+    botToken: 'My Bot Token',
+    clientId: 'My Client ID',
+    clientSecret: 'My Client Secret',
+  });
 
   describe('Content-Length', () => {
     test('handles multi-byte characters', () => {
@@ -207,45 +296,56 @@ describe('request building', () => {
 
   describe('custom headers', () => {
     test('handles undefined', () => {
-      const { req } = client.buildRequest({ path: '/foo', method: 'post', body: { value: 'hello' }, headers: { 'X-Foo': 'baz', 'x-foo': 'bar', 'x-Foo': undefined, 'x-baz': 'bam', 'X-Baz': null } });
+      const { req } = client.buildRequest({
+        path: '/foo',
+        method: 'post',
+        body: { value: 'hello' },
+        headers: { 'X-Foo': 'baz', 'x-foo': 'bar', 'x-Foo': undefined, 'x-baz': 'bam', 'X-Baz': null },
+      });
       expect((req.headers as Record<string, string>)['x-foo']).toEqual('bar');
       expect((req.headers as Record<string, string>)['x-Foo']).toEqual(undefined);
       expect((req.headers as Record<string, string>)['X-Foo']).toEqual(undefined);
       expect((req.headers as Record<string, string>)['x-baz']).toEqual(undefined);
     });
-  })
+  });
 });
 
 describe('retries', () => {
   test('retry on timeout', async () => {
     let count = 0;
-      const testFetch = async (url: RequestInfo, { signal }: RequestInit = {}): Promise<Response> => {
-        if (count++ === 0) {
-          return new Promise((resolve, reject) =>
-            signal?.addEventListener('abort', () => reject(new Error('timed out'))),
-          );
-        }
-        return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
-      };
+    const testFetch = async (url: RequestInfo, { signal }: RequestInit = {}): Promise<Response> => {
+      if (count++ === 0) {
+        return new Promise(
+          (resolve, reject) => signal?.addEventListener('abort', () => reject(new Error('timed out'))),
+        );
+      }
+      return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
+    };
 
-      const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', timeout: 10, fetch: testFetch });
-
-      expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
-      expect(count).toEqual(2);
-      expect(
-        await client
-          .request({ path: '/foo', method: 'get' })
-          .asResponse()
-          .then((r) => r.text()),
-      ).toEqual(JSON.stringify({ a: 1 }));
-      expect(count).toEqual(3);
+    const client = new DiscordAPI({
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+      timeout: 10,
+      fetch: testFetch,
     });
+
+    expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
+    expect(count).toEqual(2);
+    expect(
+      await client
+        .request({ path: '/foo', method: 'get' })
+        .asResponse()
+        .then((r) => r.text()),
+    ).toEqual(JSON.stringify({ a: 1 }));
+    expect(count).toEqual(3);
+  });
 
   test('retry count header', async () => {
     let count = 0;
     let capturedRequest: RequestInit | undefined;
     const testFetch = async (url: RequestInfo, init: RequestInit = {}): Promise<Response> => {
-      count++
+      count++;
       if (count <= 2) {
         return new Response(undefined, {
           status: 429,
@@ -258,7 +358,13 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', fetch: testFetch, maxRetries: 4 });
+    const client = new DiscordAPI({
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
 
@@ -270,7 +376,7 @@ describe('retries', () => {
     let count = 0;
     let capturedRequest: RequestInit | undefined;
     const testFetch = async (url: RequestInfo, init: RequestInit = {}): Promise<Response> => {
-      count++
+      count++;
       if (count <= 2) {
         return new Response(undefined, {
           status: 429,
@@ -282,7 +388,13 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', fetch: testFetch, maxRetries: 4 });
+    const client = new DiscordAPI({
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(
       await client.request({
@@ -299,7 +411,7 @@ describe('retries', () => {
     let count = 0;
     let capturedRequest: RequestInit | undefined;
     const testFetch = async (url: RequestInfo, init: RequestInit = {}): Promise<Response> => {
-      count++
+      count++;
       if (count <= 2) {
         return new Response(undefined, {
           status: 429,
@@ -311,7 +423,14 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', fetch: testFetch, maxRetries: 4, defaultHeaders: { 'X-Stainless-Retry-Count': null } });
+    const client = new DiscordAPI({
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+      fetch: testFetch,
+      maxRetries: 4,
+      defaultHeaders: { 'X-Stainless-Retry-Count': null },
+    });
 
     expect(
       await client.request({
@@ -327,7 +446,7 @@ describe('retries', () => {
     let count = 0;
     let capturedRequest: RequestInit | undefined;
     const testFetch = async (url: RequestInfo, init: RequestInit = {}): Promise<Response> => {
-      count++
+      count++;
       if (count <= 2) {
         return new Response(undefined, {
           status: 429,
@@ -339,7 +458,13 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', fetch: testFetch, maxRetries: 4 });
+    const client = new DiscordAPI({
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(
       await client.request({
@@ -366,7 +491,12 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', fetch: testFetch });
+    const client = new DiscordAPI({
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+      fetch: testFetch,
+    });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -393,7 +523,12 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new DiscordAPI({ botToken: 'My Bot Token', clientId: 'My Client ID', clientSecret: 'My Client Secret', fetch: testFetch });
+    const client = new DiscordAPI({
+      botToken: 'My Bot Token',
+      clientId: 'My Client ID',
+      clientSecret: 'My Client Secret',
+      fetch: testFetch,
+    });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);

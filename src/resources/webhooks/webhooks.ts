@@ -1,17 +1,21 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as WebhooksAPI from './webhooks';
-import { maybeMultipartFormRequestOptions } from '../../core';
 import * as Shared from '../shared';
 import * as UsersAPI from '../users/users';
 import * as GitHubAPI from './github';
 import { GitHub, GitHubCreateParams } from './github';
 import * as MessagesAPI from './messages';
-import { MessageDeleteOriginalParams, MessageDeleteParams, MessageRetrieveOriginalParams, MessageRetrieveParams, MessageUpdateOriginalParams, MessageUpdateParams, Messages } from './messages';
+import {
+  MessageDeleteOriginalParams,
+  MessageDeleteParams,
+  MessageRetrieveOriginalParams,
+  MessageRetrieveParams,
+  MessageUpdateOriginalParams,
+  MessageUpdateParams,
+  Messages,
+} from './messages';
 import * as SlackAPI from './slack';
 import { Slack, SlackCreateParams, SlackCreateResponse } from './slack';
 
@@ -20,24 +24,44 @@ export class Webhooks extends APIResource {
   github: GitHubAPI.GitHub = new GitHubAPI.GitHub(this._client);
   slack: SlackAPI.Slack = new SlackAPI.Slack(this._client);
 
-  create(webhookId: string, webhookToken: string, params: WebhookCreateParams, options?: Core.RequestOptions): Core.APIPromise<Shared.MessageResponse> {
+  create(
+    webhookId: string,
+    webhookToken: string,
+    params: WebhookCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Shared.MessageResponse> {
     const { thread_id, wait, ...body } = params;
-    return this._client.post(`/webhooks/${webhookId}/${webhookToken}`, Core.maybeMultipartFormRequestOptions({ query: { thread_id, wait }, body, ...options }));
+    return this._client.post(
+      `/webhooks/${webhookId}/${webhookToken}`,
+      Core.maybeMultipartFormRequestOptions({ query: { thread_id, wait }, body, ...options }),
+    );
   }
 
   retrieve(webhookId: string, options?: Core.RequestOptions): Core.APIPromise<WebhookRetrieveResponse> {
     return this._client.get(`/webhooks/${webhookId}`, options);
   }
 
-  update(webhookId: string, body: WebhookUpdateParams, options?: Core.RequestOptions): Core.APIPromise<WebhookUpdateResponse> {
+  update(
+    webhookId: string,
+    body: WebhookUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<WebhookUpdateResponse> {
     return this._client.patch(`/webhooks/${webhookId}`, { body, ...options });
   }
 
   delete(webhookId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/webhooks/${webhookId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.delete(`/webhooks/${webhookId}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 
-  tokenUpdate(webhookId: string, webhookToken: string, body: WebhookTokenUpdateParams, options?: Core.RequestOptions): Core.APIPromise<WebhookTokenUpdateResponse> {
+  tokenUpdate(
+    webhookId: string,
+    webhookToken: string,
+    body: WebhookTokenUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<WebhookTokenUpdateResponse> {
     return this._client.patch(`/webhooks/${webhookId}/${webhookToken}`, { body, ...options });
   }
 }
@@ -110,13 +134,24 @@ export namespace ChannelFollowerWebhook {
   }
 }
 
-export type WebhookRetrieveResponse = ApplicationIncomingWebhook | ChannelFollowerWebhook | Shared.GuildIncomingWebhook
+export type WebhookRetrieveResponse =
+  | ApplicationIncomingWebhook
+  | ChannelFollowerWebhook
+  | Shared.GuildIncomingWebhook;
 
-export type WebhookUpdateResponse = ApplicationIncomingWebhook | ChannelFollowerWebhook | Shared.GuildIncomingWebhook
+export type WebhookUpdateResponse =
+  | ApplicationIncomingWebhook
+  | ChannelFollowerWebhook
+  | Shared.GuildIncomingWebhook;
 
-export type WebhookTokenUpdateResponse = ApplicationIncomingWebhook | ChannelFollowerWebhook | Shared.GuildIncomingWebhook
+export type WebhookTokenUpdateResponse =
+  | ApplicationIncomingWebhook
+  | ChannelFollowerWebhook
+  | Shared.GuildIncomingWebhook;
 
-export type WebhookCreateParams = WebhookCreateParams.IncomingWebhookRequestPartial | WebhookCreateParams.IncomingWebhookUpdateRequestPartial
+export type WebhookCreateParams =
+  | WebhookCreateParams.IncomingWebhookRequestPartial
+  | WebhookCreateParams.IncomingWebhookUpdateRequestPartial;
 
 export declare namespace WebhookCreateParams {
   export interface IncomingWebhookRequestPartial {
@@ -219,7 +254,14 @@ export declare namespace WebhookCreateParams {
     }
 
     export interface Component {
-      components: Array<Component.ButtonComponentForMessageRequest | Component.ChannelSelectComponentForMessageRequest | Component.MentionableSelectComponentForMessageRequest | Component.RoleSelectComponentForMessageRequest | Component.StringSelectComponentForMessageRequest | Component.UserSelectComponentForMessageRequest>;
+      components: Array<
+        | Component.ButtonComponentForMessageRequest
+        | Component.ChannelSelectComponentForMessageRequest
+        | Component.MentionableSelectComponentForMessageRequest
+        | Component.RoleSelectComponentForMessageRequest
+        | Component.StringSelectComponentForMessageRequest
+        | Component.UserSelectComponentForMessageRequest
+      >;
 
       /**
        * - `1` - Container for other components
@@ -322,7 +364,10 @@ export declare namespace WebhookCreateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-        default_values?: Array<MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue> | null;
+        default_values?: Array<
+          | MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue
+          | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue
+        > | null;
 
         disabled?: boolean | null;
 
@@ -692,7 +737,14 @@ export declare namespace WebhookCreateParams {
     }
 
     export interface Component {
-      components: Array<Component.ButtonComponentForMessageRequest | Component.ChannelSelectComponentForMessageRequest | Component.MentionableSelectComponentForMessageRequest | Component.RoleSelectComponentForMessageRequest | Component.StringSelectComponentForMessageRequest | Component.UserSelectComponentForMessageRequest>;
+      components: Array<
+        | Component.ButtonComponentForMessageRequest
+        | Component.ChannelSelectComponentForMessageRequest
+        | Component.MentionableSelectComponentForMessageRequest
+        | Component.RoleSelectComponentForMessageRequest
+        | Component.StringSelectComponentForMessageRequest
+        | Component.UserSelectComponentForMessageRequest
+      >;
 
       /**
        * - `1` - Container for other components
@@ -795,7 +847,10 @@ export declare namespace WebhookCreateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-        default_values?: Array<MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue> | null;
+        default_values?: Array<
+          | MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue
+          | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue
+        > | null;
 
         disabled?: boolean | null;
 
@@ -1118,7 +1173,7 @@ export declare namespace Webhooks {
     type WebhookTokenUpdateResponse as WebhookTokenUpdateResponse,
     type WebhookCreateParams as WebhookCreateParams,
     type WebhookUpdateParams as WebhookUpdateParams,
-    type WebhookTokenUpdateParams as WebhookTokenUpdateParams
+    type WebhookTokenUpdateParams as WebhookTokenUpdateParams,
   };
 
   export {
@@ -1128,17 +1183,14 @@ export declare namespace Webhooks {
     type MessageDeleteParams as MessageDeleteParams,
     type MessageDeleteOriginalParams as MessageDeleteOriginalParams,
     type MessageRetrieveOriginalParams as MessageRetrieveOriginalParams,
-    type MessageUpdateOriginalParams as MessageUpdateOriginalParams
+    type MessageUpdateOriginalParams as MessageUpdateOriginalParams,
   };
 
-  export {
-    GitHub as GitHub,
-    type GitHubCreateParams as GitHubCreateParams
-  };
+  export { GitHub as GitHub, type GitHubCreateParams as GitHubCreateParams };
 
   export {
     Slack as Slack,
     type SlackCreateResponse as SlackCreateResponse,
-    type SlackCreateParams as SlackCreateParams
+    type SlackCreateParams as SlackCreateParams,
   };
 }

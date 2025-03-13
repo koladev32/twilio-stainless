@@ -1,10 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as PreviewAPI from './preview';
 import * as Shared from '../shared';
 import * as EmojisAPI from '../applications/emojis';
 
@@ -23,7 +20,35 @@ export interface GuildPreview {
 
   emojis: Array<EmojisAPI.EmojiResponse>;
 
-  features: Array<'ANIMATED_BANNER' | 'ANIMATED_ICON' | 'APPLICATION_COMMAND_PERMISSIONS_V2' | 'AUTO_MODERATION' | 'BANNER' | 'COMMUNITY' | 'CREATOR_MONETIZABLE_PROVISIONAL' | 'CREATOR_STORE_PAGE' | 'DEVELOPER_SUPPORT_SERVER' | 'DISCOVERABLE' | 'FEATURABLE' | 'INVITES_DISABLED' | 'INVITE_SPLASH' | 'MEMBER_VERIFICATION_GATE_ENABLED' | 'MORE_STICKERS' | 'NEWS' | 'PARTNERED' | 'PREVIEW_ENABLED' | 'RAID_ALERTS_DISABLED' | 'ROLE_ICONS' | 'ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE' | 'ROLE_SUBSCRIPTIONS_ENABLED' | 'TICKETED_EVENTS_ENABLED' | 'VANITY_URL' | 'VERIFIED' | 'VIP_REGIONS' | 'WELCOME_SCREEN_ENABLED'>;
+  features: Array<
+    | 'ANIMATED_BANNER'
+    | 'ANIMATED_ICON'
+    | 'APPLICATION_COMMAND_PERMISSIONS_V2'
+    | 'AUTO_MODERATION'
+    | 'BANNER'
+    | 'COMMUNITY'
+    | 'CREATOR_MONETIZABLE_PROVISIONAL'
+    | 'CREATOR_STORE_PAGE'
+    | 'DEVELOPER_SUPPORT_SERVER'
+    | 'DISCOVERABLE'
+    | 'FEATURABLE'
+    | 'INVITES_DISABLED'
+    | 'INVITE_SPLASH'
+    | 'MEMBER_VERIFICATION_GATE_ENABLED'
+    | 'MORE_STICKERS'
+    | 'NEWS'
+    | 'PARTNERED'
+    | 'PREVIEW_ENABLED'
+    | 'RAID_ALERTS_DISABLED'
+    | 'ROLE_ICONS'
+    | 'ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE'
+    | 'ROLE_SUBSCRIPTIONS_ENABLED'
+    | 'TICKETED_EVENTS_ENABLED'
+    | 'VANITY_URL'
+    | 'VERIFIED'
+    | 'VIP_REGIONS'
+    | 'WELCOME_SCREEN_ENABLED'
+  >;
 
   name: string;
 
@@ -41,7 +66,5 @@ export interface GuildPreview {
 }
 
 export declare namespace Preview {
-  export {
-    type GuildPreview as GuildPreview
-  };
+  export { type GuildPreview as GuildPreview };
 }

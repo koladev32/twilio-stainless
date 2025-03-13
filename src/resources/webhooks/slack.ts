@@ -1,20 +1,24 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as SlackAPI from './slack';
-import { maybeMultipartFormRequestOptions } from '../../core';
 
 export class Slack extends APIResource {
-  create(webhookId: string, webhookToken: string, params: SlackCreateParams, options?: Core.RequestOptions): Core.APIPromise<string> {
+  create(
+    webhookId: string,
+    webhookToken: string,
+    params: SlackCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<string> {
     const { thread_id, wait, ...body } = params;
-    return this._client.post(`/webhooks/${webhookId}/${webhookToken}/slack`, Core.maybeMultipartFormRequestOptions({ query: { thread_id, wait }, body, ...options }));
+    return this._client.post(
+      `/webhooks/${webhookId}/${webhookToken}/slack`,
+      Core.maybeMultipartFormRequestOptions({ query: { thread_id, wait }, body, ...options }),
+    );
   }
 }
 
-export type SlackCreateResponse = string | null
+export type SlackCreateResponse = string | null;
 
 export interface SlackCreateParams {
   /**
@@ -91,8 +95,5 @@ export namespace SlackCreateParams {
 }
 
 export declare namespace Slack {
-  export {
-    type SlackCreateResponse as SlackCreateResponse,
-    type SlackCreateParams as SlackCreateParams
-  };
+  export { type SlackCreateResponse as SlackCreateResponse, type SlackCreateParams as SlackCreateParams };
 }

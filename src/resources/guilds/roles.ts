@@ -1,10 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as RolesAPI from './roles';
 
 export class Roles extends APIResource {
   create(guildId: string, body: RoleCreateParams, options?: Core.RequestOptions): Core.APIPromise<GuildRole> {
@@ -15,7 +12,11 @@ export class Roles extends APIResource {
     return this._client.get(`/guilds/${guildId}/roles/${roleId}`, options);
   }
 
-  update(guildId: string, body: RoleUpdateParams, options?: Core.RequestOptions): Core.APIPromise<RoleUpdateResponse> {
+  update(
+    guildId: string,
+    body: RoleUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<RoleUpdateResponse> {
     return this._client.patch(`/guilds/${guildId}/roles`, { body, ...options });
   }
 
@@ -24,7 +25,10 @@ export class Roles extends APIResource {
   }
 
   delete(guildId: string, roleId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/guilds/${guildId}/roles/${roleId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.delete(`/guilds/${guildId}/roles/${roleId}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 }
 
@@ -70,9 +74,9 @@ export namespace GuildRole {
   }
 }
 
-export type RoleUpdateResponse = Array<GuildRole>
+export type RoleUpdateResponse = Array<GuildRole>;
 
-export type RoleListResponse = Array<GuildRole>
+export type RoleListResponse = Array<GuildRole>;
 
 export interface RoleCreateParams {
   color?: number | null;
@@ -90,7 +94,7 @@ export interface RoleCreateParams {
   unicode_emoji?: string | null;
 }
 
-export type RoleUpdateParams = Array<RoleUpdateParams.Body>
+export type RoleUpdateParams = Array<RoleUpdateParams.Body>;
 
 export namespace RoleUpdateParams {
   export interface Body {
@@ -106,6 +110,6 @@ export declare namespace Roles {
     type RoleUpdateResponse as RoleUpdateResponse,
     type RoleListResponse as RoleListResponse,
     type RoleCreateParams as RoleCreateParams,
-    type RoleUpdateParams as RoleUpdateParams
+    type RoleUpdateParams as RoleUpdateParams,
   };
 }

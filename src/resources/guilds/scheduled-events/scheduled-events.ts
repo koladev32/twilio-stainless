@@ -2,9 +2,7 @@
 
 import { APIResource } from '../../../resource';
 import { isRequestOptions } from '../../../core';
-import { APIPromise } from '../../../core';
 import * as Core from '../../../core';
-import * as ScheduledEventsAPI from './scheduled-events';
 import * as UsersAPI from '../../users/users';
 import * as ScheduledEventsUsersAPI from './users';
 import { ScheduledEventUserResponse, UserListParams, UserListResponse, Users } from './users';
@@ -12,34 +10,78 @@ import { ScheduledEventUserResponse, UserListParams, UserListResponse, Users } f
 export class ScheduledEvents extends APIResource {
   users: ScheduledEventsUsersAPI.Users = new ScheduledEventsUsersAPI.Users(this._client);
 
-  create(guildId: string, body: ScheduledEventCreateParams, options?: Core.RequestOptions): Core.APIPromise<ScheduledEventCreateResponse> {
+  create(
+    guildId: string,
+    body: ScheduledEventCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<ScheduledEventCreateResponse> {
     return this._client.post(`/guilds/${guildId}/scheduled-events`, { body, ...options });
   }
 
-  retrieve(guildId: string, guildScheduledEventId: string, query?: ScheduledEventRetrieveParams, options?: Core.RequestOptions): Core.APIPromise<ScheduledEventRetrieveResponse>
-  retrieve(guildId: string, guildScheduledEventId: string, options?: Core.RequestOptions): Core.APIPromise<ScheduledEventRetrieveResponse>
-  retrieve(guildId: string, guildScheduledEventId: string, query: ScheduledEventRetrieveParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<ScheduledEventRetrieveResponse> {
+  retrieve(
+    guildId: string,
+    guildScheduledEventId: string,
+    query?: ScheduledEventRetrieveParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<ScheduledEventRetrieveResponse>;
+  retrieve(
+    guildId: string,
+    guildScheduledEventId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<ScheduledEventRetrieveResponse>;
+  retrieve(
+    guildId: string,
+    guildScheduledEventId: string,
+    query: ScheduledEventRetrieveParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<ScheduledEventRetrieveResponse> {
     if (isRequestOptions(query)) {
       return this.retrieve(guildId, guildScheduledEventId, {}, query);
     }
-    return this._client.get(`/guilds/${guildId}/scheduled-events/${guildScheduledEventId}`, { query, ...options });
+    return this._client.get(`/guilds/${guildId}/scheduled-events/${guildScheduledEventId}`, {
+      query,
+      ...options,
+    });
   }
 
-  update(guildId: string, guildScheduledEventId: string, body: ScheduledEventUpdateParams, options?: Core.RequestOptions): Core.APIPromise<ScheduledEventUpdateResponse> {
-    return this._client.patch(`/guilds/${guildId}/scheduled-events/${guildScheduledEventId}`, { body, ...options });
+  update(
+    guildId: string,
+    guildScheduledEventId: string,
+    body: ScheduledEventUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<ScheduledEventUpdateResponse> {
+    return this._client.patch(`/guilds/${guildId}/scheduled-events/${guildScheduledEventId}`, {
+      body,
+      ...options,
+    });
   }
 
-  list(guildId: string, query?: ScheduledEventListParams, options?: Core.RequestOptions): Core.APIPromise<ScheduledEventListResponse | null>
-  list(guildId: string, options?: Core.RequestOptions): Core.APIPromise<ScheduledEventListResponse | null>
-  list(guildId: string, query: ScheduledEventListParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<ScheduledEventListResponse | null> {
+  list(
+    guildId: string,
+    query?: ScheduledEventListParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<ScheduledEventListResponse | null>;
+  list(guildId: string, options?: Core.RequestOptions): Core.APIPromise<ScheduledEventListResponse | null>;
+  list(
+    guildId: string,
+    query: ScheduledEventListParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<ScheduledEventListResponse | null> {
     if (isRequestOptions(query)) {
       return this.list(guildId, {}, query);
     }
     return this._client.get(`/guilds/${guildId}/scheduled-events`, { query, ...options });
   }
 
-  delete(guildId: string, guildScheduledEventId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/guilds/${guildId}/scheduled-events/${guildScheduledEventId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
+  delete(
+    guildId: string,
+    guildScheduledEventId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<void> {
+    return this._client.delete(`/guilds/${guildId}/scheduled-events/${guildScheduledEventId}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 }
 
@@ -166,15 +208,23 @@ export interface VoiceScheduledEvent {
   user_rsvp?: ScheduledEventsUsersAPI.ScheduledEventUserResponse | null;
 }
 
-export type ScheduledEventCreateResponse = ExternalScheduledEvent | StageScheduledEvent | VoiceScheduledEvent
+export type ScheduledEventCreateResponse = ExternalScheduledEvent | StageScheduledEvent | VoiceScheduledEvent;
 
-export type ScheduledEventRetrieveResponse = ExternalScheduledEvent | StageScheduledEvent | VoiceScheduledEvent
+export type ScheduledEventRetrieveResponse =
+  | ExternalScheduledEvent
+  | StageScheduledEvent
+  | VoiceScheduledEvent;
 
-export type ScheduledEventUpdateResponse = ExternalScheduledEvent | StageScheduledEvent | VoiceScheduledEvent
+export type ScheduledEventUpdateResponse = ExternalScheduledEvent | StageScheduledEvent | VoiceScheduledEvent;
 
-export type ScheduledEventListResponse = Array<ExternalScheduledEvent | StageScheduledEvent | VoiceScheduledEvent>
+export type ScheduledEventListResponse = Array<
+  ExternalScheduledEvent | StageScheduledEvent | VoiceScheduledEvent
+>;
 
-export type ScheduledEventCreateParams = ScheduledEventCreateParams.ExternalScheduledEventCreateRequest | ScheduledEventCreateParams.StageScheduledEventCreateRequest | ScheduledEventCreateParams.VoiceScheduledEventCreateRequest
+export type ScheduledEventCreateParams =
+  | ScheduledEventCreateParams.ExternalScheduledEventCreateRequest
+  | ScheduledEventCreateParams.StageScheduledEventCreateRequest
+  | ScheduledEventCreateParams.VoiceScheduledEventCreateRequest;
 
 export declare namespace ScheduledEventCreateParams {
   export interface ExternalScheduledEventCreateRequest {
@@ -257,7 +307,10 @@ export interface ScheduledEventRetrieveParams {
   with_user_count?: boolean;
 }
 
-export type ScheduledEventUpdateParams = ScheduledEventUpdateParams.ExternalScheduledEventPatchRequestPartial | ScheduledEventUpdateParams.StageScheduledEventPatchRequestPartial | ScheduledEventUpdateParams.VoiceScheduledEventPatchRequestPartial
+export type ScheduledEventUpdateParams =
+  | ScheduledEventUpdateParams.ExternalScheduledEventPatchRequestPartial
+  | ScheduledEventUpdateParams.StageScheduledEventPatchRequestPartial
+  | ScheduledEventUpdateParams.VoiceScheduledEventPatchRequestPartial;
 
 export declare namespace ScheduledEventUpdateParams {
   export interface ExternalScheduledEventPatchRequestPartial {
@@ -360,13 +413,13 @@ export declare namespace ScheduledEvents {
     type ScheduledEventCreateParams as ScheduledEventCreateParams,
     type ScheduledEventRetrieveParams as ScheduledEventRetrieveParams,
     type ScheduledEventUpdateParams as ScheduledEventUpdateParams,
-    type ScheduledEventListParams as ScheduledEventListParams
+    type ScheduledEventListParams as ScheduledEventListParams,
   };
 
   export {
     Users as Users,
     type ScheduledEventUserResponse as ScheduledEventUserResponse,
     type UserListResponse as UserListResponse,
-    type UserListParams as UserListParams
+    type UserListParams as UserListParams,
   };
 }

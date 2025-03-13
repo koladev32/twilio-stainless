@@ -1,6 +1,5 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../core';
 import * as Shared from './shared';
 import * as StickersAPI from './stickers';
 import * as EmojisAPI from './applications/emojis';
@@ -151,7 +150,35 @@ export interface Guild {
    */
   explicit_content_filter: 0 | 1 | 2;
 
-  features: Array<'ANIMATED_BANNER' | 'ANIMATED_ICON' | 'APPLICATION_COMMAND_PERMISSIONS_V2' | 'AUTO_MODERATION' | 'BANNER' | 'COMMUNITY' | 'CREATOR_MONETIZABLE_PROVISIONAL' | 'CREATOR_STORE_PAGE' | 'DEVELOPER_SUPPORT_SERVER' | 'DISCOVERABLE' | 'FEATURABLE' | 'INVITES_DISABLED' | 'INVITE_SPLASH' | 'MEMBER_VERIFICATION_GATE_ENABLED' | 'MORE_STICKERS' | 'NEWS' | 'PARTNERED' | 'PREVIEW_ENABLED' | 'RAID_ALERTS_DISABLED' | 'ROLE_ICONS' | 'ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE' | 'ROLE_SUBSCRIPTIONS_ENABLED' | 'TICKETED_EVENTS_ENABLED' | 'VANITY_URL' | 'VERIFIED' | 'VIP_REGIONS' | 'WELCOME_SCREEN_ENABLED'>;
+  features: Array<
+    | 'ANIMATED_BANNER'
+    | 'ANIMATED_ICON'
+    | 'APPLICATION_COMMAND_PERMISSIONS_V2'
+    | 'AUTO_MODERATION'
+    | 'BANNER'
+    | 'COMMUNITY'
+    | 'CREATOR_MONETIZABLE_PROVISIONAL'
+    | 'CREATOR_STORE_PAGE'
+    | 'DEVELOPER_SUPPORT_SERVER'
+    | 'DISCOVERABLE'
+    | 'FEATURABLE'
+    | 'INVITES_DISABLED'
+    | 'INVITE_SPLASH'
+    | 'MEMBER_VERIFICATION_GATE_ENABLED'
+    | 'MORE_STICKERS'
+    | 'NEWS'
+    | 'PARTNERED'
+    | 'PREVIEW_ENABLED'
+    | 'RAID_ALERTS_DISABLED'
+    | 'ROLE_ICONS'
+    | 'ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE'
+    | 'ROLE_SUBSCRIPTIONS_ENABLED'
+    | 'TICKETED_EVENTS_ENABLED'
+    | 'VANITY_URL'
+    | 'VERIFIED'
+    | 'VIP_REGIONS'
+    | 'WELCOME_SCREEN_ENABLED'
+  >;
 
   /**
    * - `0` - Guild has no MFA/2FA requirement for moderation actions
@@ -203,7 +230,41 @@ export interface Guild {
    * - `zh-CN` - The zh-CN locale
    * - `zh-TW` - The zh-TW locale
    */
-  preferred_locale: 'ar' | 'bg' | 'cs' | 'da' | 'de' | 'el' | 'en-GB' | 'en-US' | 'es-419' | 'es-ES' | 'fi' | 'fr' | 'he' | 'hi' | 'hr' | 'hu' | 'id' | 'it' | 'ja' | 'ko' | 'lt' | 'nl' | 'no' | 'pl' | 'pt-BR' | 'ro' | 'ru' | 'sv-SE' | 'th' | 'tr' | 'uk' | 'vi' | 'zh-CN' | 'zh-TW';
+  preferred_locale:
+    | 'ar'
+    | 'bg'
+    | 'cs'
+    | 'da'
+    | 'de'
+    | 'el'
+    | 'en-GB'
+    | 'en-US'
+    | 'es-419'
+    | 'es-ES'
+    | 'fi'
+    | 'fr'
+    | 'he'
+    | 'hi'
+    | 'hr'
+    | 'hu'
+    | 'id'
+    | 'it'
+    | 'ja'
+    | 'ko'
+    | 'lt'
+    | 'nl'
+    | 'no'
+    | 'pl'
+    | 'pt-BR'
+    | 'ro'
+    | 'ru'
+    | 'sv-SE'
+    | 'th'
+    | 'tr'
+    | 'uk'
+    | 'vi'
+    | 'zh-CN'
+    | 'zh-TW';
 
   premium_progress_bar_enabled: boolean;
 
@@ -504,7 +565,35 @@ export namespace GuildInvite {
   export interface Guild {
     id: string;
 
-    features: Array<'ANIMATED_BANNER' | 'ANIMATED_ICON' | 'APPLICATION_COMMAND_PERMISSIONS_V2' | 'AUTO_MODERATION' | 'BANNER' | 'COMMUNITY' | 'CREATOR_MONETIZABLE_PROVISIONAL' | 'CREATOR_STORE_PAGE' | 'DEVELOPER_SUPPORT_SERVER' | 'DISCOVERABLE' | 'FEATURABLE' | 'INVITES_DISABLED' | 'INVITE_SPLASH' | 'MEMBER_VERIFICATION_GATE_ENABLED' | 'MORE_STICKERS' | 'NEWS' | 'PARTNERED' | 'PREVIEW_ENABLED' | 'RAID_ALERTS_DISABLED' | 'ROLE_ICONS' | 'ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE' | 'ROLE_SUBSCRIPTIONS_ENABLED' | 'TICKETED_EVENTS_ENABLED' | 'VANITY_URL' | 'VERIFIED' | 'VIP_REGIONS' | 'WELCOME_SCREEN_ENABLED'>;
+    features: Array<
+      | 'ANIMATED_BANNER'
+      | 'ANIMATED_ICON'
+      | 'APPLICATION_COMMAND_PERMISSIONS_V2'
+      | 'AUTO_MODERATION'
+      | 'BANNER'
+      | 'COMMUNITY'
+      | 'CREATOR_MONETIZABLE_PROVISIONAL'
+      | 'CREATOR_STORE_PAGE'
+      | 'DEVELOPER_SUPPORT_SERVER'
+      | 'DISCOVERABLE'
+      | 'FEATURABLE'
+      | 'INVITES_DISABLED'
+      | 'INVITE_SPLASH'
+      | 'MEMBER_VERIFICATION_GATE_ENABLED'
+      | 'MORE_STICKERS'
+      | 'NEWS'
+      | 'PARTNERED'
+      | 'PREVIEW_ENABLED'
+      | 'RAID_ALERTS_DISABLED'
+      | 'ROLE_ICONS'
+      | 'ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE'
+      | 'ROLE_SUBSCRIPTIONS_ENABLED'
+      | 'TICKETED_EVENTS_ENABLED'
+      | 'VANITY_URL'
+      | 'VERIFIED'
+      | 'VIP_REGIONS'
+      | 'WELCOME_SCREEN_ENABLED'
+    >;
 
     name: string;
 
@@ -631,7 +720,42 @@ export namespace GuildInvite {
     export interface InstallParams {
       permissions: string;
 
-      scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+      scopes: Array<
+        | 'identify'
+        | 'email'
+        | 'connections'
+        | 'guilds'
+        | 'guilds.join'
+        | 'guilds.members.read'
+        | 'gdm.join'
+        | 'bot'
+        | 'rpc'
+        | 'rpc.notifications.read'
+        | 'rpc.voice.read'
+        | 'rpc.voice.write'
+        | 'rpc.video.read'
+        | 'rpc.video.write'
+        | 'rpc.screenshare.read'
+        | 'rpc.screenshare.write'
+        | 'rpc.activities.write'
+        | 'webhook.incoming'
+        | 'messages.read'
+        | 'applications.builds.upload'
+        | 'applications.builds.read'
+        | 'applications.commands'
+        | 'applications.commands.permissions.update'
+        | 'applications.commands.update'
+        | 'applications.store.update'
+        | 'applications.entitlements'
+        | 'activities.read'
+        | 'activities.write'
+        | 'activities.invites.write'
+        | 'relationships.read'
+        | 'voice'
+        | 'dm_channels.read'
+        | 'role_connections.write'
+        | 'openid'
+      >;
     }
 
     export interface IntegrationTypesConfig {
@@ -642,7 +766,42 @@ export namespace GuildInvite {
       export interface Oauth2InstallParams {
         permissions: string;
 
-        scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+        scopes: Array<
+          | 'identify'
+          | 'email'
+          | 'connections'
+          | 'guilds'
+          | 'guilds.join'
+          | 'guilds.members.read'
+          | 'gdm.join'
+          | 'bot'
+          | 'rpc'
+          | 'rpc.notifications.read'
+          | 'rpc.voice.read'
+          | 'rpc.voice.write'
+          | 'rpc.video.read'
+          | 'rpc.video.write'
+          | 'rpc.screenshare.read'
+          | 'rpc.screenshare.write'
+          | 'rpc.activities.write'
+          | 'webhook.incoming'
+          | 'messages.read'
+          | 'applications.builds.upload'
+          | 'applications.builds.read'
+          | 'applications.commands'
+          | 'applications.commands.permissions.update'
+          | 'applications.commands.update'
+          | 'applications.store.update'
+          | 'applications.entitlements'
+          | 'activities.read'
+          | 'activities.write'
+          | 'activities.invites.write'
+          | 'relationships.read'
+          | 'voice'
+          | 'dm_channels.read'
+          | 'role_connections.write'
+          | 'openid'
+        >;
       }
     }
   }
@@ -682,7 +841,16 @@ export interface Message {
 
   channel_id: string;
 
-  components: Array<Message.ActionRowComponentResponse | Message.ButtonComponentResponse | Message.ChannelSelectComponentResponse | Message.MentionableSelectComponentResponse | Message.RoleSelectComponentResponse | Message.StringSelectComponentResponse | Message.TextInputComponentResponse | Message.UserSelectComponentResponse>;
+  components: Array<
+    | Message.ActionRowComponentResponse
+    | Message.ButtonComponentResponse
+    | Message.ChannelSelectComponentResponse
+    | Message.MentionableSelectComponentResponse
+    | Message.RoleSelectComponentResponse
+    | Message.StringSelectComponentResponse
+    | Message.TextInputComponentResponse
+    | Message.UserSelectComponentResponse
+  >;
 
   content: string;
 
@@ -702,7 +870,43 @@ export interface Message {
 
   tts: boolean;
 
-  type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+  type:
+    | 0
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12
+    | 14
+    | 15
+    | 16
+    | 17
+    | 18
+    | 19
+    | 20
+    | 21
+    | 22
+    | 23
+    | 24
+    | 25
+    | 26
+    | 27
+    | 28
+    | 29
+    | 31
+    | 32
+    | 36
+    | 37
+    | 38
+    | 39
+    | 55;
 
   activity?: unknown | null;
 
@@ -716,7 +920,11 @@ export interface Message {
 
   interaction?: Message.Interaction | null;
 
-  interaction_metadata?: Message.ApplicationCommandInteractionMetadataResponse | Message.MessageComponentInteractionMetadataResponse | Message.ModalSubmitInteractionMetadataResponse | null;
+  interaction_metadata?:
+    | Message.ApplicationCommandInteractionMetadataResponse
+    | Message.MessageComponentInteractionMetadataResponse
+    | Message.ModalSubmitInteractionMetadataResponse
+    | null;
 
   mention_channels?: Array<Message.MentionChannel | null> | null;
 
@@ -835,7 +1043,42 @@ export namespace Message {
       export interface InstallParams {
         permissions: string;
 
-        scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+        scopes: Array<
+          | 'identify'
+          | 'email'
+          | 'connections'
+          | 'guilds'
+          | 'guilds.join'
+          | 'guilds.members.read'
+          | 'gdm.join'
+          | 'bot'
+          | 'rpc'
+          | 'rpc.notifications.read'
+          | 'rpc.voice.read'
+          | 'rpc.voice.write'
+          | 'rpc.video.read'
+          | 'rpc.video.write'
+          | 'rpc.screenshare.read'
+          | 'rpc.screenshare.write'
+          | 'rpc.activities.write'
+          | 'webhook.incoming'
+          | 'messages.read'
+          | 'applications.builds.upload'
+          | 'applications.builds.read'
+          | 'applications.commands'
+          | 'applications.commands.permissions.update'
+          | 'applications.commands.update'
+          | 'applications.store.update'
+          | 'applications.entitlements'
+          | 'activities.read'
+          | 'activities.write'
+          | 'activities.invites.write'
+          | 'relationships.read'
+          | 'voice'
+          | 'dm_channels.read'
+          | 'role_connections.write'
+          | 'openid'
+        >;
       }
 
       export interface IntegrationTypesConfig {
@@ -846,7 +1089,42 @@ export namespace Message {
         export interface Oauth2InstallParams {
           permissions: string;
 
-          scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+          scopes: Array<
+            | 'identify'
+            | 'email'
+            | 'connections'
+            | 'guilds'
+            | 'guilds.join'
+            | 'guilds.members.read'
+            | 'gdm.join'
+            | 'bot'
+            | 'rpc'
+            | 'rpc.notifications.read'
+            | 'rpc.voice.read'
+            | 'rpc.voice.write'
+            | 'rpc.video.read'
+            | 'rpc.video.write'
+            | 'rpc.screenshare.read'
+            | 'rpc.screenshare.write'
+            | 'rpc.activities.write'
+            | 'webhook.incoming'
+            | 'messages.read'
+            | 'applications.builds.upload'
+            | 'applications.builds.read'
+            | 'applications.commands'
+            | 'applications.commands.permissions.update'
+            | 'applications.commands.update'
+            | 'applications.store.update'
+            | 'applications.entitlements'
+            | 'activities.read'
+            | 'activities.write'
+            | 'activities.invites.write'
+            | 'relationships.read'
+            | 'voice'
+            | 'dm_channels.read'
+            | 'role_connections.write'
+            | 'openid'
+          >;
         }
       }
     }
@@ -867,7 +1145,15 @@ export namespace Message {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-    components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+    components?: Array<
+      | ActionRowComponentResponse.ButtonComponentResponse
+      | ActionRowComponentResponse.ChannelSelectComponentResponse
+      | ActionRowComponentResponse.MentionableSelectComponentResponse
+      | ActionRowComponentResponse.RoleSelectComponentResponse
+      | ActionRowComponentResponse.StringSelectComponentResponse
+      | ActionRowComponentResponse.TextInputComponentResponse
+      | ActionRowComponentResponse.UserSelectComponentResponse
+    > | null;
   }
 
   export namespace ActionRowComponentResponse {
@@ -966,7 +1252,10 @@ export namespace Message {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+      default_values?: Array<
+        | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+        | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+      > | null;
 
       disabled?: boolean | null;
 
@@ -1247,7 +1536,10 @@ export namespace Message {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-    default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+    default_values?: Array<
+      | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+      | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+    > | null;
 
     disabled?: boolean | null;
 
@@ -1637,7 +1929,9 @@ export namespace Message {
 
     authorizing_integration_owners: Record<string, string>;
 
-    triggering_interaction_metadata: ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
+    triggering_interaction_metadata:
+      | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
+      | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
 
     /**
      * - `1` - Sent by Discord to validate your application's interaction handler
@@ -1750,7 +2044,16 @@ export namespace Message {
     export interface Message {
       attachments: Array<Message.Attachment>;
 
-      components: Array<Message.ActionRowComponentResponse | Message.ButtonComponentResponse | Message.ChannelSelectComponentResponse | Message.MentionableSelectComponentResponse | Message.RoleSelectComponentResponse | Message.StringSelectComponentResponse | Message.TextInputComponentResponse | Message.UserSelectComponentResponse>;
+      components: Array<
+        | Message.ActionRowComponentResponse
+        | Message.ButtonComponentResponse
+        | Message.ChannelSelectComponentResponse
+        | Message.MentionableSelectComponentResponse
+        | Message.RoleSelectComponentResponse
+        | Message.StringSelectComponentResponse
+        | Message.TextInputComponentResponse
+        | Message.UserSelectComponentResponse
+      >;
 
       content: string;
 
@@ -1764,7 +2067,43 @@ export namespace Message {
 
       timestamp: string;
 
-      type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+      type:
+        | 0
+        | 1
+        | 2
+        | 3
+        | 4
+        | 5
+        | 6
+        | 7
+        | 8
+        | 9
+        | 10
+        | 11
+        | 12
+        | 14
+        | 15
+        | 16
+        | 17
+        | 18
+        | 19
+        | 20
+        | 21
+        | 22
+        | 23
+        | 24
+        | 25
+        | 26
+        | 27
+        | 28
+        | 29
+        | 31
+        | 32
+        | 36
+        | 37
+        | 38
+        | 39
+        | 55;
 
       edited_timestamp?: string | null;
 
@@ -1861,7 +2200,42 @@ export namespace Message {
           export interface InstallParams {
             permissions: string;
 
-            scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+            scopes: Array<
+              | 'identify'
+              | 'email'
+              | 'connections'
+              | 'guilds'
+              | 'guilds.join'
+              | 'guilds.members.read'
+              | 'gdm.join'
+              | 'bot'
+              | 'rpc'
+              | 'rpc.notifications.read'
+              | 'rpc.voice.read'
+              | 'rpc.voice.write'
+              | 'rpc.video.read'
+              | 'rpc.video.write'
+              | 'rpc.screenshare.read'
+              | 'rpc.screenshare.write'
+              | 'rpc.activities.write'
+              | 'webhook.incoming'
+              | 'messages.read'
+              | 'applications.builds.upload'
+              | 'applications.builds.read'
+              | 'applications.commands'
+              | 'applications.commands.permissions.update'
+              | 'applications.commands.update'
+              | 'applications.store.update'
+              | 'applications.entitlements'
+              | 'activities.read'
+              | 'activities.write'
+              | 'activities.invites.write'
+              | 'relationships.read'
+              | 'voice'
+              | 'dm_channels.read'
+              | 'role_connections.write'
+              | 'openid'
+            >;
           }
 
           export interface IntegrationTypesConfig {
@@ -1872,7 +2246,42 @@ export namespace Message {
             export interface Oauth2InstallParams {
               permissions: string;
 
-              scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+              scopes: Array<
+                | 'identify'
+                | 'email'
+                | 'connections'
+                | 'guilds'
+                | 'guilds.join'
+                | 'guilds.members.read'
+                | 'gdm.join'
+                | 'bot'
+                | 'rpc'
+                | 'rpc.notifications.read'
+                | 'rpc.voice.read'
+                | 'rpc.voice.write'
+                | 'rpc.video.read'
+                | 'rpc.video.write'
+                | 'rpc.screenshare.read'
+                | 'rpc.screenshare.write'
+                | 'rpc.activities.write'
+                | 'webhook.incoming'
+                | 'messages.read'
+                | 'applications.builds.upload'
+                | 'applications.builds.read'
+                | 'applications.commands'
+                | 'applications.commands.permissions.update'
+                | 'applications.commands.update'
+                | 'applications.store.update'
+                | 'applications.entitlements'
+                | 'activities.read'
+                | 'activities.write'
+                | 'activities.invites.write'
+                | 'relationships.read'
+                | 'voice'
+                | 'dm_channels.read'
+                | 'role_connections.write'
+                | 'openid'
+              >;
             }
           }
         }
@@ -1893,7 +2302,15 @@ export namespace Message {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-        components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+        components?: Array<
+          | ActionRowComponentResponse.ButtonComponentResponse
+          | ActionRowComponentResponse.ChannelSelectComponentResponse
+          | ActionRowComponentResponse.MentionableSelectComponentResponse
+          | ActionRowComponentResponse.RoleSelectComponentResponse
+          | ActionRowComponentResponse.StringSelectComponentResponse
+          | ActionRowComponentResponse.TextInputComponentResponse
+          | ActionRowComponentResponse.UserSelectComponentResponse
+        > | null;
       }
 
       export namespace ActionRowComponentResponse {
@@ -1992,7 +2409,10 @@ export namespace Message {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+          default_values?: Array<
+            | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+            | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+          > | null;
 
           disabled?: boolean | null;
 
@@ -2273,7 +2693,10 @@ export namespace Message {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-        default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+        default_values?: Array<
+          | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+          | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+        > | null;
 
         disabled?: boolean | null;
 
@@ -2569,7 +2992,13 @@ export namespace Message {
       }
 
       export interface Resolved {
-        channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+        channels: Record<
+          string,
+          | Shared.GuildChannel
+          | UsersChannelsAPI.PrivateChannelResponse
+          | UsersChannelsAPI.PrivateGroupChannelResponse
+          | ChannelsAPI.Thread
+        >;
 
         members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -2713,7 +3142,16 @@ export namespace Message {
 
     channel_id: string;
 
-    components: Array<ReferencedMessage.ActionRowComponentResponse | ReferencedMessage.ButtonComponentResponse | ReferencedMessage.ChannelSelectComponentResponse | ReferencedMessage.MentionableSelectComponentResponse | ReferencedMessage.RoleSelectComponentResponse | ReferencedMessage.StringSelectComponentResponse | ReferencedMessage.TextInputComponentResponse | ReferencedMessage.UserSelectComponentResponse>;
+    components: Array<
+      | ReferencedMessage.ActionRowComponentResponse
+      | ReferencedMessage.ButtonComponentResponse
+      | ReferencedMessage.ChannelSelectComponentResponse
+      | ReferencedMessage.MentionableSelectComponentResponse
+      | ReferencedMessage.RoleSelectComponentResponse
+      | ReferencedMessage.StringSelectComponentResponse
+      | ReferencedMessage.TextInputComponentResponse
+      | ReferencedMessage.UserSelectComponentResponse
+    >;
 
     content: string;
 
@@ -2733,7 +3171,43 @@ export namespace Message {
 
     tts: boolean;
 
-    type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+    type:
+      | 0
+      | 1
+      | 2
+      | 3
+      | 4
+      | 5
+      | 6
+      | 7
+      | 8
+      | 9
+      | 10
+      | 11
+      | 12
+      | 14
+      | 15
+      | 16
+      | 17
+      | 18
+      | 19
+      | 20
+      | 21
+      | 22
+      | 23
+      | 24
+      | 25
+      | 26
+      | 27
+      | 28
+      | 29
+      | 31
+      | 32
+      | 36
+      | 37
+      | 38
+      | 39
+      | 55;
 
     activity?: unknown | null;
 
@@ -2747,7 +3221,11 @@ export namespace Message {
 
     interaction?: ReferencedMessage.Interaction | null;
 
-    interaction_metadata?: ReferencedMessage.ApplicationCommandInteractionMetadataResponse | ReferencedMessage.MessageComponentInteractionMetadataResponse | ReferencedMessage.ModalSubmitInteractionMetadataResponse | null;
+    interaction_metadata?:
+      | ReferencedMessage.ApplicationCommandInteractionMetadataResponse
+      | ReferencedMessage.MessageComponentInteractionMetadataResponse
+      | ReferencedMessage.ModalSubmitInteractionMetadataResponse
+      | null;
 
     mention_channels?: Array<ReferencedMessage.MentionChannel | null> | null;
 
@@ -2862,7 +3340,42 @@ export namespace Message {
         export interface InstallParams {
           permissions: string;
 
-          scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+          scopes: Array<
+            | 'identify'
+            | 'email'
+            | 'connections'
+            | 'guilds'
+            | 'guilds.join'
+            | 'guilds.members.read'
+            | 'gdm.join'
+            | 'bot'
+            | 'rpc'
+            | 'rpc.notifications.read'
+            | 'rpc.voice.read'
+            | 'rpc.voice.write'
+            | 'rpc.video.read'
+            | 'rpc.video.write'
+            | 'rpc.screenshare.read'
+            | 'rpc.screenshare.write'
+            | 'rpc.activities.write'
+            | 'webhook.incoming'
+            | 'messages.read'
+            | 'applications.builds.upload'
+            | 'applications.builds.read'
+            | 'applications.commands'
+            | 'applications.commands.permissions.update'
+            | 'applications.commands.update'
+            | 'applications.store.update'
+            | 'applications.entitlements'
+            | 'activities.read'
+            | 'activities.write'
+            | 'activities.invites.write'
+            | 'relationships.read'
+            | 'voice'
+            | 'dm_channels.read'
+            | 'role_connections.write'
+            | 'openid'
+          >;
         }
 
         export interface IntegrationTypesConfig {
@@ -2873,7 +3386,42 @@ export namespace Message {
           export interface Oauth2InstallParams {
             permissions: string;
 
-            scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+            scopes: Array<
+              | 'identify'
+              | 'email'
+              | 'connections'
+              | 'guilds'
+              | 'guilds.join'
+              | 'guilds.members.read'
+              | 'gdm.join'
+              | 'bot'
+              | 'rpc'
+              | 'rpc.notifications.read'
+              | 'rpc.voice.read'
+              | 'rpc.voice.write'
+              | 'rpc.video.read'
+              | 'rpc.video.write'
+              | 'rpc.screenshare.read'
+              | 'rpc.screenshare.write'
+              | 'rpc.activities.write'
+              | 'webhook.incoming'
+              | 'messages.read'
+              | 'applications.builds.upload'
+              | 'applications.builds.read'
+              | 'applications.commands'
+              | 'applications.commands.permissions.update'
+              | 'applications.commands.update'
+              | 'applications.store.update'
+              | 'applications.entitlements'
+              | 'activities.read'
+              | 'activities.write'
+              | 'activities.invites.write'
+              | 'relationships.read'
+              | 'voice'
+              | 'dm_channels.read'
+              | 'role_connections.write'
+              | 'openid'
+            >;
           }
         }
       }
@@ -2894,7 +3442,15 @@ export namespace Message {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+      components?: Array<
+        | ActionRowComponentResponse.ButtonComponentResponse
+        | ActionRowComponentResponse.ChannelSelectComponentResponse
+        | ActionRowComponentResponse.MentionableSelectComponentResponse
+        | ActionRowComponentResponse.RoleSelectComponentResponse
+        | ActionRowComponentResponse.StringSelectComponentResponse
+        | ActionRowComponentResponse.TextInputComponentResponse
+        | ActionRowComponentResponse.UserSelectComponentResponse
+      > | null;
     }
 
     export namespace ActionRowComponentResponse {
@@ -2993,7 +3549,10 @@ export namespace Message {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-        default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+        default_values?: Array<
+          | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+          | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+        > | null;
 
         disabled?: boolean | null;
 
@@ -3274,7 +3833,10 @@ export namespace Message {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+      default_values?: Array<
+        | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+        | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+      > | null;
 
       disabled?: boolean | null;
 
@@ -3664,7 +4226,9 @@ export namespace Message {
 
       authorizing_integration_owners: Record<string, string>;
 
-      triggering_interaction_metadata: ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
+      triggering_interaction_metadata:
+        | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
+        | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
 
       /**
        * - `1` - Sent by Discord to validate your application's interaction handler
@@ -3777,7 +4341,16 @@ export namespace Message {
       export interface Message {
         attachments: Array<Message.Attachment>;
 
-        components: Array<Message.ActionRowComponentResponse | Message.ButtonComponentResponse | Message.ChannelSelectComponentResponse | Message.MentionableSelectComponentResponse | Message.RoleSelectComponentResponse | Message.StringSelectComponentResponse | Message.TextInputComponentResponse | Message.UserSelectComponentResponse>;
+        components: Array<
+          | Message.ActionRowComponentResponse
+          | Message.ButtonComponentResponse
+          | Message.ChannelSelectComponentResponse
+          | Message.MentionableSelectComponentResponse
+          | Message.RoleSelectComponentResponse
+          | Message.StringSelectComponentResponse
+          | Message.TextInputComponentResponse
+          | Message.UserSelectComponentResponse
+        >;
 
         content: string;
 
@@ -3791,7 +4364,43 @@ export namespace Message {
 
         timestamp: string;
 
-        type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+        type:
+          | 0
+          | 1
+          | 2
+          | 3
+          | 4
+          | 5
+          | 6
+          | 7
+          | 8
+          | 9
+          | 10
+          | 11
+          | 12
+          | 14
+          | 15
+          | 16
+          | 17
+          | 18
+          | 19
+          | 20
+          | 21
+          | 22
+          | 23
+          | 24
+          | 25
+          | 26
+          | 27
+          | 28
+          | 29
+          | 31
+          | 32
+          | 36
+          | 37
+          | 38
+          | 39
+          | 55;
 
         edited_timestamp?: string | null;
 
@@ -3888,7 +4497,42 @@ export namespace Message {
             export interface InstallParams {
               permissions: string;
 
-              scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+              scopes: Array<
+                | 'identify'
+                | 'email'
+                | 'connections'
+                | 'guilds'
+                | 'guilds.join'
+                | 'guilds.members.read'
+                | 'gdm.join'
+                | 'bot'
+                | 'rpc'
+                | 'rpc.notifications.read'
+                | 'rpc.voice.read'
+                | 'rpc.voice.write'
+                | 'rpc.video.read'
+                | 'rpc.video.write'
+                | 'rpc.screenshare.read'
+                | 'rpc.screenshare.write'
+                | 'rpc.activities.write'
+                | 'webhook.incoming'
+                | 'messages.read'
+                | 'applications.builds.upload'
+                | 'applications.builds.read'
+                | 'applications.commands'
+                | 'applications.commands.permissions.update'
+                | 'applications.commands.update'
+                | 'applications.store.update'
+                | 'applications.entitlements'
+                | 'activities.read'
+                | 'activities.write'
+                | 'activities.invites.write'
+                | 'relationships.read'
+                | 'voice'
+                | 'dm_channels.read'
+                | 'role_connections.write'
+                | 'openid'
+              >;
             }
 
             export interface IntegrationTypesConfig {
@@ -3899,7 +4543,42 @@ export namespace Message {
               export interface Oauth2InstallParams {
                 permissions: string;
 
-                scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+                scopes: Array<
+                  | 'identify'
+                  | 'email'
+                  | 'connections'
+                  | 'guilds'
+                  | 'guilds.join'
+                  | 'guilds.members.read'
+                  | 'gdm.join'
+                  | 'bot'
+                  | 'rpc'
+                  | 'rpc.notifications.read'
+                  | 'rpc.voice.read'
+                  | 'rpc.voice.write'
+                  | 'rpc.video.read'
+                  | 'rpc.video.write'
+                  | 'rpc.screenshare.read'
+                  | 'rpc.screenshare.write'
+                  | 'rpc.activities.write'
+                  | 'webhook.incoming'
+                  | 'messages.read'
+                  | 'applications.builds.upload'
+                  | 'applications.builds.read'
+                  | 'applications.commands'
+                  | 'applications.commands.permissions.update'
+                  | 'applications.commands.update'
+                  | 'applications.store.update'
+                  | 'applications.entitlements'
+                  | 'activities.read'
+                  | 'activities.write'
+                  | 'activities.invites.write'
+                  | 'relationships.read'
+                  | 'voice'
+                  | 'dm_channels.read'
+                  | 'role_connections.write'
+                  | 'openid'
+                >;
               }
             }
           }
@@ -3920,7 +4599,15 @@ export namespace Message {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+          components?: Array<
+            | ActionRowComponentResponse.ButtonComponentResponse
+            | ActionRowComponentResponse.ChannelSelectComponentResponse
+            | ActionRowComponentResponse.MentionableSelectComponentResponse
+            | ActionRowComponentResponse.RoleSelectComponentResponse
+            | ActionRowComponentResponse.StringSelectComponentResponse
+            | ActionRowComponentResponse.TextInputComponentResponse
+            | ActionRowComponentResponse.UserSelectComponentResponse
+          > | null;
         }
 
         export namespace ActionRowComponentResponse {
@@ -4019,7 +4706,10 @@ export namespace Message {
              */
             type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-            default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+            default_values?: Array<
+              | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+              | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+            > | null;
 
             disabled?: boolean | null;
 
@@ -4300,7 +4990,10 @@ export namespace Message {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+          default_values?: Array<
+            | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+            | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+          > | null;
 
           disabled?: boolean | null;
 
@@ -4596,7 +5289,13 @@ export namespace Message {
         }
 
         export interface Resolved {
-          channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+          channels: Record<
+            string,
+            | Shared.GuildChannel
+            | UsersChannelsAPI.PrivateChannelResponse
+            | UsersChannelsAPI.PrivateGroupChannelResponse
+            | ChannelsAPI.Thread
+          >;
 
           members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -4702,7 +5401,13 @@ export namespace Message {
     }
 
     export interface Resolved {
-      channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+      channels: Record<
+        string,
+        | Shared.GuildChannel
+        | UsersChannelsAPI.PrivateChannelResponse
+        | UsersChannelsAPI.PrivateGroupChannelResponse
+        | ChannelsAPI.Thread
+      >;
 
       members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -4731,7 +5436,13 @@ export namespace Message {
   }
 
   export interface Resolved {
-    channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+    channels: Record<
+      string,
+      | Shared.GuildChannel
+      | UsersChannelsAPI.PrivateChannelResponse
+      | UsersChannelsAPI.PrivateGroupChannelResponse
+      | ChannelsAPI.Thread
+    >;
 
     members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -4768,7 +5479,16 @@ export interface MessageResponse {
 
   channel_id: string;
 
-  components: Array<MessageResponse.ActionRowComponentResponse | MessageResponse.ButtonComponentResponse | MessageResponse.ChannelSelectComponentResponse | MessageResponse.MentionableSelectComponentResponse | MessageResponse.RoleSelectComponentResponse | MessageResponse.StringSelectComponentResponse | MessageResponse.TextInputComponentResponse | MessageResponse.UserSelectComponentResponse>;
+  components: Array<
+    | MessageResponse.ActionRowComponentResponse
+    | MessageResponse.ButtonComponentResponse
+    | MessageResponse.ChannelSelectComponentResponse
+    | MessageResponse.MentionableSelectComponentResponse
+    | MessageResponse.RoleSelectComponentResponse
+    | MessageResponse.StringSelectComponentResponse
+    | MessageResponse.TextInputComponentResponse
+    | MessageResponse.UserSelectComponentResponse
+  >;
 
   content: string;
 
@@ -4788,7 +5508,43 @@ export interface MessageResponse {
 
   tts: boolean;
 
-  type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+  type:
+    | 0
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12
+    | 14
+    | 15
+    | 16
+    | 17
+    | 18
+    | 19
+    | 20
+    | 21
+    | 22
+    | 23
+    | 24
+    | 25
+    | 26
+    | 27
+    | 28
+    | 29
+    | 31
+    | 32
+    | 36
+    | 37
+    | 38
+    | 39
+    | 55;
 
   activity?: unknown | null;
 
@@ -4802,7 +5558,11 @@ export interface MessageResponse {
 
   interaction?: MessageResponse.Interaction | null;
 
-  interaction_metadata?: MessageResponse.ApplicationCommandInteractionMetadataResponse | MessageResponse.MessageComponentInteractionMetadataResponse | MessageResponse.ModalSubmitInteractionMetadataResponse | null;
+  interaction_metadata?:
+    | MessageResponse.ApplicationCommandInteractionMetadataResponse
+    | MessageResponse.MessageComponentInteractionMetadataResponse
+    | MessageResponse.ModalSubmitInteractionMetadataResponse
+    | null;
 
   mention_channels?: Array<MessageResponse.MentionChannel | null> | null;
 
@@ -4921,7 +5681,42 @@ export namespace MessageResponse {
       export interface InstallParams {
         permissions: string;
 
-        scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+        scopes: Array<
+          | 'identify'
+          | 'email'
+          | 'connections'
+          | 'guilds'
+          | 'guilds.join'
+          | 'guilds.members.read'
+          | 'gdm.join'
+          | 'bot'
+          | 'rpc'
+          | 'rpc.notifications.read'
+          | 'rpc.voice.read'
+          | 'rpc.voice.write'
+          | 'rpc.video.read'
+          | 'rpc.video.write'
+          | 'rpc.screenshare.read'
+          | 'rpc.screenshare.write'
+          | 'rpc.activities.write'
+          | 'webhook.incoming'
+          | 'messages.read'
+          | 'applications.builds.upload'
+          | 'applications.builds.read'
+          | 'applications.commands'
+          | 'applications.commands.permissions.update'
+          | 'applications.commands.update'
+          | 'applications.store.update'
+          | 'applications.entitlements'
+          | 'activities.read'
+          | 'activities.write'
+          | 'activities.invites.write'
+          | 'relationships.read'
+          | 'voice'
+          | 'dm_channels.read'
+          | 'role_connections.write'
+          | 'openid'
+        >;
       }
 
       export interface IntegrationTypesConfig {
@@ -4932,7 +5727,42 @@ export namespace MessageResponse {
         export interface Oauth2InstallParams {
           permissions: string;
 
-          scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+          scopes: Array<
+            | 'identify'
+            | 'email'
+            | 'connections'
+            | 'guilds'
+            | 'guilds.join'
+            | 'guilds.members.read'
+            | 'gdm.join'
+            | 'bot'
+            | 'rpc'
+            | 'rpc.notifications.read'
+            | 'rpc.voice.read'
+            | 'rpc.voice.write'
+            | 'rpc.video.read'
+            | 'rpc.video.write'
+            | 'rpc.screenshare.read'
+            | 'rpc.screenshare.write'
+            | 'rpc.activities.write'
+            | 'webhook.incoming'
+            | 'messages.read'
+            | 'applications.builds.upload'
+            | 'applications.builds.read'
+            | 'applications.commands'
+            | 'applications.commands.permissions.update'
+            | 'applications.commands.update'
+            | 'applications.store.update'
+            | 'applications.entitlements'
+            | 'activities.read'
+            | 'activities.write'
+            | 'activities.invites.write'
+            | 'relationships.read'
+            | 'voice'
+            | 'dm_channels.read'
+            | 'role_connections.write'
+            | 'openid'
+          >;
         }
       }
     }
@@ -4953,7 +5783,15 @@ export namespace MessageResponse {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-    components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+    components?: Array<
+      | ActionRowComponentResponse.ButtonComponentResponse
+      | ActionRowComponentResponse.ChannelSelectComponentResponse
+      | ActionRowComponentResponse.MentionableSelectComponentResponse
+      | ActionRowComponentResponse.RoleSelectComponentResponse
+      | ActionRowComponentResponse.StringSelectComponentResponse
+      | ActionRowComponentResponse.TextInputComponentResponse
+      | ActionRowComponentResponse.UserSelectComponentResponse
+    > | null;
   }
 
   export namespace ActionRowComponentResponse {
@@ -5052,7 +5890,10 @@ export namespace MessageResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+      default_values?: Array<
+        | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+        | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+      > | null;
 
       disabled?: boolean | null;
 
@@ -5333,7 +6174,10 @@ export namespace MessageResponse {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-    default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+    default_values?: Array<
+      | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+      | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+    > | null;
 
     disabled?: boolean | null;
 
@@ -5723,7 +6567,9 @@ export namespace MessageResponse {
 
     authorizing_integration_owners: Record<string, string>;
 
-    triggering_interaction_metadata: ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
+    triggering_interaction_metadata:
+      | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
+      | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
 
     /**
      * - `1` - Sent by Discord to validate your application's interaction handler
@@ -5836,7 +6682,16 @@ export namespace MessageResponse {
     export interface Message {
       attachments: Array<Message.Attachment>;
 
-      components: Array<Message.ActionRowComponentResponse | Message.ButtonComponentResponse | Message.ChannelSelectComponentResponse | Message.MentionableSelectComponentResponse | Message.RoleSelectComponentResponse | Message.StringSelectComponentResponse | Message.TextInputComponentResponse | Message.UserSelectComponentResponse>;
+      components: Array<
+        | Message.ActionRowComponentResponse
+        | Message.ButtonComponentResponse
+        | Message.ChannelSelectComponentResponse
+        | Message.MentionableSelectComponentResponse
+        | Message.RoleSelectComponentResponse
+        | Message.StringSelectComponentResponse
+        | Message.TextInputComponentResponse
+        | Message.UserSelectComponentResponse
+      >;
 
       content: string;
 
@@ -5850,7 +6705,43 @@ export namespace MessageResponse {
 
       timestamp: string;
 
-      type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+      type:
+        | 0
+        | 1
+        | 2
+        | 3
+        | 4
+        | 5
+        | 6
+        | 7
+        | 8
+        | 9
+        | 10
+        | 11
+        | 12
+        | 14
+        | 15
+        | 16
+        | 17
+        | 18
+        | 19
+        | 20
+        | 21
+        | 22
+        | 23
+        | 24
+        | 25
+        | 26
+        | 27
+        | 28
+        | 29
+        | 31
+        | 32
+        | 36
+        | 37
+        | 38
+        | 39
+        | 55;
 
       edited_timestamp?: string | null;
 
@@ -5947,7 +6838,42 @@ export namespace MessageResponse {
           export interface InstallParams {
             permissions: string;
 
-            scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+            scopes: Array<
+              | 'identify'
+              | 'email'
+              | 'connections'
+              | 'guilds'
+              | 'guilds.join'
+              | 'guilds.members.read'
+              | 'gdm.join'
+              | 'bot'
+              | 'rpc'
+              | 'rpc.notifications.read'
+              | 'rpc.voice.read'
+              | 'rpc.voice.write'
+              | 'rpc.video.read'
+              | 'rpc.video.write'
+              | 'rpc.screenshare.read'
+              | 'rpc.screenshare.write'
+              | 'rpc.activities.write'
+              | 'webhook.incoming'
+              | 'messages.read'
+              | 'applications.builds.upload'
+              | 'applications.builds.read'
+              | 'applications.commands'
+              | 'applications.commands.permissions.update'
+              | 'applications.commands.update'
+              | 'applications.store.update'
+              | 'applications.entitlements'
+              | 'activities.read'
+              | 'activities.write'
+              | 'activities.invites.write'
+              | 'relationships.read'
+              | 'voice'
+              | 'dm_channels.read'
+              | 'role_connections.write'
+              | 'openid'
+            >;
           }
 
           export interface IntegrationTypesConfig {
@@ -5958,7 +6884,42 @@ export namespace MessageResponse {
             export interface Oauth2InstallParams {
               permissions: string;
 
-              scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+              scopes: Array<
+                | 'identify'
+                | 'email'
+                | 'connections'
+                | 'guilds'
+                | 'guilds.join'
+                | 'guilds.members.read'
+                | 'gdm.join'
+                | 'bot'
+                | 'rpc'
+                | 'rpc.notifications.read'
+                | 'rpc.voice.read'
+                | 'rpc.voice.write'
+                | 'rpc.video.read'
+                | 'rpc.video.write'
+                | 'rpc.screenshare.read'
+                | 'rpc.screenshare.write'
+                | 'rpc.activities.write'
+                | 'webhook.incoming'
+                | 'messages.read'
+                | 'applications.builds.upload'
+                | 'applications.builds.read'
+                | 'applications.commands'
+                | 'applications.commands.permissions.update'
+                | 'applications.commands.update'
+                | 'applications.store.update'
+                | 'applications.entitlements'
+                | 'activities.read'
+                | 'activities.write'
+                | 'activities.invites.write'
+                | 'relationships.read'
+                | 'voice'
+                | 'dm_channels.read'
+                | 'role_connections.write'
+                | 'openid'
+              >;
             }
           }
         }
@@ -5979,7 +6940,15 @@ export namespace MessageResponse {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-        components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+        components?: Array<
+          | ActionRowComponentResponse.ButtonComponentResponse
+          | ActionRowComponentResponse.ChannelSelectComponentResponse
+          | ActionRowComponentResponse.MentionableSelectComponentResponse
+          | ActionRowComponentResponse.RoleSelectComponentResponse
+          | ActionRowComponentResponse.StringSelectComponentResponse
+          | ActionRowComponentResponse.TextInputComponentResponse
+          | ActionRowComponentResponse.UserSelectComponentResponse
+        > | null;
       }
 
       export namespace ActionRowComponentResponse {
@@ -6078,7 +7047,10 @@ export namespace MessageResponse {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+          default_values?: Array<
+            | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+            | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+          > | null;
 
           disabled?: boolean | null;
 
@@ -6359,7 +7331,10 @@ export namespace MessageResponse {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-        default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+        default_values?: Array<
+          | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+          | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+        > | null;
 
         disabled?: boolean | null;
 
@@ -6655,7 +7630,13 @@ export namespace MessageResponse {
       }
 
       export interface Resolved {
-        channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+        channels: Record<
+          string,
+          | Shared.GuildChannel
+          | UsersChannelsAPI.PrivateChannelResponse
+          | UsersChannelsAPI.PrivateGroupChannelResponse
+          | ChannelsAPI.Thread
+        >;
 
         members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -6799,7 +7780,16 @@ export namespace MessageResponse {
 
     channel_id: string;
 
-    components: Array<ReferencedMessage.ActionRowComponentResponse | ReferencedMessage.ButtonComponentResponse | ReferencedMessage.ChannelSelectComponentResponse | ReferencedMessage.MentionableSelectComponentResponse | ReferencedMessage.RoleSelectComponentResponse | ReferencedMessage.StringSelectComponentResponse | ReferencedMessage.TextInputComponentResponse | ReferencedMessage.UserSelectComponentResponse>;
+    components: Array<
+      | ReferencedMessage.ActionRowComponentResponse
+      | ReferencedMessage.ButtonComponentResponse
+      | ReferencedMessage.ChannelSelectComponentResponse
+      | ReferencedMessage.MentionableSelectComponentResponse
+      | ReferencedMessage.RoleSelectComponentResponse
+      | ReferencedMessage.StringSelectComponentResponse
+      | ReferencedMessage.TextInputComponentResponse
+      | ReferencedMessage.UserSelectComponentResponse
+    >;
 
     content: string;
 
@@ -6819,7 +7809,43 @@ export namespace MessageResponse {
 
     tts: boolean;
 
-    type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+    type:
+      | 0
+      | 1
+      | 2
+      | 3
+      | 4
+      | 5
+      | 6
+      | 7
+      | 8
+      | 9
+      | 10
+      | 11
+      | 12
+      | 14
+      | 15
+      | 16
+      | 17
+      | 18
+      | 19
+      | 20
+      | 21
+      | 22
+      | 23
+      | 24
+      | 25
+      | 26
+      | 27
+      | 28
+      | 29
+      | 31
+      | 32
+      | 36
+      | 37
+      | 38
+      | 39
+      | 55;
 
     activity?: unknown | null;
 
@@ -6833,7 +7859,11 @@ export namespace MessageResponse {
 
     interaction?: ReferencedMessage.Interaction | null;
 
-    interaction_metadata?: ReferencedMessage.ApplicationCommandInteractionMetadataResponse | ReferencedMessage.MessageComponentInteractionMetadataResponse | ReferencedMessage.ModalSubmitInteractionMetadataResponse | null;
+    interaction_metadata?:
+      | ReferencedMessage.ApplicationCommandInteractionMetadataResponse
+      | ReferencedMessage.MessageComponentInteractionMetadataResponse
+      | ReferencedMessage.ModalSubmitInteractionMetadataResponse
+      | null;
 
     mention_channels?: Array<ReferencedMessage.MentionChannel | null> | null;
 
@@ -6948,7 +7978,42 @@ export namespace MessageResponse {
         export interface InstallParams {
           permissions: string;
 
-          scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+          scopes: Array<
+            | 'identify'
+            | 'email'
+            | 'connections'
+            | 'guilds'
+            | 'guilds.join'
+            | 'guilds.members.read'
+            | 'gdm.join'
+            | 'bot'
+            | 'rpc'
+            | 'rpc.notifications.read'
+            | 'rpc.voice.read'
+            | 'rpc.voice.write'
+            | 'rpc.video.read'
+            | 'rpc.video.write'
+            | 'rpc.screenshare.read'
+            | 'rpc.screenshare.write'
+            | 'rpc.activities.write'
+            | 'webhook.incoming'
+            | 'messages.read'
+            | 'applications.builds.upload'
+            | 'applications.builds.read'
+            | 'applications.commands'
+            | 'applications.commands.permissions.update'
+            | 'applications.commands.update'
+            | 'applications.store.update'
+            | 'applications.entitlements'
+            | 'activities.read'
+            | 'activities.write'
+            | 'activities.invites.write'
+            | 'relationships.read'
+            | 'voice'
+            | 'dm_channels.read'
+            | 'role_connections.write'
+            | 'openid'
+          >;
         }
 
         export interface IntegrationTypesConfig {
@@ -6959,7 +8024,42 @@ export namespace MessageResponse {
           export interface Oauth2InstallParams {
             permissions: string;
 
-            scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+            scopes: Array<
+              | 'identify'
+              | 'email'
+              | 'connections'
+              | 'guilds'
+              | 'guilds.join'
+              | 'guilds.members.read'
+              | 'gdm.join'
+              | 'bot'
+              | 'rpc'
+              | 'rpc.notifications.read'
+              | 'rpc.voice.read'
+              | 'rpc.voice.write'
+              | 'rpc.video.read'
+              | 'rpc.video.write'
+              | 'rpc.screenshare.read'
+              | 'rpc.screenshare.write'
+              | 'rpc.activities.write'
+              | 'webhook.incoming'
+              | 'messages.read'
+              | 'applications.builds.upload'
+              | 'applications.builds.read'
+              | 'applications.commands'
+              | 'applications.commands.permissions.update'
+              | 'applications.commands.update'
+              | 'applications.store.update'
+              | 'applications.entitlements'
+              | 'activities.read'
+              | 'activities.write'
+              | 'activities.invites.write'
+              | 'relationships.read'
+              | 'voice'
+              | 'dm_channels.read'
+              | 'role_connections.write'
+              | 'openid'
+            >;
           }
         }
       }
@@ -6980,7 +8080,15 @@ export namespace MessageResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+      components?: Array<
+        | ActionRowComponentResponse.ButtonComponentResponse
+        | ActionRowComponentResponse.ChannelSelectComponentResponse
+        | ActionRowComponentResponse.MentionableSelectComponentResponse
+        | ActionRowComponentResponse.RoleSelectComponentResponse
+        | ActionRowComponentResponse.StringSelectComponentResponse
+        | ActionRowComponentResponse.TextInputComponentResponse
+        | ActionRowComponentResponse.UserSelectComponentResponse
+      > | null;
     }
 
     export namespace ActionRowComponentResponse {
@@ -7079,7 +8187,10 @@ export namespace MessageResponse {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-        default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+        default_values?: Array<
+          | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+          | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+        > | null;
 
         disabled?: boolean | null;
 
@@ -7360,7 +8471,10 @@ export namespace MessageResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+      default_values?: Array<
+        | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+        | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+      > | null;
 
       disabled?: boolean | null;
 
@@ -7750,7 +8864,9 @@ export namespace MessageResponse {
 
       authorizing_integration_owners: Record<string, string>;
 
-      triggering_interaction_metadata: ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
+      triggering_interaction_metadata:
+        | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
+        | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
 
       /**
        * - `1` - Sent by Discord to validate your application's interaction handler
@@ -7863,7 +8979,16 @@ export namespace MessageResponse {
       export interface Message {
         attachments: Array<Message.Attachment>;
 
-        components: Array<Message.ActionRowComponentResponse | Message.ButtonComponentResponse | Message.ChannelSelectComponentResponse | Message.MentionableSelectComponentResponse | Message.RoleSelectComponentResponse | Message.StringSelectComponentResponse | Message.TextInputComponentResponse | Message.UserSelectComponentResponse>;
+        components: Array<
+          | Message.ActionRowComponentResponse
+          | Message.ButtonComponentResponse
+          | Message.ChannelSelectComponentResponse
+          | Message.MentionableSelectComponentResponse
+          | Message.RoleSelectComponentResponse
+          | Message.StringSelectComponentResponse
+          | Message.TextInputComponentResponse
+          | Message.UserSelectComponentResponse
+        >;
 
         content: string;
 
@@ -7877,7 +9002,43 @@ export namespace MessageResponse {
 
         timestamp: string;
 
-        type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+        type:
+          | 0
+          | 1
+          | 2
+          | 3
+          | 4
+          | 5
+          | 6
+          | 7
+          | 8
+          | 9
+          | 10
+          | 11
+          | 12
+          | 14
+          | 15
+          | 16
+          | 17
+          | 18
+          | 19
+          | 20
+          | 21
+          | 22
+          | 23
+          | 24
+          | 25
+          | 26
+          | 27
+          | 28
+          | 29
+          | 31
+          | 32
+          | 36
+          | 37
+          | 38
+          | 39
+          | 55;
 
         edited_timestamp?: string | null;
 
@@ -7974,7 +9135,42 @@ export namespace MessageResponse {
             export interface InstallParams {
               permissions: string;
 
-              scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+              scopes: Array<
+                | 'identify'
+                | 'email'
+                | 'connections'
+                | 'guilds'
+                | 'guilds.join'
+                | 'guilds.members.read'
+                | 'gdm.join'
+                | 'bot'
+                | 'rpc'
+                | 'rpc.notifications.read'
+                | 'rpc.voice.read'
+                | 'rpc.voice.write'
+                | 'rpc.video.read'
+                | 'rpc.video.write'
+                | 'rpc.screenshare.read'
+                | 'rpc.screenshare.write'
+                | 'rpc.activities.write'
+                | 'webhook.incoming'
+                | 'messages.read'
+                | 'applications.builds.upload'
+                | 'applications.builds.read'
+                | 'applications.commands'
+                | 'applications.commands.permissions.update'
+                | 'applications.commands.update'
+                | 'applications.store.update'
+                | 'applications.entitlements'
+                | 'activities.read'
+                | 'activities.write'
+                | 'activities.invites.write'
+                | 'relationships.read'
+                | 'voice'
+                | 'dm_channels.read'
+                | 'role_connections.write'
+                | 'openid'
+              >;
             }
 
             export interface IntegrationTypesConfig {
@@ -7985,7 +9181,42 @@ export namespace MessageResponse {
               export interface Oauth2InstallParams {
                 permissions: string;
 
-                scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+                scopes: Array<
+                  | 'identify'
+                  | 'email'
+                  | 'connections'
+                  | 'guilds'
+                  | 'guilds.join'
+                  | 'guilds.members.read'
+                  | 'gdm.join'
+                  | 'bot'
+                  | 'rpc'
+                  | 'rpc.notifications.read'
+                  | 'rpc.voice.read'
+                  | 'rpc.voice.write'
+                  | 'rpc.video.read'
+                  | 'rpc.video.write'
+                  | 'rpc.screenshare.read'
+                  | 'rpc.screenshare.write'
+                  | 'rpc.activities.write'
+                  | 'webhook.incoming'
+                  | 'messages.read'
+                  | 'applications.builds.upload'
+                  | 'applications.builds.read'
+                  | 'applications.commands'
+                  | 'applications.commands.permissions.update'
+                  | 'applications.commands.update'
+                  | 'applications.store.update'
+                  | 'applications.entitlements'
+                  | 'activities.read'
+                  | 'activities.write'
+                  | 'activities.invites.write'
+                  | 'relationships.read'
+                  | 'voice'
+                  | 'dm_channels.read'
+                  | 'role_connections.write'
+                  | 'openid'
+                >;
               }
             }
           }
@@ -8006,7 +9237,15 @@ export namespace MessageResponse {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+          components?: Array<
+            | ActionRowComponentResponse.ButtonComponentResponse
+            | ActionRowComponentResponse.ChannelSelectComponentResponse
+            | ActionRowComponentResponse.MentionableSelectComponentResponse
+            | ActionRowComponentResponse.RoleSelectComponentResponse
+            | ActionRowComponentResponse.StringSelectComponentResponse
+            | ActionRowComponentResponse.TextInputComponentResponse
+            | ActionRowComponentResponse.UserSelectComponentResponse
+          > | null;
         }
 
         export namespace ActionRowComponentResponse {
@@ -8105,7 +9344,10 @@ export namespace MessageResponse {
              */
             type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-            default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+            default_values?: Array<
+              | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+              | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+            > | null;
 
             disabled?: boolean | null;
 
@@ -8386,7 +9628,10 @@ export namespace MessageResponse {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+          default_values?: Array<
+            | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+            | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+          > | null;
 
           disabled?: boolean | null;
 
@@ -8682,7 +9927,13 @@ export namespace MessageResponse {
         }
 
         export interface Resolved {
-          channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+          channels: Record<
+            string,
+            | Shared.GuildChannel
+            | UsersChannelsAPI.PrivateChannelResponse
+            | UsersChannelsAPI.PrivateGroupChannelResponse
+            | ChannelsAPI.Thread
+          >;
 
           members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -8788,7 +10039,13 @@ export namespace MessageResponse {
     }
 
     export interface Resolved {
-      channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+      channels: Record<
+        string,
+        | Shared.GuildChannel
+        | UsersChannelsAPI.PrivateChannelResponse
+        | UsersChannelsAPI.PrivateGroupChannelResponse
+        | ChannelsAPI.Thread
+      >;
 
       members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -8817,7 +10074,13 @@ export namespace MessageResponse {
   }
 
   export interface Resolved {
-    channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+    channels: Record<
+      string,
+      | Shared.GuildChannel
+      | UsersChannelsAPI.PrivateChannelResponse
+      | UsersChannelsAPI.PrivateGroupChannelResponse
+      | ChannelsAPI.Thread
+    >;
 
     members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -8854,7 +10117,16 @@ export interface MessageResponse {
 
   channel_id: string;
 
-  components: Array<MessageResponse.ActionRowComponentResponse | MessageResponse.ButtonComponentResponse | MessageResponse.ChannelSelectComponentResponse | MessageResponse.MentionableSelectComponentResponse | MessageResponse.RoleSelectComponentResponse | MessageResponse.StringSelectComponentResponse | MessageResponse.TextInputComponentResponse | MessageResponse.UserSelectComponentResponse>;
+  components: Array<
+    | MessageResponse.ActionRowComponentResponse
+    | MessageResponse.ButtonComponentResponse
+    | MessageResponse.ChannelSelectComponentResponse
+    | MessageResponse.MentionableSelectComponentResponse
+    | MessageResponse.RoleSelectComponentResponse
+    | MessageResponse.StringSelectComponentResponse
+    | MessageResponse.TextInputComponentResponse
+    | MessageResponse.UserSelectComponentResponse
+  >;
 
   content: string;
 
@@ -8874,7 +10146,43 @@ export interface MessageResponse {
 
   tts: boolean;
 
-  type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+  type:
+    | 0
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12
+    | 14
+    | 15
+    | 16
+    | 17
+    | 18
+    | 19
+    | 20
+    | 21
+    | 22
+    | 23
+    | 24
+    | 25
+    | 26
+    | 27
+    | 28
+    | 29
+    | 31
+    | 32
+    | 36
+    | 37
+    | 38
+    | 39
+    | 55;
 
   activity?: unknown | null;
 
@@ -8888,7 +10196,11 @@ export interface MessageResponse {
 
   interaction?: MessageResponse.Interaction | null;
 
-  interaction_metadata?: MessageResponse.ApplicationCommandInteractionMetadataResponse | MessageResponse.MessageComponentInteractionMetadataResponse | MessageResponse.ModalSubmitInteractionMetadataResponse | null;
+  interaction_metadata?:
+    | MessageResponse.ApplicationCommandInteractionMetadataResponse
+    | MessageResponse.MessageComponentInteractionMetadataResponse
+    | MessageResponse.ModalSubmitInteractionMetadataResponse
+    | null;
 
   mention_channels?: Array<MessageResponse.MentionChannel | null> | null;
 
@@ -9007,7 +10319,42 @@ export namespace MessageResponse {
       export interface InstallParams {
         permissions: string;
 
-        scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+        scopes: Array<
+          | 'identify'
+          | 'email'
+          | 'connections'
+          | 'guilds'
+          | 'guilds.join'
+          | 'guilds.members.read'
+          | 'gdm.join'
+          | 'bot'
+          | 'rpc'
+          | 'rpc.notifications.read'
+          | 'rpc.voice.read'
+          | 'rpc.voice.write'
+          | 'rpc.video.read'
+          | 'rpc.video.write'
+          | 'rpc.screenshare.read'
+          | 'rpc.screenshare.write'
+          | 'rpc.activities.write'
+          | 'webhook.incoming'
+          | 'messages.read'
+          | 'applications.builds.upload'
+          | 'applications.builds.read'
+          | 'applications.commands'
+          | 'applications.commands.permissions.update'
+          | 'applications.commands.update'
+          | 'applications.store.update'
+          | 'applications.entitlements'
+          | 'activities.read'
+          | 'activities.write'
+          | 'activities.invites.write'
+          | 'relationships.read'
+          | 'voice'
+          | 'dm_channels.read'
+          | 'role_connections.write'
+          | 'openid'
+        >;
       }
 
       export interface IntegrationTypesConfig {
@@ -9018,7 +10365,42 @@ export namespace MessageResponse {
         export interface Oauth2InstallParams {
           permissions: string;
 
-          scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+          scopes: Array<
+            | 'identify'
+            | 'email'
+            | 'connections'
+            | 'guilds'
+            | 'guilds.join'
+            | 'guilds.members.read'
+            | 'gdm.join'
+            | 'bot'
+            | 'rpc'
+            | 'rpc.notifications.read'
+            | 'rpc.voice.read'
+            | 'rpc.voice.write'
+            | 'rpc.video.read'
+            | 'rpc.video.write'
+            | 'rpc.screenshare.read'
+            | 'rpc.screenshare.write'
+            | 'rpc.activities.write'
+            | 'webhook.incoming'
+            | 'messages.read'
+            | 'applications.builds.upload'
+            | 'applications.builds.read'
+            | 'applications.commands'
+            | 'applications.commands.permissions.update'
+            | 'applications.commands.update'
+            | 'applications.store.update'
+            | 'applications.entitlements'
+            | 'activities.read'
+            | 'activities.write'
+            | 'activities.invites.write'
+            | 'relationships.read'
+            | 'voice'
+            | 'dm_channels.read'
+            | 'role_connections.write'
+            | 'openid'
+          >;
         }
       }
     }
@@ -9039,7 +10421,15 @@ export namespace MessageResponse {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-    components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+    components?: Array<
+      | ActionRowComponentResponse.ButtonComponentResponse
+      | ActionRowComponentResponse.ChannelSelectComponentResponse
+      | ActionRowComponentResponse.MentionableSelectComponentResponse
+      | ActionRowComponentResponse.RoleSelectComponentResponse
+      | ActionRowComponentResponse.StringSelectComponentResponse
+      | ActionRowComponentResponse.TextInputComponentResponse
+      | ActionRowComponentResponse.UserSelectComponentResponse
+    > | null;
   }
 
   export namespace ActionRowComponentResponse {
@@ -9138,7 +10528,10 @@ export namespace MessageResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+      default_values?: Array<
+        | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+        | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+      > | null;
 
       disabled?: boolean | null;
 
@@ -9419,7 +10812,10 @@ export namespace MessageResponse {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-    default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+    default_values?: Array<
+      | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+      | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+    > | null;
 
     disabled?: boolean | null;
 
@@ -9809,7 +11205,9 @@ export namespace MessageResponse {
 
     authorizing_integration_owners: Record<string, string>;
 
-    triggering_interaction_metadata: ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
+    triggering_interaction_metadata:
+      | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
+      | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
 
     /**
      * - `1` - Sent by Discord to validate your application's interaction handler
@@ -9922,7 +11320,16 @@ export namespace MessageResponse {
     export interface Message {
       attachments: Array<Message.Attachment>;
 
-      components: Array<Message.ActionRowComponentResponse | Message.ButtonComponentResponse | Message.ChannelSelectComponentResponse | Message.MentionableSelectComponentResponse | Message.RoleSelectComponentResponse | Message.StringSelectComponentResponse | Message.TextInputComponentResponse | Message.UserSelectComponentResponse>;
+      components: Array<
+        | Message.ActionRowComponentResponse
+        | Message.ButtonComponentResponse
+        | Message.ChannelSelectComponentResponse
+        | Message.MentionableSelectComponentResponse
+        | Message.RoleSelectComponentResponse
+        | Message.StringSelectComponentResponse
+        | Message.TextInputComponentResponse
+        | Message.UserSelectComponentResponse
+      >;
 
       content: string;
 
@@ -9936,7 +11343,43 @@ export namespace MessageResponse {
 
       timestamp: string;
 
-      type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+      type:
+        | 0
+        | 1
+        | 2
+        | 3
+        | 4
+        | 5
+        | 6
+        | 7
+        | 8
+        | 9
+        | 10
+        | 11
+        | 12
+        | 14
+        | 15
+        | 16
+        | 17
+        | 18
+        | 19
+        | 20
+        | 21
+        | 22
+        | 23
+        | 24
+        | 25
+        | 26
+        | 27
+        | 28
+        | 29
+        | 31
+        | 32
+        | 36
+        | 37
+        | 38
+        | 39
+        | 55;
 
       edited_timestamp?: string | null;
 
@@ -10033,7 +11476,42 @@ export namespace MessageResponse {
           export interface InstallParams {
             permissions: string;
 
-            scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+            scopes: Array<
+              | 'identify'
+              | 'email'
+              | 'connections'
+              | 'guilds'
+              | 'guilds.join'
+              | 'guilds.members.read'
+              | 'gdm.join'
+              | 'bot'
+              | 'rpc'
+              | 'rpc.notifications.read'
+              | 'rpc.voice.read'
+              | 'rpc.voice.write'
+              | 'rpc.video.read'
+              | 'rpc.video.write'
+              | 'rpc.screenshare.read'
+              | 'rpc.screenshare.write'
+              | 'rpc.activities.write'
+              | 'webhook.incoming'
+              | 'messages.read'
+              | 'applications.builds.upload'
+              | 'applications.builds.read'
+              | 'applications.commands'
+              | 'applications.commands.permissions.update'
+              | 'applications.commands.update'
+              | 'applications.store.update'
+              | 'applications.entitlements'
+              | 'activities.read'
+              | 'activities.write'
+              | 'activities.invites.write'
+              | 'relationships.read'
+              | 'voice'
+              | 'dm_channels.read'
+              | 'role_connections.write'
+              | 'openid'
+            >;
           }
 
           export interface IntegrationTypesConfig {
@@ -10044,7 +11522,42 @@ export namespace MessageResponse {
             export interface Oauth2InstallParams {
               permissions: string;
 
-              scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+              scopes: Array<
+                | 'identify'
+                | 'email'
+                | 'connections'
+                | 'guilds'
+                | 'guilds.join'
+                | 'guilds.members.read'
+                | 'gdm.join'
+                | 'bot'
+                | 'rpc'
+                | 'rpc.notifications.read'
+                | 'rpc.voice.read'
+                | 'rpc.voice.write'
+                | 'rpc.video.read'
+                | 'rpc.video.write'
+                | 'rpc.screenshare.read'
+                | 'rpc.screenshare.write'
+                | 'rpc.activities.write'
+                | 'webhook.incoming'
+                | 'messages.read'
+                | 'applications.builds.upload'
+                | 'applications.builds.read'
+                | 'applications.commands'
+                | 'applications.commands.permissions.update'
+                | 'applications.commands.update'
+                | 'applications.store.update'
+                | 'applications.entitlements'
+                | 'activities.read'
+                | 'activities.write'
+                | 'activities.invites.write'
+                | 'relationships.read'
+                | 'voice'
+                | 'dm_channels.read'
+                | 'role_connections.write'
+                | 'openid'
+              >;
             }
           }
         }
@@ -10065,7 +11578,15 @@ export namespace MessageResponse {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-        components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+        components?: Array<
+          | ActionRowComponentResponse.ButtonComponentResponse
+          | ActionRowComponentResponse.ChannelSelectComponentResponse
+          | ActionRowComponentResponse.MentionableSelectComponentResponse
+          | ActionRowComponentResponse.RoleSelectComponentResponse
+          | ActionRowComponentResponse.StringSelectComponentResponse
+          | ActionRowComponentResponse.TextInputComponentResponse
+          | ActionRowComponentResponse.UserSelectComponentResponse
+        > | null;
       }
 
       export namespace ActionRowComponentResponse {
@@ -10164,7 +11685,10 @@ export namespace MessageResponse {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+          default_values?: Array<
+            | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+            | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+          > | null;
 
           disabled?: boolean | null;
 
@@ -10445,7 +11969,10 @@ export namespace MessageResponse {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-        default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+        default_values?: Array<
+          | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+          | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+        > | null;
 
         disabled?: boolean | null;
 
@@ -10741,7 +12268,13 @@ export namespace MessageResponse {
       }
 
       export interface Resolved {
-        channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+        channels: Record<
+          string,
+          | Shared.GuildChannel
+          | UsersChannelsAPI.PrivateChannelResponse
+          | UsersChannelsAPI.PrivateGroupChannelResponse
+          | ChannelsAPI.Thread
+        >;
 
         members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -10885,7 +12418,16 @@ export namespace MessageResponse {
 
     channel_id: string;
 
-    components: Array<ReferencedMessage.ActionRowComponentResponse | ReferencedMessage.ButtonComponentResponse | ReferencedMessage.ChannelSelectComponentResponse | ReferencedMessage.MentionableSelectComponentResponse | ReferencedMessage.RoleSelectComponentResponse | ReferencedMessage.StringSelectComponentResponse | ReferencedMessage.TextInputComponentResponse | ReferencedMessage.UserSelectComponentResponse>;
+    components: Array<
+      | ReferencedMessage.ActionRowComponentResponse
+      | ReferencedMessage.ButtonComponentResponse
+      | ReferencedMessage.ChannelSelectComponentResponse
+      | ReferencedMessage.MentionableSelectComponentResponse
+      | ReferencedMessage.RoleSelectComponentResponse
+      | ReferencedMessage.StringSelectComponentResponse
+      | ReferencedMessage.TextInputComponentResponse
+      | ReferencedMessage.UserSelectComponentResponse
+    >;
 
     content: string;
 
@@ -10905,7 +12447,43 @@ export namespace MessageResponse {
 
     tts: boolean;
 
-    type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+    type:
+      | 0
+      | 1
+      | 2
+      | 3
+      | 4
+      | 5
+      | 6
+      | 7
+      | 8
+      | 9
+      | 10
+      | 11
+      | 12
+      | 14
+      | 15
+      | 16
+      | 17
+      | 18
+      | 19
+      | 20
+      | 21
+      | 22
+      | 23
+      | 24
+      | 25
+      | 26
+      | 27
+      | 28
+      | 29
+      | 31
+      | 32
+      | 36
+      | 37
+      | 38
+      | 39
+      | 55;
 
     activity?: unknown | null;
 
@@ -10919,7 +12497,11 @@ export namespace MessageResponse {
 
     interaction?: ReferencedMessage.Interaction | null;
 
-    interaction_metadata?: ReferencedMessage.ApplicationCommandInteractionMetadataResponse | ReferencedMessage.MessageComponentInteractionMetadataResponse | ReferencedMessage.ModalSubmitInteractionMetadataResponse | null;
+    interaction_metadata?:
+      | ReferencedMessage.ApplicationCommandInteractionMetadataResponse
+      | ReferencedMessage.MessageComponentInteractionMetadataResponse
+      | ReferencedMessage.ModalSubmitInteractionMetadataResponse
+      | null;
 
     mention_channels?: Array<ReferencedMessage.MentionChannel | null> | null;
 
@@ -11034,7 +12616,42 @@ export namespace MessageResponse {
         export interface InstallParams {
           permissions: string;
 
-          scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+          scopes: Array<
+            | 'identify'
+            | 'email'
+            | 'connections'
+            | 'guilds'
+            | 'guilds.join'
+            | 'guilds.members.read'
+            | 'gdm.join'
+            | 'bot'
+            | 'rpc'
+            | 'rpc.notifications.read'
+            | 'rpc.voice.read'
+            | 'rpc.voice.write'
+            | 'rpc.video.read'
+            | 'rpc.video.write'
+            | 'rpc.screenshare.read'
+            | 'rpc.screenshare.write'
+            | 'rpc.activities.write'
+            | 'webhook.incoming'
+            | 'messages.read'
+            | 'applications.builds.upload'
+            | 'applications.builds.read'
+            | 'applications.commands'
+            | 'applications.commands.permissions.update'
+            | 'applications.commands.update'
+            | 'applications.store.update'
+            | 'applications.entitlements'
+            | 'activities.read'
+            | 'activities.write'
+            | 'activities.invites.write'
+            | 'relationships.read'
+            | 'voice'
+            | 'dm_channels.read'
+            | 'role_connections.write'
+            | 'openid'
+          >;
         }
 
         export interface IntegrationTypesConfig {
@@ -11045,7 +12662,42 @@ export namespace MessageResponse {
           export interface Oauth2InstallParams {
             permissions: string;
 
-            scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+            scopes: Array<
+              | 'identify'
+              | 'email'
+              | 'connections'
+              | 'guilds'
+              | 'guilds.join'
+              | 'guilds.members.read'
+              | 'gdm.join'
+              | 'bot'
+              | 'rpc'
+              | 'rpc.notifications.read'
+              | 'rpc.voice.read'
+              | 'rpc.voice.write'
+              | 'rpc.video.read'
+              | 'rpc.video.write'
+              | 'rpc.screenshare.read'
+              | 'rpc.screenshare.write'
+              | 'rpc.activities.write'
+              | 'webhook.incoming'
+              | 'messages.read'
+              | 'applications.builds.upload'
+              | 'applications.builds.read'
+              | 'applications.commands'
+              | 'applications.commands.permissions.update'
+              | 'applications.commands.update'
+              | 'applications.store.update'
+              | 'applications.entitlements'
+              | 'activities.read'
+              | 'activities.write'
+              | 'activities.invites.write'
+              | 'relationships.read'
+              | 'voice'
+              | 'dm_channels.read'
+              | 'role_connections.write'
+              | 'openid'
+            >;
           }
         }
       }
@@ -11066,7 +12718,15 @@ export namespace MessageResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+      components?: Array<
+        | ActionRowComponentResponse.ButtonComponentResponse
+        | ActionRowComponentResponse.ChannelSelectComponentResponse
+        | ActionRowComponentResponse.MentionableSelectComponentResponse
+        | ActionRowComponentResponse.RoleSelectComponentResponse
+        | ActionRowComponentResponse.StringSelectComponentResponse
+        | ActionRowComponentResponse.TextInputComponentResponse
+        | ActionRowComponentResponse.UserSelectComponentResponse
+      > | null;
     }
 
     export namespace ActionRowComponentResponse {
@@ -11165,7 +12825,10 @@ export namespace MessageResponse {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-        default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+        default_values?: Array<
+          | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+          | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+        > | null;
 
         disabled?: boolean | null;
 
@@ -11446,7 +13109,10 @@ export namespace MessageResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-      default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+      default_values?: Array<
+        | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+        | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+      > | null;
 
       disabled?: boolean | null;
 
@@ -11836,7 +13502,9 @@ export namespace MessageResponse {
 
       authorizing_integration_owners: Record<string, string>;
 
-      triggering_interaction_metadata: ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
+      triggering_interaction_metadata:
+        | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
+        | ModalSubmitInteractionMetadataResponse.MessageComponentInteractionMetadataResponse;
 
       /**
        * - `1` - Sent by Discord to validate your application's interaction handler
@@ -11949,7 +13617,16 @@ export namespace MessageResponse {
       export interface Message {
         attachments: Array<Message.Attachment>;
 
-        components: Array<Message.ActionRowComponentResponse | Message.ButtonComponentResponse | Message.ChannelSelectComponentResponse | Message.MentionableSelectComponentResponse | Message.RoleSelectComponentResponse | Message.StringSelectComponentResponse | Message.TextInputComponentResponse | Message.UserSelectComponentResponse>;
+        components: Array<
+          | Message.ActionRowComponentResponse
+          | Message.ButtonComponentResponse
+          | Message.ChannelSelectComponentResponse
+          | Message.MentionableSelectComponentResponse
+          | Message.RoleSelectComponentResponse
+          | Message.StringSelectComponentResponse
+          | Message.TextInputComponentResponse
+          | Message.UserSelectComponentResponse
+        >;
 
         content: string;
 
@@ -11963,7 +13640,43 @@ export namespace MessageResponse {
 
         timestamp: string;
 
-        type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 31 | 32 | 36 | 37 | 38 | 39 | 55;
+        type:
+          | 0
+          | 1
+          | 2
+          | 3
+          | 4
+          | 5
+          | 6
+          | 7
+          | 8
+          | 9
+          | 10
+          | 11
+          | 12
+          | 14
+          | 15
+          | 16
+          | 17
+          | 18
+          | 19
+          | 20
+          | 21
+          | 22
+          | 23
+          | 24
+          | 25
+          | 26
+          | 27
+          | 28
+          | 29
+          | 31
+          | 32
+          | 36
+          | 37
+          | 38
+          | 39
+          | 55;
 
         edited_timestamp?: string | null;
 
@@ -12060,7 +13773,42 @@ export namespace MessageResponse {
             export interface InstallParams {
               permissions: string;
 
-              scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+              scopes: Array<
+                | 'identify'
+                | 'email'
+                | 'connections'
+                | 'guilds'
+                | 'guilds.join'
+                | 'guilds.members.read'
+                | 'gdm.join'
+                | 'bot'
+                | 'rpc'
+                | 'rpc.notifications.read'
+                | 'rpc.voice.read'
+                | 'rpc.voice.write'
+                | 'rpc.video.read'
+                | 'rpc.video.write'
+                | 'rpc.screenshare.read'
+                | 'rpc.screenshare.write'
+                | 'rpc.activities.write'
+                | 'webhook.incoming'
+                | 'messages.read'
+                | 'applications.builds.upload'
+                | 'applications.builds.read'
+                | 'applications.commands'
+                | 'applications.commands.permissions.update'
+                | 'applications.commands.update'
+                | 'applications.store.update'
+                | 'applications.entitlements'
+                | 'activities.read'
+                | 'activities.write'
+                | 'activities.invites.write'
+                | 'relationships.read'
+                | 'voice'
+                | 'dm_channels.read'
+                | 'role_connections.write'
+                | 'openid'
+              >;
             }
 
             export interface IntegrationTypesConfig {
@@ -12071,7 +13819,42 @@ export namespace MessageResponse {
               export interface Oauth2InstallParams {
                 permissions: string;
 
-                scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+                scopes: Array<
+                  | 'identify'
+                  | 'email'
+                  | 'connections'
+                  | 'guilds'
+                  | 'guilds.join'
+                  | 'guilds.members.read'
+                  | 'gdm.join'
+                  | 'bot'
+                  | 'rpc'
+                  | 'rpc.notifications.read'
+                  | 'rpc.voice.read'
+                  | 'rpc.voice.write'
+                  | 'rpc.video.read'
+                  | 'rpc.video.write'
+                  | 'rpc.screenshare.read'
+                  | 'rpc.screenshare.write'
+                  | 'rpc.activities.write'
+                  | 'webhook.incoming'
+                  | 'messages.read'
+                  | 'applications.builds.upload'
+                  | 'applications.builds.read'
+                  | 'applications.commands'
+                  | 'applications.commands.permissions.update'
+                  | 'applications.commands.update'
+                  | 'applications.store.update'
+                  | 'applications.entitlements'
+                  | 'activities.read'
+                  | 'activities.write'
+                  | 'activities.invites.write'
+                  | 'relationships.read'
+                  | 'voice'
+                  | 'dm_channels.read'
+                  | 'role_connections.write'
+                  | 'openid'
+                >;
               }
             }
           }
@@ -12092,7 +13875,15 @@ export namespace MessageResponse {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          components?: Array<ActionRowComponentResponse.ButtonComponentResponse | ActionRowComponentResponse.ChannelSelectComponentResponse | ActionRowComponentResponse.MentionableSelectComponentResponse | ActionRowComponentResponse.RoleSelectComponentResponse | ActionRowComponentResponse.StringSelectComponentResponse | ActionRowComponentResponse.TextInputComponentResponse | ActionRowComponentResponse.UserSelectComponentResponse> | null;
+          components?: Array<
+            | ActionRowComponentResponse.ButtonComponentResponse
+            | ActionRowComponentResponse.ChannelSelectComponentResponse
+            | ActionRowComponentResponse.MentionableSelectComponentResponse
+            | ActionRowComponentResponse.RoleSelectComponentResponse
+            | ActionRowComponentResponse.StringSelectComponentResponse
+            | ActionRowComponentResponse.TextInputComponentResponse
+            | ActionRowComponentResponse.UserSelectComponentResponse
+          > | null;
         }
 
         export namespace ActionRowComponentResponse {
@@ -12191,7 +13982,10 @@ export namespace MessageResponse {
              */
             type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-            default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+            default_values?: Array<
+              | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+              | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+            > | null;
 
             disabled?: boolean | null;
 
@@ -12472,7 +14266,10 @@ export namespace MessageResponse {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          default_values?: Array<MentionableSelectComponentResponse.RoleSelectDefaultValueResponse | MentionableSelectComponentResponse.UserSelectDefaultValueResponse> | null;
+          default_values?: Array<
+            | MentionableSelectComponentResponse.RoleSelectDefaultValueResponse
+            | MentionableSelectComponentResponse.UserSelectDefaultValueResponse
+          > | null;
 
           disabled?: boolean | null;
 
@@ -12768,7 +14565,13 @@ export namespace MessageResponse {
         }
 
         export interface Resolved {
-          channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+          channels: Record<
+            string,
+            | Shared.GuildChannel
+            | UsersChannelsAPI.PrivateChannelResponse
+            | UsersChannelsAPI.PrivateGroupChannelResponse
+            | ChannelsAPI.Thread
+          >;
 
           members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -12874,7 +14677,13 @@ export namespace MessageResponse {
     }
 
     export interface Resolved {
-      channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+      channels: Record<
+        string,
+        | Shared.GuildChannel
+        | UsersChannelsAPI.PrivateChannelResponse
+        | UsersChannelsAPI.PrivateGroupChannelResponse
+        | ChannelsAPI.Thread
+      >;
 
       members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -12903,7 +14712,13 @@ export namespace MessageResponse {
   }
 
   export interface Resolved {
-    channels: Record<string, Shared.GuildChannel | UsersChannelsAPI.PrivateChannelResponse | UsersChannelsAPI.PrivateGroupChannelResponse | ChannelsAPI.Thread>;
+    channels: Record<
+      string,
+      | Shared.GuildChannel
+      | UsersChannelsAPI.PrivateChannelResponse
+      | UsersChannelsAPI.PrivateGroupChannelResponse
+      | ChannelsAPI.Thread
+    >;
 
     members: Record<string, MembersAPI.GuildMemberResponse>;
 
@@ -13001,7 +14816,42 @@ export namespace PrivateApplicationResponse {
   export interface InstallParams {
     permissions: string;
 
-    scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+    scopes: Array<
+      | 'identify'
+      | 'email'
+      | 'connections'
+      | 'guilds'
+      | 'guilds.join'
+      | 'guilds.members.read'
+      | 'gdm.join'
+      | 'bot'
+      | 'rpc'
+      | 'rpc.notifications.read'
+      | 'rpc.voice.read'
+      | 'rpc.voice.write'
+      | 'rpc.video.read'
+      | 'rpc.video.write'
+      | 'rpc.screenshare.read'
+      | 'rpc.screenshare.write'
+      | 'rpc.activities.write'
+      | 'webhook.incoming'
+      | 'messages.read'
+      | 'applications.builds.upload'
+      | 'applications.builds.read'
+      | 'applications.commands'
+      | 'applications.commands.permissions.update'
+      | 'applications.commands.update'
+      | 'applications.store.update'
+      | 'applications.entitlements'
+      | 'activities.read'
+      | 'activities.write'
+      | 'activities.invites.write'
+      | 'relationships.read'
+      | 'voice'
+      | 'dm_channels.read'
+      | 'role_connections.write'
+      | 'openid'
+    >;
   }
 
   export interface IntegrationTypesConfig {
@@ -13012,7 +14862,42 @@ export namespace PrivateApplicationResponse {
     export interface Oauth2InstallParams {
       permissions: string;
 
-      scopes: Array<'identify' | 'email' | 'connections' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'gdm.join' | 'bot' | 'rpc' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'rpc.video.read' | 'rpc.video.write' | 'rpc.screenshare.read' | 'rpc.screenshare.write' | 'rpc.activities.write' | 'webhook.incoming' | 'messages.read' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.permissions.update' | 'applications.commands.update' | 'applications.store.update' | 'applications.entitlements' | 'activities.read' | 'activities.write' | 'activities.invites.write' | 'relationships.read' | 'voice' | 'dm_channels.read' | 'role_connections.write' | 'openid'>;
+      scopes: Array<
+        | 'identify'
+        | 'email'
+        | 'connections'
+        | 'guilds'
+        | 'guilds.join'
+        | 'guilds.members.read'
+        | 'gdm.join'
+        | 'bot'
+        | 'rpc'
+        | 'rpc.notifications.read'
+        | 'rpc.voice.read'
+        | 'rpc.voice.write'
+        | 'rpc.video.read'
+        | 'rpc.video.write'
+        | 'rpc.screenshare.read'
+        | 'rpc.screenshare.write'
+        | 'rpc.activities.write'
+        | 'webhook.incoming'
+        | 'messages.read'
+        | 'applications.builds.upload'
+        | 'applications.builds.read'
+        | 'applications.commands'
+        | 'applications.commands.permissions.update'
+        | 'applications.commands.update'
+        | 'applications.store.update'
+        | 'applications.entitlements'
+        | 'activities.read'
+        | 'activities.write'
+        | 'activities.invites.write'
+        | 'relationships.read'
+        | 'voice'
+        | 'dm_channels.read'
+        | 'role_connections.write'
+        | 'openid'
+      >;
     }
   }
 

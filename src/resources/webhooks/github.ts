@@ -1,15 +1,22 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as GitHubAPI from './github';
 
 export class GitHub extends APIResource {
-  create(webhookId: string, webhookToken: string, params: GitHubCreateParams, options?: Core.RequestOptions): Core.APIPromise<void> {
+  create(
+    webhookId: string,
+    webhookToken: string,
+    params: GitHubCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<void> {
     const { thread_id, wait, ...body } = params;
-    return this._client.post(`/webhooks/${webhookId}/${webhookToken}/github`, { query: { thread_id, wait }, body, ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.post(`/webhooks/${webhookId}/${webhookToken}/github`, {
+      query: { thread_id, wait },
+      body,
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 }
 
@@ -450,7 +457,5 @@ export namespace GitHubCreateParams {
 }
 
 export declare namespace GitHub {
-  export {
-    type GitHubCreateParams as GitHubCreateParams
-  };
+  export { type GitHubCreateParams as GitHubCreateParams };
 }
