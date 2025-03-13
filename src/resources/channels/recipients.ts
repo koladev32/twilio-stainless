@@ -1,20 +1,25 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as RecipientsAPI from './recipients';
 import * as ChannelsAPI from '../users/channels';
 import * as UsersAPI from '../users/users';
 
 export class Recipients extends APIResource {
-  update(channelId: string, userId: string, body: RecipientUpdateParams, options?: Core.RequestOptions): Core.APIPromise<RecipientUpdateResponse> {
+  update(
+    channelId: string,
+    userId: string,
+    body: RecipientUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<RecipientUpdateResponse> {
     return this._client.put(`/channels/${channelId}/recipients/${userId}`, { body, ...options });
   }
 
   delete(channelId: string, userId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/channels/${channelId}/recipients/${userId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.delete(`/channels/${channelId}/recipients/${userId}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 }
 
@@ -90,7 +95,9 @@ export interface PrivateGroupChannelResponse {
   owner_id?: string | null;
 }
 
-export type RecipientUpdateResponse = ChannelsAPI.PrivateChannelResponse | ChannelsAPI.PrivateGroupChannelResponse
+export type RecipientUpdateResponse =
+  | ChannelsAPI.PrivateChannelResponse
+  | ChannelsAPI.PrivateGroupChannelResponse;
 
 export interface RecipientUpdateParams {
   access_token?: string | null;
@@ -103,6 +110,6 @@ export declare namespace Recipients {
     type PrivateChannelResponse as PrivateChannelResponse,
     type PrivateGroupChannelResponse as PrivateGroupChannelResponse,
     type RecipientUpdateResponse as RecipientUpdateResponse,
-    type RecipientUpdateParams as RecipientUpdateParams
+    type RecipientUpdateParams as RecipientUpdateParams,
   };
 }

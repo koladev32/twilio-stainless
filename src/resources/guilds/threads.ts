@@ -1,8 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
 import * as Shared from '../shared';
 import * as ChannelsAPI from '../channels/channels';
@@ -23,7 +21,5 @@ export interface ThreadsResponse {
 }
 
 export declare namespace Threads {
-  export {
-    type ThreadsResponse as ThreadsResponse
-  };
+  export { type ThreadsResponse as ThreadsResponse };
 }

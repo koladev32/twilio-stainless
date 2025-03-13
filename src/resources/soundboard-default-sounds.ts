@@ -1,10 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
-import { isRequestOptions } from '../core';
-import { APIPromise } from '../core';
 import * as Core from '../core';
-import * as SoundboardDefaultSoundsAPI from './soundboard-default-sounds';
 import * as UsersAPI from './users/users';
 
 export class SoundboardDefaultSounds extends APIResource {
@@ -31,11 +28,11 @@ export interface SoundboardSoundResponse {
   user?: UsersAPI.User | null;
 }
 
-export type SoundboardDefaultSoundListResponse = Array<SoundboardSoundResponse>
+export type SoundboardDefaultSoundListResponse = Array<SoundboardSoundResponse>;
 
 export declare namespace SoundboardDefaultSounds {
   export {
     type SoundboardSoundResponse as SoundboardSoundResponse,
-    type SoundboardDefaultSoundListResponse as SoundboardDefaultSoundListResponse
+    type SoundboardDefaultSoundListResponse as SoundboardDefaultSoundListResponse,
   };
 }

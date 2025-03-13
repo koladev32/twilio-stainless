@@ -1,13 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
-import { isRequestOptions } from '../core';
-import { APIPromise } from '../core';
 import * as Core from '../core';
-import * as StageInstancesAPI from './stage-instances';
 
 export class StageInstances extends APIResource {
-  create(body: StageInstanceCreateParams, options?: Core.RequestOptions): Core.APIPromise<StageInstanceResponse> {
+  create(
+    body: StageInstanceCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<StageInstanceResponse> {
     return this._client.post('/stage-instances', { body, ...options });
   }
 
@@ -15,12 +15,19 @@ export class StageInstances extends APIResource {
     return this._client.get(`/stage-instances/${channelId}`, options);
   }
 
-  update(channelId: string, body: StageInstanceUpdateParams, options?: Core.RequestOptions): Core.APIPromise<StageInstanceResponse> {
+  update(
+    channelId: string,
+    body: StageInstanceUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<StageInstanceResponse> {
     return this._client.patch(`/stage-instances/${channelId}`, { body, ...options });
   }
 
   delete(channelId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/stage-instances/${channelId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.delete(`/stage-instances/${channelId}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 }
 
@@ -95,6 +102,6 @@ export declare namespace StageInstances {
     type StageInstance as StageInstance,
     type StageInstanceResponse as StageInstanceResponse,
     type StageInstanceCreateParams as StageInstanceCreateParams,
-    type StageInstanceUpdateParams as StageInstanceUpdateParams
+    type StageInstanceUpdateParams as StageInstanceUpdateParams,
   };
 }

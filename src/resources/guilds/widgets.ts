@@ -2,9 +2,7 @@
 
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as WidgetsAPI from './widgets';
 import * as GuildsAPI from './guilds';
 import { type Response } from '../../_shims/index';
 
@@ -13,13 +11,26 @@ export class Widgets extends APIResource {
     return this._client.get(`/guilds/${guildId}/widget.json`, options);
   }
 
-  retrievePng(guildId: string, query?: WidgetRetrievePngParams, options?: Core.RequestOptions): Core.APIPromise<Response>
-  retrievePng(guildId: string, options?: Core.RequestOptions): Core.APIPromise<Response>
-  retrievePng(guildId: string, query: WidgetRetrievePngParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<Response> {
+  retrievePng(
+    guildId: string,
+    query?: WidgetRetrievePngParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Response>;
+  retrievePng(guildId: string, options?: Core.RequestOptions): Core.APIPromise<Response>;
+  retrievePng(
+    guildId: string,
+    query: WidgetRetrievePngParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Response> {
     if (isRequestOptions(query)) {
       return this.retrievePng(guildId, {}, query);
     }
-    return this._client.get(`/guilds/${guildId}/widget.png`, { query, ...options, headers: { Accept: 'image/png', ...options?.headers }, __binaryResponse: true });
+    return this._client.get(`/guilds/${guildId}/widget.png`, {
+      query,
+      ...options,
+      headers: { Accept: 'image/png', ...options?.headers },
+      __binaryResponse: true,
+    });
   }
 }
 
@@ -41,7 +52,5 @@ export interface WidgetRetrievePngParams {
 }
 
 export declare namespace Widgets {
-  export {
-    type WidgetRetrievePngParams as WidgetRetrievePngParams
-  };
+  export { type WidgetRetrievePngParams as WidgetRetrievePngParams };
 }

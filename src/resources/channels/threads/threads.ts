@@ -1,11 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
-import { isRequestOptions } from '../../../core';
-import { APIPromise } from '../../../core';
 import * as Core from '../../../core';
-import * as ThreadsAPI from './threads';
-import { maybeMultipartFormRequestOptions } from '../../../core';
 import * as ThreadMembersAPI from '../thread-members/thread-members';
 import * as ArchivedAPI from './archived/archived';
 import { Archived } from './archived/archived';
@@ -13,8 +9,15 @@ import { Archived } from './archived/archived';
 export class Threads extends APIResource {
   archived: ArchivedAPI.Archived = new ArchivedAPI.Archived(this._client);
 
-  create(channelId: string, body: ThreadCreateParams, options?: Core.RequestOptions): Core.APIPromise<CreatedThread> {
-    return this._client.post(`/channels/${channelId}/threads`, Core.maybeMultipartFormRequestOptions({ body, ...options }));
+  create(
+    channelId: string,
+    body: ThreadCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<CreatedThread> {
+    return this._client.post(
+      `/channels/${channelId}/threads`,
+      Core.maybeMultipartFormRequestOptions({ body, ...options }),
+    );
   }
 }
 
@@ -105,7 +108,9 @@ export namespace CreatedThread {
   }
 }
 
-export type ThreadCreateParams = ThreadCreateParams.CreateForumThreadRequest | ThreadCreateParams.CreateTextThreadWithoutMessageRequest
+export type ThreadCreateParams =
+  | ThreadCreateParams.CreateForumThreadRequest
+  | ThreadCreateParams.CreateTextThreadWithoutMessageRequest;
 
 export declare namespace ThreadCreateParams {
   export interface CreateForumThreadRequest {
@@ -173,7 +178,14 @@ export declare namespace ThreadCreateParams {
       }
 
       export interface Component {
-        components: Array<Component.ButtonComponentForMessageRequest | Component.ChannelSelectComponentForMessageRequest | Component.MentionableSelectComponentForMessageRequest | Component.RoleSelectComponentForMessageRequest | Component.StringSelectComponentForMessageRequest | Component.UserSelectComponentForMessageRequest>;
+        components: Array<
+          | Component.ButtonComponentForMessageRequest
+          | Component.ChannelSelectComponentForMessageRequest
+          | Component.MentionableSelectComponentForMessageRequest
+          | Component.RoleSelectComponentForMessageRequest
+          | Component.StringSelectComponentForMessageRequest
+          | Component.UserSelectComponentForMessageRequest
+        >;
 
         /**
          * - `1` - Container for other components
@@ -276,7 +288,10 @@ export declare namespace ThreadCreateParams {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-          default_values?: Array<MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue> | null;
+          default_values?: Array<
+            | MentionableSelectComponentForMessageRequest.RoleSelectDefaultValue
+            | MentionableSelectComponentForMessageRequest.UserSelectDefaultValue
+          > | null;
 
           disabled?: boolean | null;
 
@@ -611,12 +626,7 @@ export declare namespace ThreadCreateParams {
 Threads.Archived = Archived;
 
 export declare namespace Threads {
-  export {
-    type CreatedThread as CreatedThread,
-    type ThreadCreateParams as ThreadCreateParams
-  };
+  export { type CreatedThread as CreatedThread, type ThreadCreateParams as ThreadCreateParams };
 
-  export {
-    Archived as Archived
-  };
+  export { Archived as Archived };
 }

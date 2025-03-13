@@ -1,10 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
-import { isRequestOptions } from '../core';
-import { APIPromise } from '../core';
 import * as Core from '../core';
-import * as StickerPacksAPI from './sticker-packs';
 import * as StickersAPI from './stickers';
 
 export class StickerPacks extends APIResource {
@@ -40,6 +37,6 @@ export interface StickerPackCollectionResponse {
 export declare namespace StickerPacks {
   export {
     type StickerPack as StickerPack,
-    type StickerPackCollectionResponse as StickerPackCollectionResponse
+    type StickerPackCollectionResponse as StickerPackCollectionResponse,
   };
 }

@@ -1,10 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as RegionsAPI from './regions';
 import * as VoiceRegionsAPI from '../voice/regions';
 
 export class Regions extends APIResource {
@@ -25,11 +22,8 @@ export interface VoiceRegion {
   optimal: boolean;
 }
 
-export type RegionListResponse = Array<VoiceRegionsAPI.VoiceRegionResponse>
+export type RegionListResponse = Array<VoiceRegionsAPI.VoiceRegionResponse>;
 
 export declare namespace Regions {
-  export {
-    type VoiceRegion as VoiceRegion,
-    type RegionListResponse as RegionListResponse
-  };
+  export { type VoiceRegion as VoiceRegion, type RegionListResponse as RegionListResponse };
 }

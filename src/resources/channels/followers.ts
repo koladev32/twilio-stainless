@@ -1,13 +1,14 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as FollowersAPI from './followers';
 
 export class Followers extends APIResource {
-  create(channelId: string, body: FollowerCreateParams, options?: Core.RequestOptions): Core.APIPromise<ChannelFollowerResponse> {
+  create(
+    channelId: string,
+    body: FollowerCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<ChannelFollowerResponse> {
     return this._client.post(`/channels/${channelId}/followers`, { body, ...options });
   }
 }
@@ -25,6 +26,6 @@ export interface FollowerCreateParams {
 export declare namespace Followers {
   export {
     type ChannelFollowerResponse as ChannelFollowerResponse,
-    type FollowerCreateParams as FollowerCreateParams
+    type FollowerCreateParams as FollowerCreateParams,
   };
 }

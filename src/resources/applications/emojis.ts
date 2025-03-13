@@ -1,22 +1,32 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import { APIPromise } from '../../core';
 import * as Core from '../../core';
-import * as EmojisAPI from './emojis';
 import * as UsersAPI from '../users/users';
 
 export class Emojis extends APIResource {
-  create(applicationId: string, body: EmojiCreateParams, options?: Core.RequestOptions): Core.APIPromise<EmojiResponse> {
+  create(
+    applicationId: string,
+    body: EmojiCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EmojiResponse> {
     return this._client.post(`/applications/${applicationId}/emojis`, { body, ...options });
   }
 
-  retrieve(applicationId: string, emojiId: string, options?: Core.RequestOptions): Core.APIPromise<EmojiResponse> {
+  retrieve(
+    applicationId: string,
+    emojiId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EmojiResponse> {
     return this._client.get(`/applications/${applicationId}/emojis/${emojiId}`, options);
   }
 
-  update(applicationId: string, emojiId: string, body: EmojiUpdateParams, options?: Core.RequestOptions): Core.APIPromise<EmojiResponse> {
+  update(
+    applicationId: string,
+    emojiId: string,
+    body: EmojiUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EmojiResponse> {
     return this._client.patch(`/applications/${applicationId}/emojis/${emojiId}`, { body, ...options });
   }
 
@@ -25,7 +35,10 @@ export class Emojis extends APIResource {
   }
 
   delete(applicationId: string, emojiId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/applications/${applicationId}/emojis/${emojiId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.delete(`/applications/${applicationId}/emojis/${emojiId}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 }
 
@@ -66,6 +79,6 @@ export declare namespace Emojis {
     type EmojiResponse as EmojiResponse,
     type ListApplicationEmojisResponse as ListApplicationEmojisResponse,
     type EmojiCreateParams as EmojiCreateParams,
-    type EmojiUpdateParams as EmojiUpdateParams
+    type EmojiUpdateParams as EmojiUpdateParams,
   };
 }
