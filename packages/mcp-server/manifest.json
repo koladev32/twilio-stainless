@@ -1,0 +1,60 @@
+{
+  "dxt_version": "0.1",
+  "name": "discord-api-mcp",
+  "version": "0.0.1-alpha.0",
+  "description": "The official MCP Server for the Discord API API",
+  "author": {
+    "name": "Discord API",
+    "email": "dev-feedback@discord-api.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koladev32/twilio-stainless.git"
+  },
+  "homepage": "https://github.com/koladev32/twilio-stainless/tree/main/packages/mcp-server#readme",
+  "documentation": "https://docs.discord-api.com",
+  "server": {
+    "type": "node",
+    "entry_point": "${__dirname}/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/index.js"
+      ],
+      "env": {
+        "BOT_TOKEN": "${user_config.BOT_TOKEN}",
+        "CLIENT_ID": "${user_config.CLIENT_ID}",
+        "CLIENT_SECRET": "${user_config.CLIENT_SECRET}"
+      }
+    }
+  },
+  "user_config": {
+    "BOT_TOKEN": {
+      "title": "bot_token",
+      "description": "Discord bot token used for API key authentication",
+      "required": true,
+      "type": "string"
+    },
+    "CLIENT_ID": {
+      "title": "client_id",
+      "description": "OAuth2 client ID",
+      "required": true,
+      "type": "string"
+    },
+    "CLIENT_SECRET": {
+      "title": "client_secret",
+      "description": "OAuth2 client secret",
+      "required": true,
+      "type": "string"
+    }
+  },
+  "tools_generated": true,
+  "compatibility": {
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "keywords": [
+    "api"
+  ]
+}

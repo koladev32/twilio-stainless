@@ -87,7 +87,7 @@ export type ChannelCreateResponse = PrivateChannelResponse | PrivateGroupChannel
 export interface ChannelCreateParams {
   access_tokens?: Array<string> | null;
 
-  nicks?: Record<string, string | null> | null;
+  nicks?: { [key: string]: string | null } | null;
 
   recipient_id?: string | null;
 }

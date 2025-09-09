@@ -116,7 +116,7 @@ export interface PrivateApplication {
 
   install_params?: PrivateApplication.InstallParams | null;
 
-  integration_types_config?: Record<string, PrivateApplication.IntegrationTypesConfig> | null;
+  integration_types_config?: { [key: string]: PrivateApplication.IntegrationTypesConfig } | null;
 
   interactions_endpoint_url?: string | null;
 
@@ -276,7 +276,7 @@ export interface ApplicationUpdateParams {
 
   install_params?: ApplicationUpdateParams.InstallParams | null;
 
-  integration_types_config?: Record<string, ApplicationUpdateParams.IntegrationTypesConfig | null> | null;
+  integration_types_config?: { [key: string]: ApplicationUpdateParams.IntegrationTypesConfig | null } | null;
 
   interactions_endpoint_url?: string | null;
 
@@ -295,7 +295,7 @@ export namespace ApplicationUpdateParams {
   export interface Description {
     default: string;
 
-    localizations?: Record<string, string> | null;
+    localizations?: { [key: string]: string } | null;
   }
 
   export interface InstallParams {

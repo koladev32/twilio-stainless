@@ -104,5 +104,5 @@ export {
 } from './voice-states';
 export { Webhooks, type WebhookListResponse } from './webhooks';
 export { WelcomeScreen, type GuildWelcomeScreen, type WelcomeScreenUpdateParams } from './welcome-screen';
-export { Widget, type WidgetSettings, type WidgetUpdateParams } from './widget';
 export { Widgets, type WidgetRetrievePngParams } from './widgets';
+export { type WidgetSettings, type WidgetUpdateParams } from './widget';

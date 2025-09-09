@@ -90,7 +90,7 @@ export namespace Oauth2GetAuthorizationResponse {
 
     install_params?: Application.InstallParams | null;
 
-    integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+    integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
     max_participants?: number | null;
 

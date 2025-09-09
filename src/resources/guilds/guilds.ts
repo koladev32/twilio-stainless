@@ -78,7 +78,7 @@ import { WebhookListResponse, Webhooks } from './webhooks';
 import * as WelcomeScreenAPI from './welcome-screen';
 import { GuildWelcomeScreen, WelcomeScreen, WelcomeScreenUpdateParams } from './welcome-screen';
 import * as WidgetAPI from './widget';
-import { Widget as WidgetAPIWidget, WidgetSettings, WidgetUpdateParams } from './widget';
+import { WidgetSettings, WidgetUpdateParams } from './widget';
 import * as WidgetsAPI from './widgets';
 import { WidgetRetrievePngParams, Widgets } from './widgets';
 import * as UsersAPI from '../users/users';
@@ -318,7 +318,7 @@ export namespace GuildAuditLog {
 
     changes?: Array<AuditLogEntry.Change> | null;
 
-    options?: Record<string, string> | null;
+    options?: { [key: string]: string } | null;
 
     reason?: string | null;
 
@@ -1419,7 +1419,6 @@ Guilds.Preview = Preview;
 Guilds.Invites = Invites;
 Guilds.Regions = Regions;
 Guilds.Emojis = Emojis;
-Guilds.Widget = WidgetAPIWidget;
 Guilds.Roles = Roles;
 Guilds.Prune = Prune;
 Guilds.Bans = Bans;
@@ -1549,11 +1548,7 @@ export declare namespace Guilds {
     type EmojiUpdateParams as EmojiUpdateParams,
   };
 
-  export {
-    WidgetAPIWidget as Widget,
-    type WidgetSettings as WidgetSettings,
-    type WidgetUpdateParams as WidgetUpdateParams,
-  };
+  export { type WidgetSettings as WidgetSettings, type WidgetUpdateParams as WidgetUpdateParams };
 
   export {
     Roles as Roles,
