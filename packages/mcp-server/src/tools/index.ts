@@ -1,0 +1,455 @@
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+import { Metadata, Endpoint, HandlerFunction } from './types';
+
+export { Metadata, Endpoint, HandlerFunction };
+
+import retrieve_oauth2 from './oauth2/retrieve-oauth2';
+import retrieve_oauth2_applications from './oauth2/applications/retrieve-oauth2-applications';
+import list_oauth2_keys from './oauth2/keys/list-oauth2-keys';
+import retrieve_users from './users/retrieve-users';
+import retrieve_me_users from './users/retrieve-me-users';
+import update_me_users from './users/update-me-users';
+import list_users_connections from './users/connections/list-users-connections';
+import create_users_channels from './users/channels/create-users-channels';
+import list_users_guilds from './users/guilds/list-users-guilds';
+import delete_users_guilds from './users/guilds/delete-users-guilds';
+import retrieve_guilds_users_member from './users/guilds/member/retrieve-guilds-users-member';
+import retrieve_applications_users_role_connections from './users/applications/role-connections/retrieve-applications-users-role-connections';
+import update_applications_users_role_connections from './users/applications/role-connections/update-applications-users-role-connections';
+import remove_applications_users_role_connections from './users/applications/role-connections/remove-applications-users-role-connections';
+import retrieve_applications from './applications/retrieve-applications';
+import update_applications from './applications/update-applications';
+import create_applications_commands from './applications/commands/create-applications-commands';
+import retrieve_applications_commands from './applications/commands/retrieve-applications-commands';
+import update_applications_commands from './applications/commands/update-applications-commands';
+import list_applications_commands from './applications/commands/list-applications-commands';
+import delete_applications_commands from './applications/commands/delete-applications-commands';
+import list_permissions_commands_applications_permissions from './applications/commands/permissions/list-permissions-commands-applications-permissions';
+import retrieve_permissions_commands_applications_permissions from './applications/commands/permissions/retrieve-permissions-commands-applications-permissions';
+import create_guilds_applications_commands from './applications/guilds/commands/create-guilds-applications-commands';
+import retrieve_guilds_applications_commands from './applications/guilds/commands/retrieve-guilds-applications-commands';
+import update_guilds_applications_commands from './applications/guilds/commands/update-guilds-applications-commands';
+import list_guilds_applications_commands from './applications/guilds/commands/list-guilds-applications-commands';
+import delete_guilds_applications_commands from './applications/guilds/commands/delete-guilds-applications-commands';
+import put_guilds_applications_commands from './applications/guilds/commands/put-guilds-applications-commands';
+import update_commands_guilds_applications_permissions from './applications/guilds/commands/permissions/update-commands-guilds-applications-permissions';
+import list_role_connections_applications_metadata from './applications/role-connections/metadata/list-role-connections-applications-metadata';
+import update_applications_role_connections_metadata from './applications/role-connections-metadata/update-applications-role-connections-metadata';
+import create_applications_entitlements from './applications/entitlements/create-applications-entitlements';
+import retrieve_applications_entitlements from './applications/entitlements/retrieve-applications-entitlements';
+import list_applications_entitlements from './applications/entitlements/list-applications-entitlements';
+import delete_applications_entitlements from './applications/entitlements/delete-applications-entitlements';
+import consume_applications_entitlements from './applications/entitlements/consume-applications-entitlements';
+import retrieve_applications_activity_instances from './applications/activity-instances/retrieve-applications-activity-instances';
+import create_applications_attachment from './applications/attachment/create-applications-attachment';
+import create_applications_emojis from './applications/emojis/create-applications-emojis';
+import retrieve_applications_emojis from './applications/emojis/retrieve-applications-emojis';
+import update_applications_emojis from './applications/emojis/update-applications-emojis';
+import list_applications_emojis from './applications/emojis/list-applications-emojis';
+import delete_applications_emojis from './applications/emojis/delete-applications-emojis';
+import retrieve_gateway from './gateway/retrieve-gateway';
+import retrieve_gateway_bot from './gateway/bot/retrieve-gateway-bot';
+import list_voice_regions from './voice/regions/list-voice-regions';
+import list_soundboard_default_sounds from './soundboard-default-sounds/list-soundboard-default-sounds';
+import create_stage_instances from './stage-instances/create-stage-instances';
+import retrieve_stage_instances from './stage-instances/retrieve-stage-instances';
+import update_stage_instances from './stage-instances/update-stage-instances';
+import delete_stage_instances from './stage-instances/delete-stage-instances';
+import retrieve_sticker_packs from './sticker-packs/retrieve-sticker-packs';
+import list_sticker_packs from './sticker-packs/list-sticker-packs';
+import create_guilds from './guilds/create-guilds';
+import retrieve_guilds from './guilds/retrieve-guilds';
+import update_guilds from './guilds/update-guilds';
+import delete_guilds from './guilds/delete-guilds';
+import bulk_ban_guilds from './guilds/bulk-ban-guilds';
+import mfa_guilds from './guilds/mfa-guilds';
+import create_guilds_scheduled_events from './guilds/scheduled-events/create-guilds-scheduled-events';
+import retrieve_guilds_scheduled_events from './guilds/scheduled-events/retrieve-guilds-scheduled-events';
+import update_guilds_scheduled_events from './guilds/scheduled-events/update-guilds-scheduled-events';
+import list_guilds_scheduled_events from './guilds/scheduled-events/list-guilds-scheduled-events';
+import delete_guilds_scheduled_events from './guilds/scheduled-events/delete-guilds-scheduled-events';
+import list_scheduled_events_guilds_users from './guilds/scheduled-events/users/list-scheduled-events-guilds-users';
+import create_auto_moderation_guilds_rules from './guilds/auto-moderation/rules/create-auto-moderation-guilds-rules';
+import retrieve_auto_moderation_guilds_rules from './guilds/auto-moderation/rules/retrieve-auto-moderation-guilds-rules';
+import update_auto_moderation_guilds_rules from './guilds/auto-moderation/rules/update-auto-moderation-guilds-rules';
+import list_auto_moderation_guilds_rules from './guilds/auto-moderation/rules/list-auto-moderation-guilds-rules';
+import delete_auto_moderation_guilds_rules from './guilds/auto-moderation/rules/delete-auto-moderation-guilds-rules';
+import retrieve_guilds_voice_states from './guilds/voice-states/retrieve-guilds-voice-states';
+import update_guilds_voice_states from './guilds/voice-states/update-guilds-voice-states';
+import retrieve_self_guilds_voice_states from './guilds/voice-states/retrieve-self-guilds-voice-states';
+import update_self_guilds_voice_states from './guilds/voice-states/update-self-guilds-voice-states';
+import retrieve_guilds_members from './guilds/members/retrieve-guilds-members';
+import update_guilds_members from './guilds/members/update-guilds-members';
+import list_guilds_members from './guilds/members/list-guilds-members';
+import delete_guilds_members from './guilds/members/delete-guilds-members';
+import search_guilds_members from './guilds/members/search-guilds-members';
+import update_members_guilds_roles from './guilds/members/roles/update-members-guilds-roles';
+import delete_members_guilds_roles from './guilds/members/roles/delete-members-guilds-roles';
+import active_guilds_threads from './guilds/threads/active-guilds-threads';
+import create_guilds_templates from './guilds/templates/create-guilds-templates';
+import retrieve_guilds_templates from './guilds/templates/retrieve-guilds-templates';
+import update_guilds_templates from './guilds/templates/update-guilds-templates';
+import list_guilds_templates from './guilds/templates/list-guilds-templates';
+import delete_guilds_templates from './guilds/templates/delete-guilds-templates';
+import retrieve_guilds_new_member_welcome from './guilds/new-member-welcome/retrieve-guilds-new-member-welcome';
+import create_guilds_soundboard_sounds from './guilds/soundboard-sounds/create-guilds-soundboard-sounds';
+import retrieve_guilds_soundboard_sounds from './guilds/soundboard-sounds/retrieve-guilds-soundboard-sounds';
+import update_guilds_soundboard_sounds from './guilds/soundboard-sounds/update-guilds-soundboard-sounds';
+import list_guilds_soundboard_sounds from './guilds/soundboard-sounds/list-guilds-soundboard-sounds';
+import delete_guilds_soundboard_sounds from './guilds/soundboard-sounds/delete-guilds-soundboard-sounds';
+import retrieve_guilds_welcome_screen from './guilds/welcome-screen/retrieve-guilds-welcome-screen';
+import update_guilds_welcome_screen from './guilds/welcome-screen/update-guilds-welcome-screen';
+import list_guilds_integrations from './guilds/integrations/list-guilds-integrations';
+import delete_guilds_integrations from './guilds/integrations/delete-guilds-integrations';
+import retrieve_json_guilds_widgets from './guilds/widgets/retrieve-json-guilds-widgets';
+import retrieve_png_guilds_widgets from './guilds/widgets/retrieve-png-guilds-widgets';
+import retrieve_guilds_onboarding from './guilds/onboarding/retrieve-guilds-onboarding';
+import update_guilds_onboarding from './guilds/onboarding/update-guilds-onboarding';
+import retrieve_guilds_vanity_urls from './guilds/vanity-urls/retrieve-guilds-vanity-urls';
+import retrieve_guilds_audit_logs from './guilds/audit-logs/retrieve-guilds-audit-logs';
+import create_guilds_stickers from './guilds/stickers/create-guilds-stickers';
+import retrieve_guilds_stickers from './guilds/stickers/retrieve-guilds-stickers';
+import update_guilds_stickers from './guilds/stickers/update-guilds-stickers';
+import list_guilds_stickers from './guilds/stickers/list-guilds-stickers';
+import delete_guilds_stickers from './guilds/stickers/delete-guilds-stickers';
+import list_guilds_webhooks from './guilds/webhooks/list-guilds-webhooks';
+import create_guilds_channels from './guilds/channels/create-guilds-channels';
+import update_guilds_channels from './guilds/channels/update-guilds-channels';
+import list_guilds_channels from './guilds/channels/list-guilds-channels';
+import retrieve_guilds_preview from './guilds/preview/retrieve-guilds-preview';
+import list_guilds_invites from './guilds/invites/list-guilds-invites';
+import list_guilds_regions from './guilds/regions/list-guilds-regions';
+import create_guilds_emojis from './guilds/emojis/create-guilds-emojis';
+import retrieve_guilds_emojis from './guilds/emojis/retrieve-guilds-emojis';
+import update_guilds_emojis from './guilds/emojis/update-guilds-emojis';
+import list_guilds_emojis from './guilds/emojis/list-guilds-emojis';
+import delete_guilds_emojis from './guilds/emojis/delete-guilds-emojis';
+import retrieve_guilds_widget from './guilds/widget/retrieve-guilds-widget';
+import update_guilds_widget from './guilds/widget/update-guilds-widget';
+import create_guilds_roles from './guilds/roles/create-guilds-roles';
+import retrieve_guilds_roles from './guilds/roles/retrieve-guilds-roles';
+import update_guilds_roles from './guilds/roles/update-guilds-roles';
+import list_guilds_roles from './guilds/roles/list-guilds-roles';
+import delete_guilds_roles from './guilds/roles/delete-guilds-roles';
+import retrieve_guilds_prune from './guilds/prune/retrieve-guilds-prune';
+import retrieve_guilds_bans from './guilds/bans/retrieve-guilds-bans';
+import update_guilds_bans from './guilds/bans/update-guilds-bans';
+import list_guilds_bans from './guilds/bans/list-guilds-bans';
+import delete_guilds_bans from './guilds/bans/delete-guilds-bans';
+import retrieve_channels from './channels/retrieve-channels';
+import update_channels from './channels/update-channels';
+import delete_channels from './channels/delete-channels';
+import send_soundboard_sound_channels from './channels/send-soundboard-sound-channels';
+import typing_channels from './channels/typing-channels';
+import list_archived_threads_users_channels_private from './channels/users/threads/archived/private/list-archived-threads-users-channels-private';
+import create_channels_messages from './channels/messages/create-channels-messages';
+import retrieve_channels_messages from './channels/messages/retrieve-channels-messages';
+import update_channels_messages from './channels/messages/update-channels-messages';
+import list_channels_messages from './channels/messages/list-channels-messages';
+import delete_channels_messages from './channels/messages/delete-channels-messages';
+import bulk_delete_channels_messages from './channels/messages/bulk-delete-channels-messages';
+import crosspost_channels_messages from './channels/messages/crosspost-channels-messages';
+import add_messages_channels_reactions from './channels/messages/reactions/add-messages-channels-reactions';
+import clear_messages_channels_reactions from './channels/messages/reactions/clear-messages-channels-reactions';
+import remove_messages_channels_reactions from './channels/messages/reactions/remove-messages-channels-reactions';
+import remove_emoji_messages_channels_reactions from './channels/messages/reactions/remove-emoji-messages-channels-reactions';
+import remove_for_user_messages_channels_reactions from './channels/messages/reactions/remove-for-user-messages-channels-reactions';
+import retrieve_all_messages_channels_reactions from './channels/messages/reactions/retrieve-all-messages-channels-reactions';
+import create_messages_channels_threads from './channels/messages/threads/create-messages-channels-threads';
+import create_channels_threads from './channels/threads/create-channels-threads';
+import list_archived_threads_channels_private from './channels/threads/archived/private/list-archived-threads-channels-private';
+import list_archived_threads_channels_public from './channels/threads/archived/public/list-archived-threads-channels-public';
+import retrieve_channels_thread_members from './channels/thread-members/retrieve-channels-thread-members';
+import update_channels_thread_members from './channels/thread-members/update-channels-thread-members';
+import list_channels_thread_members from './channels/thread-members/list-channels-thread-members';
+import delete_channels_thread_members from './channels/thread-members/delete-channels-thread-members';
+import delete_thread_members_channels_me from './channels/thread-members/me/delete-thread-members-channels-me';
+import put_thread_members_channels_me from './channels/thread-members/me/put-thread-members-channels-me';
+import expire_channels_polls from './channels/polls/expire-channels-polls';
+import retrieve_polls_channels_answers from './channels/polls/answers/retrieve-polls-channels-answers';
+import update_channels_permissions from './channels/permissions/update-channels-permissions';
+import delete_channels_permissions from './channels/permissions/delete-channels-permissions';
+import update_channels_recipients from './channels/recipients/update-channels-recipients';
+import delete_channels_recipients from './channels/recipients/delete-channels-recipients';
+import create_channels_followers from './channels/followers/create-channels-followers';
+import create_channels_webhooks from './channels/webhooks/create-channels-webhooks';
+import list_channels_webhooks from './channels/webhooks/list-channels-webhooks';
+import create_channels_invites from './channels/invites/create-channels-invites';
+import list_channels_invites from './channels/invites/list-channels-invites';
+import update_channels_pins from './channels/pins/update-channels-pins';
+import list_channels_pins from './channels/pins/list-channels-pins';
+import delete_channels_pins from './channels/pins/delete-channels-pins';
+import create_webhooks from './webhooks/create-webhooks';
+import retrieve_webhooks from './webhooks/retrieve-webhooks';
+import update_webhooks from './webhooks/update-webhooks';
+import delete_webhooks from './webhooks/delete-webhooks';
+import token_update_webhooks from './webhooks/token-update-webhooks';
+import retrieve_webhooks_messages from './webhooks/messages/retrieve-webhooks-messages';
+import update_webhooks_messages from './webhooks/messages/update-webhooks-messages';
+import delete_webhooks_messages from './webhooks/messages/delete-webhooks-messages';
+import delete_original_webhooks_messages from './webhooks/messages/delete-original-webhooks-messages';
+import retrieve_original_webhooks_messages from './webhooks/messages/retrieve-original-webhooks-messages';
+import update_original_webhooks_messages from './webhooks/messages/update-original-webhooks-messages';
+import create_webhooks_github from './webhooks/github/create-webhooks-github';
+import create_webhooks_slack from './webhooks/slack/create-webhooks-slack';
+import callback_interactions from './interactions/callback-interactions';
+import retrieve_stickers from './stickers/retrieve-stickers';
+import retrieve_invites from './invites/retrieve-invites';
+import delete_invites from './invites/delete-invites';
+
+export const endpoints: Endpoint[] = [];
+
+function addEndpoint(endpoint: Endpoint) {
+  endpoints.push(endpoint);
+}
+
+addEndpoint(retrieve_oauth2);
+addEndpoint(retrieve_oauth2_applications);
+addEndpoint(list_oauth2_keys);
+addEndpoint(retrieve_users);
+addEndpoint(retrieve_me_users);
+addEndpoint(update_me_users);
+addEndpoint(list_users_connections);
+addEndpoint(create_users_channels);
+addEndpoint(list_users_guilds);
+addEndpoint(delete_users_guilds);
+addEndpoint(retrieve_guilds_users_member);
+addEndpoint(retrieve_applications_users_role_connections);
+addEndpoint(update_applications_users_role_connections);
+addEndpoint(remove_applications_users_role_connections);
+addEndpoint(retrieve_applications);
+addEndpoint(update_applications);
+addEndpoint(create_applications_commands);
+addEndpoint(retrieve_applications_commands);
+addEndpoint(update_applications_commands);
+addEndpoint(list_applications_commands);
+addEndpoint(delete_applications_commands);
+addEndpoint(list_permissions_commands_applications_permissions);
+addEndpoint(retrieve_permissions_commands_applications_permissions);
+addEndpoint(create_guilds_applications_commands);
+addEndpoint(retrieve_guilds_applications_commands);
+addEndpoint(update_guilds_applications_commands);
+addEndpoint(list_guilds_applications_commands);
+addEndpoint(delete_guilds_applications_commands);
+addEndpoint(put_guilds_applications_commands);
+addEndpoint(update_commands_guilds_applications_permissions);
+addEndpoint(list_role_connections_applications_metadata);
+addEndpoint(update_applications_role_connections_metadata);
+addEndpoint(create_applications_entitlements);
+addEndpoint(retrieve_applications_entitlements);
+addEndpoint(list_applications_entitlements);
+addEndpoint(delete_applications_entitlements);
+addEndpoint(consume_applications_entitlements);
+addEndpoint(retrieve_applications_activity_instances);
+addEndpoint(create_applications_attachment);
+addEndpoint(create_applications_emojis);
+addEndpoint(retrieve_applications_emojis);
+addEndpoint(update_applications_emojis);
+addEndpoint(list_applications_emojis);
+addEndpoint(delete_applications_emojis);
+addEndpoint(retrieve_gateway);
+addEndpoint(retrieve_gateway_bot);
+addEndpoint(list_voice_regions);
+addEndpoint(list_soundboard_default_sounds);
+addEndpoint(create_stage_instances);
+addEndpoint(retrieve_stage_instances);
+addEndpoint(update_stage_instances);
+addEndpoint(delete_stage_instances);
+addEndpoint(retrieve_sticker_packs);
+addEndpoint(list_sticker_packs);
+addEndpoint(create_guilds);
+addEndpoint(retrieve_guilds);
+addEndpoint(update_guilds);
+addEndpoint(delete_guilds);
+addEndpoint(bulk_ban_guilds);
+addEndpoint(mfa_guilds);
+addEndpoint(create_guilds_scheduled_events);
+addEndpoint(retrieve_guilds_scheduled_events);
+addEndpoint(update_guilds_scheduled_events);
+addEndpoint(list_guilds_scheduled_events);
+addEndpoint(delete_guilds_scheduled_events);
+addEndpoint(list_scheduled_events_guilds_users);
+addEndpoint(create_auto_moderation_guilds_rules);
+addEndpoint(retrieve_auto_moderation_guilds_rules);
+addEndpoint(update_auto_moderation_guilds_rules);
+addEndpoint(list_auto_moderation_guilds_rules);
+addEndpoint(delete_auto_moderation_guilds_rules);
+addEndpoint(retrieve_guilds_voice_states);
+addEndpoint(update_guilds_voice_states);
+addEndpoint(retrieve_self_guilds_voice_states);
+addEndpoint(update_self_guilds_voice_states);
+addEndpoint(retrieve_guilds_members);
+addEndpoint(update_guilds_members);
+addEndpoint(list_guilds_members);
+addEndpoint(delete_guilds_members);
+addEndpoint(search_guilds_members);
+addEndpoint(update_members_guilds_roles);
+addEndpoint(delete_members_guilds_roles);
+addEndpoint(active_guilds_threads);
+addEndpoint(create_guilds_templates);
+addEndpoint(retrieve_guilds_templates);
+addEndpoint(update_guilds_templates);
+addEndpoint(list_guilds_templates);
+addEndpoint(delete_guilds_templates);
+addEndpoint(retrieve_guilds_new_member_welcome);
+addEndpoint(create_guilds_soundboard_sounds);
+addEndpoint(retrieve_guilds_soundboard_sounds);
+addEndpoint(update_guilds_soundboard_sounds);
+addEndpoint(list_guilds_soundboard_sounds);
+addEndpoint(delete_guilds_soundboard_sounds);
+addEndpoint(retrieve_guilds_welcome_screen);
+addEndpoint(update_guilds_welcome_screen);
+addEndpoint(list_guilds_integrations);
+addEndpoint(delete_guilds_integrations);
+addEndpoint(retrieve_json_guilds_widgets);
+addEndpoint(retrieve_png_guilds_widgets);
+addEndpoint(retrieve_guilds_onboarding);
+addEndpoint(update_guilds_onboarding);
+addEndpoint(retrieve_guilds_vanity_urls);
+addEndpoint(retrieve_guilds_audit_logs);
+addEndpoint(create_guilds_stickers);
+addEndpoint(retrieve_guilds_stickers);
+addEndpoint(update_guilds_stickers);
+addEndpoint(list_guilds_stickers);
+addEndpoint(delete_guilds_stickers);
+addEndpoint(list_guilds_webhooks);
+addEndpoint(create_guilds_channels);
+addEndpoint(update_guilds_channels);
+addEndpoint(list_guilds_channels);
+addEndpoint(retrieve_guilds_preview);
+addEndpoint(list_guilds_invites);
+addEndpoint(list_guilds_regions);
+addEndpoint(create_guilds_emojis);
+addEndpoint(retrieve_guilds_emojis);
+addEndpoint(update_guilds_emojis);
+addEndpoint(list_guilds_emojis);
+addEndpoint(delete_guilds_emojis);
+addEndpoint(retrieve_guilds_widget);
+addEndpoint(update_guilds_widget);
+addEndpoint(create_guilds_roles);
+addEndpoint(retrieve_guilds_roles);
+addEndpoint(update_guilds_roles);
+addEndpoint(list_guilds_roles);
+addEndpoint(delete_guilds_roles);
+addEndpoint(retrieve_guilds_prune);
+addEndpoint(retrieve_guilds_bans);
+addEndpoint(update_guilds_bans);
+addEndpoint(list_guilds_bans);
+addEndpoint(delete_guilds_bans);
+addEndpoint(retrieve_channels);
+addEndpoint(update_channels);
+addEndpoint(delete_channels);
+addEndpoint(send_soundboard_sound_channels);
+addEndpoint(typing_channels);
+addEndpoint(list_archived_threads_users_channels_private);
+addEndpoint(create_channels_messages);
+addEndpoint(retrieve_channels_messages);
+addEndpoint(update_channels_messages);
+addEndpoint(list_channels_messages);
+addEndpoint(delete_channels_messages);
+addEndpoint(bulk_delete_channels_messages);
+addEndpoint(crosspost_channels_messages);
+addEndpoint(add_messages_channels_reactions);
+addEndpoint(clear_messages_channels_reactions);
+addEndpoint(remove_messages_channels_reactions);
+addEndpoint(remove_emoji_messages_channels_reactions);
+addEndpoint(remove_for_user_messages_channels_reactions);
+addEndpoint(retrieve_all_messages_channels_reactions);
+addEndpoint(create_messages_channels_threads);
+addEndpoint(create_channels_threads);
+addEndpoint(list_archived_threads_channels_private);
+addEndpoint(list_archived_threads_channels_public);
+addEndpoint(retrieve_channels_thread_members);
+addEndpoint(update_channels_thread_members);
+addEndpoint(list_channels_thread_members);
+addEndpoint(delete_channels_thread_members);
+addEndpoint(delete_thread_members_channels_me);
+addEndpoint(put_thread_members_channels_me);
+addEndpoint(expire_channels_polls);
+addEndpoint(retrieve_polls_channels_answers);
+addEndpoint(update_channels_permissions);
+addEndpoint(delete_channels_permissions);
+addEndpoint(update_channels_recipients);
+addEndpoint(delete_channels_recipients);
+addEndpoint(create_channels_followers);
+addEndpoint(create_channels_webhooks);
+addEndpoint(list_channels_webhooks);
+addEndpoint(create_channels_invites);
+addEndpoint(list_channels_invites);
+addEndpoint(update_channels_pins);
+addEndpoint(list_channels_pins);
+addEndpoint(delete_channels_pins);
+addEndpoint(create_webhooks);
+addEndpoint(retrieve_webhooks);
+addEndpoint(update_webhooks);
+addEndpoint(delete_webhooks);
+addEndpoint(token_update_webhooks);
+addEndpoint(retrieve_webhooks_messages);
+addEndpoint(update_webhooks_messages);
+addEndpoint(delete_webhooks_messages);
+addEndpoint(delete_original_webhooks_messages);
+addEndpoint(retrieve_original_webhooks_messages);
+addEndpoint(update_original_webhooks_messages);
+addEndpoint(create_webhooks_github);
+addEndpoint(create_webhooks_slack);
+addEndpoint(callback_interactions);
+addEndpoint(retrieve_stickers);
+addEndpoint(retrieve_invites);
+addEndpoint(delete_invites);
+
+export type Filter = {
+  type: 'resource' | 'operation' | 'tag' | 'tool';
+  op: 'include' | 'exclude';
+  value: string;
+};
+
+export function query(filters: Filter[], endpoints: Endpoint[]): Endpoint[] {
+  const allExcludes = filters.length > 0 && filters.every((filter) => filter.op === 'exclude');
+  const unmatchedFilters = new Set(filters);
+
+  const filtered = endpoints.filter((endpoint: Endpoint) => {
+    let included = false || allExcludes;
+
+    for (const filter of filters) {
+      if (match(filter, endpoint)) {
+        unmatchedFilters.delete(filter);
+        included = filter.op === 'include';
+      }
+    }
+
+    return included;
+  });
+
+  // Check if any filters didn't match
+  const unmatched = Array.from(unmatchedFilters).filter((f) => f.type === 'tool' || f.type === 'resource');
+  if (unmatched.length > 0) {
+    throw new Error(
+      `The following filters did not match any endpoints: ${unmatched
+        .map((f) => `${f.type}=${f.value}`)
+        .join(', ')}`,
+    );
+  }
+
+  return filtered;
+}
+
+function match({ type, value }: Filter, endpoint: Endpoint): boolean {
+  switch (type) {
+    case 'resource': {
+      const regexStr = '^' + normalizeResource(value).replace(/\*/g, '.*') + '$';
+      const regex = new RegExp(regexStr);
+      return regex.test(normalizeResource(endpoint.metadata.resource));
+    }
+    case 'operation':
+      return endpoint.metadata.operation === value;
+    case 'tag':
+      return endpoint.metadata.tags.includes(value);
+    case 'tool':
+      return endpoint.tool.name === value;
+  }
+}
+
+function normalizeResource(resource: string): string {
+  return resource.toLowerCase().replace(/[^a-z.*\-_]*/g, '');
+}

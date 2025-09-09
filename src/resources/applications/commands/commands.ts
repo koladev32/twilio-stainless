@@ -83,7 +83,7 @@ export interface ApplicationCommandResponse {
 
   default_member_permissions?: string | null;
 
-  description_localizations?: Record<string, string> | null;
+  description_localizations?: { [key: string]: string } | null;
 
   description_localized?: string | null;
 
@@ -93,7 +93,7 @@ export interface ApplicationCommandResponse {
 
   integration_types?: Array<0 | 1> | null;
 
-  name_localizations?: Record<string, string> | null;
+  name_localizations?: { [key: string]: string } | null;
 
   name_localized?: string | null;
 
@@ -136,11 +136,11 @@ export namespace ApplicationCommandResponse {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     description_localized?: string | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     name_localized?: string | null;
 
@@ -168,11 +168,11 @@ export namespace ApplicationCommandResponse {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     description_localized?: string | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     name_localized?: string | null;
 
@@ -202,11 +202,11 @@ export namespace ApplicationCommandResponse {
 
     channel_types?: Array<1 | 3 | 0 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14 | 15> | null;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     description_localized?: string | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     name_localized?: string | null;
 
@@ -238,7 +238,7 @@ export namespace ApplicationCommandResponse {
 
     choices?: Array<ApplicationCommandIntegerOptionResponse.Choice> | null;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     description_localized?: string | null;
 
@@ -246,7 +246,7 @@ export namespace ApplicationCommandResponse {
 
     min_value?: number | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     name_localized?: string | null;
 
@@ -259,7 +259,7 @@ export namespace ApplicationCommandResponse {
 
       value: number;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
     }
@@ -286,11 +286,11 @@ export namespace ApplicationCommandResponse {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     description_localized?: string | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     name_localized?: string | null;
 
@@ -322,7 +322,7 @@ export namespace ApplicationCommandResponse {
 
     choices?: Array<ApplicationCommandNumberOptionResponse.Choice> | null;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     description_localized?: string | null;
 
@@ -330,7 +330,7 @@ export namespace ApplicationCommandResponse {
 
     min_value?: number | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     name_localized?: string | null;
 
@@ -343,7 +343,7 @@ export namespace ApplicationCommandResponse {
 
       value: number;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
     }
@@ -370,11 +370,11 @@ export namespace ApplicationCommandResponse {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     description_localized?: string | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     name_localized?: string | null;
 
@@ -406,7 +406,7 @@ export namespace ApplicationCommandResponse {
 
     choices?: Array<ApplicationCommandStringOptionResponse.Choice> | null;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     description_localized?: string | null;
 
@@ -414,7 +414,7 @@ export namespace ApplicationCommandResponse {
 
     min_length?: number | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     name_localized?: string | null;
 
@@ -427,7 +427,7 @@ export namespace ApplicationCommandResponse {
 
       value: string;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
     }
@@ -454,11 +454,11 @@ export namespace ApplicationCommandResponse {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     description_localized?: string | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     name_localized?: string | null;
 
@@ -489,11 +489,11 @@ export namespace ApplicationCommandResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       description_localized?: string | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
 
@@ -534,11 +534,11 @@ export namespace ApplicationCommandResponse {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         description_localized?: string | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
 
@@ -566,11 +566,11 @@ export namespace ApplicationCommandResponse {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         description_localized?: string | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
 
@@ -600,11 +600,11 @@ export namespace ApplicationCommandResponse {
 
         channel_types?: Array<1 | 3 | 0 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14 | 15> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         description_localized?: string | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
 
@@ -636,7 +636,7 @@ export namespace ApplicationCommandResponse {
 
         choices?: Array<ApplicationCommandIntegerOptionResponse.Choice> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         description_localized?: string | null;
 
@@ -644,7 +644,7 @@ export namespace ApplicationCommandResponse {
 
         min_value?: number | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
 
@@ -657,7 +657,7 @@ export namespace ApplicationCommandResponse {
 
           value: number;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           name_localized?: string | null;
         }
@@ -684,11 +684,11 @@ export namespace ApplicationCommandResponse {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         description_localized?: string | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
 
@@ -720,7 +720,7 @@ export namespace ApplicationCommandResponse {
 
         choices?: Array<ApplicationCommandNumberOptionResponse.Choice> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         description_localized?: string | null;
 
@@ -728,7 +728,7 @@ export namespace ApplicationCommandResponse {
 
         min_value?: number | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
 
@@ -741,7 +741,7 @@ export namespace ApplicationCommandResponse {
 
           value: number;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           name_localized?: string | null;
         }
@@ -768,11 +768,11 @@ export namespace ApplicationCommandResponse {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         description_localized?: string | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
 
@@ -804,7 +804,7 @@ export namespace ApplicationCommandResponse {
 
         choices?: Array<ApplicationCommandStringOptionResponse.Choice> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         description_localized?: string | null;
 
@@ -812,7 +812,7 @@ export namespace ApplicationCommandResponse {
 
         min_length?: number | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
 
@@ -825,7 +825,7 @@ export namespace ApplicationCommandResponse {
 
           value: string;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           name_localized?: string | null;
         }
@@ -852,11 +852,11 @@ export namespace ApplicationCommandResponse {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         description_localized?: string | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
 
@@ -886,11 +886,11 @@ export namespace ApplicationCommandResponse {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     description_localized?: string | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     name_localized?: string | null;
 
@@ -931,11 +931,11 @@ export namespace ApplicationCommandResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       description_localized?: string | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
 
@@ -963,11 +963,11 @@ export namespace ApplicationCommandResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       description_localized?: string | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
 
@@ -997,11 +997,11 @@ export namespace ApplicationCommandResponse {
 
       channel_types?: Array<1 | 3 | 0 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14 | 15> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       description_localized?: string | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
 
@@ -1033,7 +1033,7 @@ export namespace ApplicationCommandResponse {
 
       choices?: Array<ApplicationCommandIntegerOptionResponse.Choice> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       description_localized?: string | null;
 
@@ -1041,7 +1041,7 @@ export namespace ApplicationCommandResponse {
 
       min_value?: number | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
 
@@ -1054,7 +1054,7 @@ export namespace ApplicationCommandResponse {
 
         value: number;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
       }
@@ -1081,11 +1081,11 @@ export namespace ApplicationCommandResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       description_localized?: string | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
 
@@ -1117,7 +1117,7 @@ export namespace ApplicationCommandResponse {
 
       choices?: Array<ApplicationCommandNumberOptionResponse.Choice> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       description_localized?: string | null;
 
@@ -1125,7 +1125,7 @@ export namespace ApplicationCommandResponse {
 
       min_value?: number | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
 
@@ -1138,7 +1138,7 @@ export namespace ApplicationCommandResponse {
 
         value: number;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
       }
@@ -1165,11 +1165,11 @@ export namespace ApplicationCommandResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       description_localized?: string | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
 
@@ -1201,7 +1201,7 @@ export namespace ApplicationCommandResponse {
 
       choices?: Array<ApplicationCommandStringOptionResponse.Choice> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       description_localized?: string | null;
 
@@ -1209,7 +1209,7 @@ export namespace ApplicationCommandResponse {
 
       min_length?: number | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
 
@@ -1222,7 +1222,7 @@ export namespace ApplicationCommandResponse {
 
         value: string;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         name_localized?: string | null;
       }
@@ -1249,11 +1249,11 @@ export namespace ApplicationCommandResponse {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       description_localized?: string | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       name_localized?: string | null;
 
@@ -1282,11 +1282,11 @@ export namespace ApplicationCommandResponse {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     description_localized?: string | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     name_localized?: string | null;
 
@@ -1332,7 +1332,7 @@ export interface CommandCreateParams {
 
   description?: string | null;
 
-  description_localizations?: Record<string, string> | null;
+  description_localizations?: { [key: string]: string } | null;
 
   dm_permission?: boolean | null;
 
@@ -1340,7 +1340,7 @@ export interface CommandCreateParams {
 
   integration_types?: Array<0 | 1> | null;
 
-  name_localizations?: Record<string, string> | null;
+  name_localizations?: { [key: string]: string } | null;
 
   options?: Array<
     | CommandCreateParams.ApplicationCommandAttachmentOption
@@ -1389,9 +1389,9 @@ export namespace CommandCreateParams {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     required?: boolean | null;
   }
@@ -1417,9 +1417,9 @@ export namespace CommandCreateParams {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     required?: boolean | null;
   }
@@ -1447,9 +1447,9 @@ export namespace CommandCreateParams {
 
     channel_types?: Array<1 | 3 | 0 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14 | 15> | null;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     required?: boolean | null;
   }
@@ -1479,13 +1479,13 @@ export namespace CommandCreateParams {
 
     choices?: Array<ApplicationCommandIntegerOption.Choice> | null;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     max_value?: number | null;
 
     min_value?: number | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     required?: boolean | null;
   }
@@ -1496,7 +1496,7 @@ export namespace CommandCreateParams {
 
       value: number;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
     }
   }
 
@@ -1521,9 +1521,9 @@ export namespace CommandCreateParams {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     required?: boolean | null;
   }
@@ -1553,13 +1553,13 @@ export namespace CommandCreateParams {
 
     choices?: Array<ApplicationCommandNumberOption.Choice> | null;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     max_value?: number | null;
 
     min_value?: number | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     required?: boolean | null;
   }
@@ -1570,7 +1570,7 @@ export namespace CommandCreateParams {
 
       value: number;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
     }
   }
 
@@ -1595,9 +1595,9 @@ export namespace CommandCreateParams {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     required?: boolean | null;
   }
@@ -1627,13 +1627,13 @@ export namespace CommandCreateParams {
 
     choices?: Array<ApplicationCommandStringOption.Choice> | null;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     max_length?: number | null;
 
     min_length?: number | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     required?: boolean | null;
   }
@@ -1644,7 +1644,7 @@ export namespace CommandCreateParams {
 
       value: string;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
     }
   }
 
@@ -1669,9 +1669,9 @@ export namespace CommandCreateParams {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     options?: Array<ApplicationCommandSubcommandGroupOption.Option> | null;
 
@@ -1700,9 +1700,9 @@ export namespace CommandCreateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       options?: Array<
         | Option.ApplicationCommandAttachmentOption
@@ -1741,9 +1741,9 @@ export namespace CommandCreateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -1769,9 +1769,9 @@ export namespace CommandCreateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -1799,9 +1799,9 @@ export namespace CommandCreateParams {
 
         channel_types?: Array<1 | 3 | 0 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14 | 15> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -1831,13 +1831,13 @@ export namespace CommandCreateParams {
 
         choices?: Array<ApplicationCommandIntegerOption.Choice> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         max_value?: number | null;
 
         min_value?: number | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -1848,7 +1848,7 @@ export namespace CommandCreateParams {
 
           value: number;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
         }
       }
 
@@ -1873,9 +1873,9 @@ export namespace CommandCreateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -1905,13 +1905,13 @@ export namespace CommandCreateParams {
 
         choices?: Array<ApplicationCommandNumberOption.Choice> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         max_value?: number | null;
 
         min_value?: number | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -1922,7 +1922,7 @@ export namespace CommandCreateParams {
 
           value: number;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
         }
       }
 
@@ -1947,9 +1947,9 @@ export namespace CommandCreateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -1979,13 +1979,13 @@ export namespace CommandCreateParams {
 
         choices?: Array<ApplicationCommandStringOption.Choice> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         max_length?: number | null;
 
         min_length?: number | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -1996,7 +1996,7 @@ export namespace CommandCreateParams {
 
           value: string;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
         }
       }
 
@@ -2021,9 +2021,9 @@ export namespace CommandCreateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -2051,9 +2051,9 @@ export namespace CommandCreateParams {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     options?: Array<
       | ApplicationCommandSubcommandOption.ApplicationCommandAttachmentOption
@@ -2092,9 +2092,9 @@ export namespace CommandCreateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2120,9 +2120,9 @@ export namespace CommandCreateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2150,9 +2150,9 @@ export namespace CommandCreateParams {
 
       channel_types?: Array<1 | 3 | 0 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14 | 15> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2182,13 +2182,13 @@ export namespace CommandCreateParams {
 
       choices?: Array<ApplicationCommandIntegerOption.Choice> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       max_value?: number | null;
 
       min_value?: number | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2199,7 +2199,7 @@ export namespace CommandCreateParams {
 
         value: number;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
 
@@ -2224,9 +2224,9 @@ export namespace CommandCreateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2256,13 +2256,13 @@ export namespace CommandCreateParams {
 
       choices?: Array<ApplicationCommandNumberOption.Choice> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       max_value?: number | null;
 
       min_value?: number | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2273,7 +2273,7 @@ export namespace CommandCreateParams {
 
         value: number;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
 
@@ -2298,9 +2298,9 @@ export namespace CommandCreateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2330,13 +2330,13 @@ export namespace CommandCreateParams {
 
       choices?: Array<ApplicationCommandStringOption.Choice> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       max_length?: number | null;
 
       min_length?: number | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2347,7 +2347,7 @@ export namespace CommandCreateParams {
 
         value: string;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
 
@@ -2372,9 +2372,9 @@ export namespace CommandCreateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2401,9 +2401,9 @@ export namespace CommandCreateParams {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     required?: boolean | null;
   }
@@ -2423,7 +2423,7 @@ export namespace CommandUpdateParams {
 
     description?: string | null;
 
-    description_localizations?: Record<string, string> | null;
+    description_localizations?: { [key: string]: string } | null;
 
     dm_permission?: boolean | null;
 
@@ -2431,7 +2431,7 @@ export namespace CommandUpdateParams {
 
     integration_types?: Array<0 | 1> | null;
 
-    name_localizations?: Record<string, string> | null;
+    name_localizations?: { [key: string]: string } | null;
 
     options?: Array<
       | Body.ApplicationCommandAttachmentOption
@@ -2480,9 +2480,9 @@ export namespace CommandUpdateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2508,9 +2508,9 @@ export namespace CommandUpdateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2538,9 +2538,9 @@ export namespace CommandUpdateParams {
 
       channel_types?: Array<1 | 3 | 0 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14 | 15> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2570,13 +2570,13 @@ export namespace CommandUpdateParams {
 
       choices?: Array<ApplicationCommandIntegerOption.Choice> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       max_value?: number | null;
 
       min_value?: number | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2587,7 +2587,7 @@ export namespace CommandUpdateParams {
 
         value: number;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
 
@@ -2612,9 +2612,9 @@ export namespace CommandUpdateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2644,13 +2644,13 @@ export namespace CommandUpdateParams {
 
       choices?: Array<ApplicationCommandNumberOption.Choice> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       max_value?: number | null;
 
       min_value?: number | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2661,7 +2661,7 @@ export namespace CommandUpdateParams {
 
         value: number;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
 
@@ -2686,9 +2686,9 @@ export namespace CommandUpdateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2718,13 +2718,13 @@ export namespace CommandUpdateParams {
 
       choices?: Array<ApplicationCommandStringOption.Choice> | null;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
       max_length?: number | null;
 
       min_length?: number | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }
@@ -2735,7 +2735,7 @@ export namespace CommandUpdateParams {
 
         value: string;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
 
@@ -2760,9 +2760,9 @@ export namespace CommandUpdateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       options?: Array<ApplicationCommandSubcommandGroupOption.Option> | null;
 
@@ -2791,9 +2791,9 @@ export namespace CommandUpdateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         options?: Array<
           | Option.ApplicationCommandAttachmentOption
@@ -2832,9 +2832,9 @@ export namespace CommandUpdateParams {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-          description_localizations?: Record<string, string> | null;
+          description_localizations?: { [key: string]: string } | null;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           required?: boolean | null;
         }
@@ -2860,9 +2860,9 @@ export namespace CommandUpdateParams {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-          description_localizations?: Record<string, string> | null;
+          description_localizations?: { [key: string]: string } | null;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           required?: boolean | null;
         }
@@ -2890,9 +2890,9 @@ export namespace CommandUpdateParams {
 
           channel_types?: Array<1 | 3 | 0 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14 | 15> | null;
 
-          description_localizations?: Record<string, string> | null;
+          description_localizations?: { [key: string]: string } | null;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           required?: boolean | null;
         }
@@ -2922,13 +2922,13 @@ export namespace CommandUpdateParams {
 
           choices?: Array<ApplicationCommandIntegerOption.Choice> | null;
 
-          description_localizations?: Record<string, string> | null;
+          description_localizations?: { [key: string]: string } | null;
 
           max_value?: number | null;
 
           min_value?: number | null;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           required?: boolean | null;
         }
@@ -2939,7 +2939,7 @@ export namespace CommandUpdateParams {
 
             value: number;
 
-            name_localizations?: Record<string, string> | null;
+            name_localizations?: { [key: string]: string } | null;
           }
         }
 
@@ -2964,9 +2964,9 @@ export namespace CommandUpdateParams {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-          description_localizations?: Record<string, string> | null;
+          description_localizations?: { [key: string]: string } | null;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           required?: boolean | null;
         }
@@ -2996,13 +2996,13 @@ export namespace CommandUpdateParams {
 
           choices?: Array<ApplicationCommandNumberOption.Choice> | null;
 
-          description_localizations?: Record<string, string> | null;
+          description_localizations?: { [key: string]: string } | null;
 
           max_value?: number | null;
 
           min_value?: number | null;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           required?: boolean | null;
         }
@@ -3013,7 +3013,7 @@ export namespace CommandUpdateParams {
 
             value: number;
 
-            name_localizations?: Record<string, string> | null;
+            name_localizations?: { [key: string]: string } | null;
           }
         }
 
@@ -3038,9 +3038,9 @@ export namespace CommandUpdateParams {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-          description_localizations?: Record<string, string> | null;
+          description_localizations?: { [key: string]: string } | null;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           required?: boolean | null;
         }
@@ -3070,13 +3070,13 @@ export namespace CommandUpdateParams {
 
           choices?: Array<ApplicationCommandStringOption.Choice> | null;
 
-          description_localizations?: Record<string, string> | null;
+          description_localizations?: { [key: string]: string } | null;
 
           max_length?: number | null;
 
           min_length?: number | null;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           required?: boolean | null;
         }
@@ -3087,7 +3087,7 @@ export namespace CommandUpdateParams {
 
             value: string;
 
-            name_localizations?: Record<string, string> | null;
+            name_localizations?: { [key: string]: string } | null;
           }
         }
 
@@ -3112,9 +3112,9 @@ export namespace CommandUpdateParams {
            */
           type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-          description_localizations?: Record<string, string> | null;
+          description_localizations?: { [key: string]: string } | null;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
 
           required?: boolean | null;
         }
@@ -3142,9 +3142,9 @@ export namespace CommandUpdateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       options?: Array<
         | ApplicationCommandSubcommandOption.ApplicationCommandAttachmentOption
@@ -3183,9 +3183,9 @@ export namespace CommandUpdateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -3211,9 +3211,9 @@ export namespace CommandUpdateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -3241,9 +3241,9 @@ export namespace CommandUpdateParams {
 
         channel_types?: Array<1 | 3 | 0 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14 | 15> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -3273,13 +3273,13 @@ export namespace CommandUpdateParams {
 
         choices?: Array<ApplicationCommandIntegerOption.Choice> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         max_value?: number | null;
 
         min_value?: number | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -3290,7 +3290,7 @@ export namespace CommandUpdateParams {
 
           value: number;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
         }
       }
 
@@ -3315,9 +3315,9 @@ export namespace CommandUpdateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -3347,13 +3347,13 @@ export namespace CommandUpdateParams {
 
         choices?: Array<ApplicationCommandNumberOption.Choice> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         max_value?: number | null;
 
         min_value?: number | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -3364,7 +3364,7 @@ export namespace CommandUpdateParams {
 
           value: number;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
         }
       }
 
@@ -3389,9 +3389,9 @@ export namespace CommandUpdateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -3421,13 +3421,13 @@ export namespace CommandUpdateParams {
 
         choices?: Array<ApplicationCommandStringOption.Choice> | null;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
         max_length?: number | null;
 
         min_length?: number | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -3438,7 +3438,7 @@ export namespace CommandUpdateParams {
 
           value: string;
 
-          name_localizations?: Record<string, string> | null;
+          name_localizations?: { [key: string]: string } | null;
         }
       }
 
@@ -3463,9 +3463,9 @@ export namespace CommandUpdateParams {
          */
         type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-        description_localizations?: Record<string, string> | null;
+        description_localizations?: { [key: string]: string } | null;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
 
         required?: boolean | null;
       }
@@ -3492,9 +3492,9 @@ export namespace CommandUpdateParams {
        */
       type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-      description_localizations?: Record<string, string> | null;
+      description_localizations?: { [key: string]: string } | null;
 
-      name_localizations?: Record<string, string> | null;
+      name_localizations?: { [key: string]: string } | null;
 
       required?: boolean | null;
     }

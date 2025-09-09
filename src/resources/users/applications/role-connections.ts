@@ -28,7 +28,7 @@ export class RoleConnections extends APIResource {
 }
 
 export interface ApplicationUserRoleConnectionResponse {
-  metadata?: Record<string, string> | null;
+  metadata?: { [key: string]: string } | null;
 
   platform_name?: string | null;
 
@@ -36,7 +36,7 @@ export interface ApplicationUserRoleConnectionResponse {
 }
 
 export interface RoleConnectionUpdateParams {
-  metadata?: Record<string, string> | null;
+  metadata?: { [key: string]: string } | null;
 
   platform_name?: string | null;
 

@@ -733,7 +733,7 @@ export declare namespace RuleCreateParams {
 
     name: string;
 
-    trigger_metadata: RuleCreateParams.DefaultKeywordListUpsertRequest.TriggerMetadata;
+    trigger_metadata: DefaultKeywordListUpsertRequest.TriggerMetadata;
 
     /**
      * - `1` - Check if content contains words from a list of keywords or matches regex
@@ -745,10 +745,10 @@ export declare namespace RuleCreateParams {
     trigger_type: 1 | 2 | 3 | 4 | 5;
 
     actions?: Array<
-      | RuleCreateParams.DefaultKeywordListUpsertRequest.BlockMessageAction
-      | RuleCreateParams.DefaultKeywordListUpsertRequest.FlagToChannelAction
-      | RuleCreateParams.DefaultKeywordListUpsertRequest.QuarantineUserAction
-      | RuleCreateParams.DefaultKeywordListUpsertRequest.UserCommunicationDisabledAction
+      | DefaultKeywordListUpsertRequest.BlockMessageAction
+      | DefaultKeywordListUpsertRequest.FlagToChannelAction
+      | DefaultKeywordListUpsertRequest.QuarantineUserAction
+      | DefaultKeywordListUpsertRequest.UserCommunicationDisabledAction
     > | null;
 
     enabled?: boolean | null;
@@ -868,10 +868,10 @@ export declare namespace RuleCreateParams {
     trigger_type: 1 | 2 | 3 | 4 | 5;
 
     actions?: Array<
-      | RuleCreateParams.KeywordUpsertRequest.BlockMessageAction
-      | RuleCreateParams.KeywordUpsertRequest.FlagToChannelAction
-      | RuleCreateParams.KeywordUpsertRequest.QuarantineUserAction
-      | RuleCreateParams.KeywordUpsertRequest.UserCommunicationDisabledAction
+      | KeywordUpsertRequest.BlockMessageAction
+      | KeywordUpsertRequest.FlagToChannelAction
+      | KeywordUpsertRequest.QuarantineUserAction
+      | KeywordUpsertRequest.UserCommunicationDisabledAction
     > | null;
 
     enabled?: boolean | null;
@@ -880,7 +880,7 @@ export declare namespace RuleCreateParams {
 
     exempt_roles?: Array<string> | null;
 
-    trigger_metadata?: RuleCreateParams.KeywordUpsertRequest.TriggerMetadata | null;
+    trigger_metadata?: KeywordUpsertRequest.TriggerMetadata | null;
   }
 
   export namespace KeywordUpsertRequest {
@@ -995,10 +995,10 @@ export declare namespace RuleCreateParams {
     trigger_type: 1 | 2 | 3 | 4 | 5;
 
     actions?: Array<
-      | RuleCreateParams.MlSpamUpsertRequest.BlockMessageAction
-      | RuleCreateParams.MlSpamUpsertRequest.FlagToChannelAction
-      | RuleCreateParams.MlSpamUpsertRequest.QuarantineUserAction
-      | RuleCreateParams.MlSpamUpsertRequest.UserCommunicationDisabledAction
+      | MlSpamUpsertRequest.BlockMessageAction
+      | MlSpamUpsertRequest.FlagToChannelAction
+      | MlSpamUpsertRequest.QuarantineUserAction
+      | MlSpamUpsertRequest.UserCommunicationDisabledAction
     > | null;
 
     enabled?: boolean | null;
@@ -1114,10 +1114,10 @@ export declare namespace RuleCreateParams {
     trigger_type: 1 | 2 | 3 | 4 | 5;
 
     actions?: Array<
-      | RuleCreateParams.MentionSpamUpsertRequest.BlockMessageAction
-      | RuleCreateParams.MentionSpamUpsertRequest.FlagToChannelAction
-      | RuleCreateParams.MentionSpamUpsertRequest.QuarantineUserAction
-      | RuleCreateParams.MentionSpamUpsertRequest.UserCommunicationDisabledAction
+      | MentionSpamUpsertRequest.BlockMessageAction
+      | MentionSpamUpsertRequest.FlagToChannelAction
+      | MentionSpamUpsertRequest.QuarantineUserAction
+      | MentionSpamUpsertRequest.UserCommunicationDisabledAction
     > | null;
 
     enabled?: boolean | null;
@@ -1126,7 +1126,7 @@ export declare namespace RuleCreateParams {
 
     exempt_roles?: Array<string> | null;
 
-    trigger_metadata?: RuleCreateParams.MentionSpamUpsertRequest.TriggerMetadata | null;
+    trigger_metadata?: MentionSpamUpsertRequest.TriggerMetadata | null;
   }
 
   export namespace MentionSpamUpsertRequest {
@@ -1229,10 +1229,10 @@ export type RuleUpdateParams =
 export declare namespace RuleUpdateParams {
   export interface DefaultKeywordListUpsertRequestPartial {
     actions?: Array<
-      | RuleUpdateParams.DefaultKeywordListUpsertRequestPartial.BlockMessageAction
-      | RuleUpdateParams.DefaultKeywordListUpsertRequestPartial.FlagToChannelAction
-      | RuleUpdateParams.DefaultKeywordListUpsertRequestPartial.QuarantineUserAction
-      | RuleUpdateParams.DefaultKeywordListUpsertRequestPartial.UserCommunicationDisabledAction
+      | DefaultKeywordListUpsertRequestPartial.BlockMessageAction
+      | DefaultKeywordListUpsertRequestPartial.FlagToChannelAction
+      | DefaultKeywordListUpsertRequestPartial.QuarantineUserAction
+      | DefaultKeywordListUpsertRequestPartial.UserCommunicationDisabledAction
     > | null;
 
     enabled?: boolean | null;
@@ -1250,7 +1250,7 @@ export declare namespace RuleUpdateParams {
 
     name?: string;
 
-    trigger_metadata?: RuleUpdateParams.DefaultKeywordListUpsertRequestPartial.TriggerMetadata;
+    trigger_metadata?: DefaultKeywordListUpsertRequestPartial.TriggerMetadata;
 
     /**
      * - `1` - Check if content contains words from a list of keywords or matches regex
@@ -1354,10 +1354,10 @@ export declare namespace RuleUpdateParams {
 
   export interface KeywordUpsertRequestPartial {
     actions?: Array<
-      | RuleUpdateParams.KeywordUpsertRequestPartial.BlockMessageAction
-      | RuleUpdateParams.KeywordUpsertRequestPartial.FlagToChannelAction
-      | RuleUpdateParams.KeywordUpsertRequestPartial.QuarantineUserAction
-      | RuleUpdateParams.KeywordUpsertRequestPartial.UserCommunicationDisabledAction
+      | KeywordUpsertRequestPartial.BlockMessageAction
+      | KeywordUpsertRequestPartial.FlagToChannelAction
+      | KeywordUpsertRequestPartial.QuarantineUserAction
+      | KeywordUpsertRequestPartial.UserCommunicationDisabledAction
     > | null;
 
     enabled?: boolean | null;
@@ -1375,7 +1375,7 @@ export declare namespace RuleUpdateParams {
 
     name?: string;
 
-    trigger_metadata?: RuleUpdateParams.KeywordUpsertRequestPartial.TriggerMetadata | null;
+    trigger_metadata?: KeywordUpsertRequestPartial.TriggerMetadata | null;
 
     /**
      * - `1` - Check if content contains words from a list of keywords or matches regex
@@ -1481,10 +1481,10 @@ export declare namespace RuleUpdateParams {
 
   export interface MlSpamUpsertRequestPartial {
     actions?: Array<
-      | RuleUpdateParams.MlSpamUpsertRequestPartial.BlockMessageAction
-      | RuleUpdateParams.MlSpamUpsertRequestPartial.FlagToChannelAction
-      | RuleUpdateParams.MlSpamUpsertRequestPartial.QuarantineUserAction
-      | RuleUpdateParams.MlSpamUpsertRequestPartial.UserCommunicationDisabledAction
+      | MlSpamUpsertRequestPartial.BlockMessageAction
+      | MlSpamUpsertRequestPartial.FlagToChannelAction
+      | MlSpamUpsertRequestPartial.QuarantineUserAction
+      | MlSpamUpsertRequestPartial.UserCommunicationDisabledAction
     > | null;
 
     enabled?: boolean | null;
@@ -1600,10 +1600,10 @@ export declare namespace RuleUpdateParams {
 
   export interface MentionSpamUpsertRequestPartial {
     actions?: Array<
-      | RuleUpdateParams.MentionSpamUpsertRequestPartial.BlockMessageAction
-      | RuleUpdateParams.MentionSpamUpsertRequestPartial.FlagToChannelAction
-      | RuleUpdateParams.MentionSpamUpsertRequestPartial.QuarantineUserAction
-      | RuleUpdateParams.MentionSpamUpsertRequestPartial.UserCommunicationDisabledAction
+      | MentionSpamUpsertRequestPartial.BlockMessageAction
+      | MentionSpamUpsertRequestPartial.FlagToChannelAction
+      | MentionSpamUpsertRequestPartial.QuarantineUserAction
+      | MentionSpamUpsertRequestPartial.UserCommunicationDisabledAction
     > | null;
 
     enabled?: boolean | null;
@@ -1621,7 +1621,7 @@ export declare namespace RuleUpdateParams {
 
     name?: string;
 
-    trigger_metadata?: RuleUpdateParams.MentionSpamUpsertRequestPartial.TriggerMetadata | null;
+    trigger_metadata?: MentionSpamUpsertRequestPartial.TriggerMetadata | null;
 
     /**
      * - `1` - Check if content contains words from a list of keywords or matches regex

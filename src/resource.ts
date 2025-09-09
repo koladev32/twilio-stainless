@@ -2,7 +2,7 @@
 
 import type { DiscordAPI } from './index';
 
-export class APIResource {
+export abstract class APIResource {
   protected _client: DiscordAPI;
 
   constructor(client: DiscordAPI) {

@@ -85,9 +85,9 @@ export declare namespace InteractionCallbackParams {
      * Body param:
      */
     data:
-      | InteractionCallbackParams.ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackIntegerData
-      | InteractionCallbackParams.ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackNumberData
-      | InteractionCallbackParams.ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackStringData;
+      | ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackIntegerData
+      | ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackNumberData
+      | ApplicationCommandAutocompleteCallbackRequest.InteractionApplicationCommandAutocompleteCallbackStringData;
 
     /**
      * Body param:
@@ -111,7 +111,7 @@ export declare namespace InteractionCallbackParams {
 
         value: number;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
 
@@ -125,7 +125,7 @@ export declare namespace InteractionCallbackParams {
 
         value: number;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
 
@@ -139,7 +139,7 @@ export declare namespace InteractionCallbackParams {
 
         value: string;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
   }
@@ -158,7 +158,7 @@ export declare namespace InteractionCallbackParams {
     /**
      * Body param:
      */
-    data?: InteractionCallbackParams.CreateMessageInteractionCallbackRequest.Data | null;
+    data?: CreateMessageInteractionCallbackRequest.Data | null;
   }
 
   export namespace CreateMessageInteractionCallbackRequest {
@@ -633,7 +633,7 @@ export declare namespace InteractionCallbackParams {
     /**
      * Body param:
      */
-    data: InteractionCallbackParams.ModalInteractionCallbackRequest.Data;
+    data: ModalInteractionCallbackRequest.Data;
 
     /**
      * Body param:
@@ -736,7 +736,7 @@ export declare namespace InteractionCallbackParams {
     /**
      * Body param:
      */
-    data?: InteractionCallbackParams.UpdateMessageInteractionCallbackRequest.Data | null;
+    data?: UpdateMessageInteractionCallbackRequest.Data | null;
   }
 
   export namespace UpdateMessageInteractionCallbackRequest {

@@ -228,7 +228,7 @@ export type ScheduledEventCreateParams =
 
 export declare namespace ScheduledEventCreateParams {
   export interface ExternalScheduledEventCreateRequest {
-    entity_metadata: ScheduledEventCreateParams.ExternalScheduledEventCreateRequest.EntityMetadata;
+    entity_metadata: ExternalScheduledEventCreateRequest.EntityMetadata;
 
     entity_type: 0 | 1 | 2 | 3;
 
@@ -318,7 +318,7 @@ export declare namespace ScheduledEventUpdateParams {
 
     description?: string | null;
 
-    entity_metadata?: ScheduledEventUpdateParams.ExternalScheduledEventPatchRequestPartial.EntityMetadata;
+    entity_metadata?: ExternalScheduledEventPatchRequestPartial.EntityMetadata;
 
     entity_type?: 0 | 1 | 2 | 3 | null;
 

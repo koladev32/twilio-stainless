@@ -285,7 +285,7 @@ export declare namespace ChannelUpdateParams {
   }
 
   export interface UpdateGuildChannelRequestPartial {
-    available_tags?: Array<ChannelUpdateParams.UpdateGuildChannelRequestPartial.AvailableTag> | null;
+    available_tags?: Array<UpdateGuildChannelRequestPartial.AvailableTag> | null;
 
     bitrate?: number | null;
 
@@ -304,7 +304,7 @@ export declare namespace ChannelUpdateParams {
      */
     default_forum_layout?: 0 | 1 | 2 | null;
 
-    default_reaction_emoji?: ChannelUpdateParams.UpdateGuildChannelRequestPartial.DefaultReactionEmoji | null;
+    default_reaction_emoji?: UpdateGuildChannelRequestPartial.DefaultReactionEmoji | null;
 
     /**
      * - `0` - Sort forum posts by activity
@@ -322,7 +322,7 @@ export declare namespace ChannelUpdateParams {
 
     parent_id?: string | null;
 
-    permission_overwrites?: Array<ChannelUpdateParams.UpdateGuildChannelRequestPartial.PermissionOverwrite> | null;
+    permission_overwrites?: Array<UpdateGuildChannelRequestPartial.PermissionOverwrite> | null;
 
     position?: number | null;
 

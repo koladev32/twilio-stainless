@@ -6,16 +6,13 @@ This library provides convenient access to the Discord API REST API from server-
 
 The REST API documentation can be found on [docs.discord-api.com](https://docs.discord-api.com). The full API of this library can be found in [api.md](api.md).
 
-It is generated with [Stainless](https://www.stainlessapi.com/).
+It is generated with [Stainless](https://www.stainless.com/).
 
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:stainless-sdks/discord-api-node.git
+npm install discord-api
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://app.stainlessapi.com/docs/guides/publish), this will become: `npm install discord-api`
 
 ## Usage
 
@@ -25,15 +22,13 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import DiscordAPI from 'discord-api';
 
-const client = new DiscordAPI();
+const client = new DiscordAPI({
+  botToken: process.env['BOT_TOKEN'], // This is the default and can be omitted
+});
 
-async function main() {
-  const userPiiResponse = await client.users.retrieveMe();
+const userPiiResponse = await client.users.retrieveMe();
 
-  console.log(userPiiResponse.id);
-}
-
-main();
+console.log(userPiiResponse.id);
 ```
 
 ### Request & Response types
@@ -44,13 +39,11 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import DiscordAPI from 'discord-api';
 
-const client = new DiscordAPI();
+const client = new DiscordAPI({
+  botToken: process.env['BOT_TOKEN'], // This is the default and can be omitted
+});
 
-async function main() {
-  const userPiiResponse: DiscordAPI.UserPiiResponse = await client.users.retrieveMe();
-}
-
-main();
+const userPiiResponse: DiscordAPI.UserPiiResponse = await client.users.retrieveMe();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -63,22 +56,18 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const userPiiResponse = await client.users.retrieveMe().catch(async (err) => {
-    if (err instanceof DiscordAPI.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const userPiiResponse = await client.users.retrieveMe().catch(async (err) => {
+  if (err instanceof DiscordAPI.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
-Error codes are as followed:
+Error codes are as follows:
 
 | Status Code | Error Type                 |
 | ----------- | -------------------------- |
@@ -104,8 +93,6 @@ You can use the `maxRetries` option to configure or disable this:
 // Configure the default for all requests:
 const client = new DiscordAPI({
   maxRetries: 0, // default is 2
-  clientId: 'My Client ID',
-  clientSecret: 'My Client Secret',
 });
 
 // Or, configure per-request:
@@ -123,8 +110,6 @@ Requests time out after 1 minute by default. You can configure this with a `time
 // Configure the default for all requests:
 const client = new DiscordAPI({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
-  clientId: 'My Client ID',
-  clientSecret: 'My Client Secret',
 });
 
 // Override per-request:
@@ -218,7 +203,7 @@ import DiscordAPI from 'discord-api';
 ```
 
 To do the inverse, add `import "discord-api/shims/node"` (which does import polyfills).
-This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/stainless-sdks/discord-api-node/tree/main/src/_shims#readme)).
+This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/koladev32/twilio-stainless/tree/main/src/_shims#readme)).
 
 ### Logging and middleware
 
@@ -256,8 +241,6 @@ import { HttpsProxyAgent } from 'https-proxy-agent';
 // Configure the default for all requests:
 const client = new DiscordAPI({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
-  clientId: 'My Client ID',
-  clientSecret: 'My Client Secret',
 });
 
 // Override per-request:
@@ -276,7 +259,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/discord-api-node/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/koladev32/twilio-stainless/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 

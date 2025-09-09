@@ -36,9 +36,9 @@ export interface ApplicationRoleConnectionsMetadataItemResponse {
    */
   type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-  description_localizations?: Record<string, string> | null;
+  description_localizations?: { [key: string]: string } | null;
 
-  name_localizations?: Record<string, string> | null;
+  name_localizations?: { [key: string]: string } | null;
 }
 
 export type MetadataListResponse = Array<ApplicationRoleConnectionsMetadataItemResponse>;
