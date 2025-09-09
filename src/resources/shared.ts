@@ -697,7 +697,7 @@ export namespace GuildInvite {
 
     install_params?: TargetApplication.InstallParams | null;
 
-    integration_types_config?: Record<string, TargetApplication.IntegrationTypesConfig> | null;
+    integration_types_config?: { [key: string]: TargetApplication.IntegrationTypesConfig } | null;
 
     max_participants?: number | null;
 
@@ -1020,7 +1020,7 @@ export namespace Message {
 
       install_params?: Application.InstallParams | null;
 
-      integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+      integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
       max_participants?: number | null;
 
@@ -1881,7 +1881,7 @@ export namespace Message {
   export interface ApplicationCommandInteractionMetadataResponse {
     id: string;
 
-    authorizing_integration_owners: Record<string, string>;
+    authorizing_integration_owners: { [key: string]: string };
 
     /**
      * - `1` - Sent by Discord to validate your application's interaction handler
@@ -1905,7 +1905,7 @@ export namespace Message {
   export interface MessageComponentInteractionMetadataResponse {
     id: string;
 
-    authorizing_integration_owners: Record<string, string>;
+    authorizing_integration_owners: { [key: string]: string };
 
     interacted_message_id: string;
 
@@ -1927,7 +1927,7 @@ export namespace Message {
   export interface ModalSubmitInteractionMetadataResponse {
     id: string;
 
-    authorizing_integration_owners: Record<string, string>;
+    authorizing_integration_owners: { [key: string]: string };
 
     triggering_interaction_metadata:
       | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
@@ -1952,7 +1952,7 @@ export namespace Message {
     export interface ApplicationCommandInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       /**
        * - `1` - Sent by Discord to validate your application's interaction handler
@@ -1976,7 +1976,7 @@ export namespace Message {
     export interface MessageComponentInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       interacted_message_id: string;
 
@@ -2177,7 +2177,7 @@ export namespace Message {
 
           install_params?: Application.InstallParams | null;
 
-          integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+          integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
           max_participants?: number | null;
 
@@ -2992,19 +2992,19 @@ export namespace Message {
       }
 
       export interface Resolved {
-        channels: Record<
-          string,
-          | Shared.GuildChannel
-          | UsersChannelsAPI.PrivateChannelResponse
-          | UsersChannelsAPI.PrivateGroupChannelResponse
-          | ChannelsAPI.Thread
-        >;
+        channels: {
+          [key: string]:
+            | Shared.GuildChannel
+            | UsersChannelsAPI.PrivateChannelResponse
+            | UsersChannelsAPI.PrivateGroupChannelResponse
+            | ChannelsAPI.Thread;
+        };
 
-        members: Record<string, MembersAPI.GuildMemberResponse>;
+        members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-        roles: Record<string, RolesAPI.GuildRole>;
+        roles: { [key: string]: RolesAPI.GuildRole };
 
-        users: Record<string, UsersAPI.User>;
+        users: { [key: string]: UsersAPI.User };
       }
 
       export interface StickerItem {
@@ -3317,7 +3317,7 @@ export namespace Message {
 
         install_params?: Application.InstallParams | null;
 
-        integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+        integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
         max_participants?: number | null;
 
@@ -4178,7 +4178,7 @@ export namespace Message {
     export interface ApplicationCommandInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       /**
        * - `1` - Sent by Discord to validate your application's interaction handler
@@ -4202,7 +4202,7 @@ export namespace Message {
     export interface MessageComponentInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       interacted_message_id: string;
 
@@ -4224,7 +4224,7 @@ export namespace Message {
     export interface ModalSubmitInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       triggering_interaction_metadata:
         | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
@@ -4249,7 +4249,7 @@ export namespace Message {
       export interface ApplicationCommandInteractionMetadataResponse {
         id: string;
 
-        authorizing_integration_owners: Record<string, string>;
+        authorizing_integration_owners: { [key: string]: string };
 
         /**
          * - `1` - Sent by Discord to validate your application's interaction handler
@@ -4273,7 +4273,7 @@ export namespace Message {
       export interface MessageComponentInteractionMetadataResponse {
         id: string;
 
-        authorizing_integration_owners: Record<string, string>;
+        authorizing_integration_owners: { [key: string]: string };
 
         interacted_message_id: string;
 
@@ -4474,7 +4474,7 @@ export namespace Message {
 
             install_params?: Application.InstallParams | null;
 
-            integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+            integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
             max_participants?: number | null;
 
@@ -5289,19 +5289,19 @@ export namespace Message {
         }
 
         export interface Resolved {
-          channels: Record<
-            string,
-            | Shared.GuildChannel
-            | UsersChannelsAPI.PrivateChannelResponse
-            | UsersChannelsAPI.PrivateGroupChannelResponse
-            | ChannelsAPI.Thread
-          >;
+          channels: {
+            [key: string]:
+              | Shared.GuildChannel
+              | UsersChannelsAPI.PrivateChannelResponse
+              | UsersChannelsAPI.PrivateGroupChannelResponse
+              | ChannelsAPI.Thread;
+          };
 
-          members: Record<string, MembersAPI.GuildMemberResponse>;
+          members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-          roles: Record<string, RolesAPI.GuildRole>;
+          roles: { [key: string]: RolesAPI.GuildRole };
 
-          users: Record<string, UsersAPI.User>;
+          users: { [key: string]: UsersAPI.User };
         }
 
         export interface StickerItem {
@@ -5401,19 +5401,19 @@ export namespace Message {
     }
 
     export interface Resolved {
-      channels: Record<
-        string,
-        | Shared.GuildChannel
-        | UsersChannelsAPI.PrivateChannelResponse
-        | UsersChannelsAPI.PrivateGroupChannelResponse
-        | ChannelsAPI.Thread
-      >;
+      channels: {
+        [key: string]:
+          | Shared.GuildChannel
+          | UsersChannelsAPI.PrivateChannelResponse
+          | UsersChannelsAPI.PrivateGroupChannelResponse
+          | ChannelsAPI.Thread;
+      };
 
-      members: Record<string, MembersAPI.GuildMemberResponse>;
+      members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-      roles: Record<string, RolesAPI.GuildRole>;
+      roles: { [key: string]: RolesAPI.GuildRole };
 
-      users: Record<string, UsersAPI.User>;
+      users: { [key: string]: UsersAPI.User };
     }
 
     export interface RoleSubscriptionData {
@@ -5436,19 +5436,19 @@ export namespace Message {
   }
 
   export interface Resolved {
-    channels: Record<
-      string,
-      | Shared.GuildChannel
-      | UsersChannelsAPI.PrivateChannelResponse
-      | UsersChannelsAPI.PrivateGroupChannelResponse
-      | ChannelsAPI.Thread
-    >;
+    channels: {
+      [key: string]:
+        | Shared.GuildChannel
+        | UsersChannelsAPI.PrivateChannelResponse
+        | UsersChannelsAPI.PrivateGroupChannelResponse
+        | ChannelsAPI.Thread;
+    };
 
-    members: Record<string, MembersAPI.GuildMemberResponse>;
+    members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-    roles: Record<string, RolesAPI.GuildRole>;
+    roles: { [key: string]: RolesAPI.GuildRole };
 
-    users: Record<string, UsersAPI.User>;
+    users: { [key: string]: UsersAPI.User };
   }
 
   export interface RoleSubscriptionData {
@@ -5658,7 +5658,7 @@ export namespace MessageResponse {
 
       install_params?: Application.InstallParams | null;
 
-      integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+      integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
       max_participants?: number | null;
 
@@ -6519,7 +6519,7 @@ export namespace MessageResponse {
   export interface ApplicationCommandInteractionMetadataResponse {
     id: string;
 
-    authorizing_integration_owners: Record<string, string>;
+    authorizing_integration_owners: { [key: string]: string };
 
     /**
      * - `1` - Sent by Discord to validate your application's interaction handler
@@ -6543,7 +6543,7 @@ export namespace MessageResponse {
   export interface MessageComponentInteractionMetadataResponse {
     id: string;
 
-    authorizing_integration_owners: Record<string, string>;
+    authorizing_integration_owners: { [key: string]: string };
 
     interacted_message_id: string;
 
@@ -6565,7 +6565,7 @@ export namespace MessageResponse {
   export interface ModalSubmitInteractionMetadataResponse {
     id: string;
 
-    authorizing_integration_owners: Record<string, string>;
+    authorizing_integration_owners: { [key: string]: string };
 
     triggering_interaction_metadata:
       | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
@@ -6590,7 +6590,7 @@ export namespace MessageResponse {
     export interface ApplicationCommandInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       /**
        * - `1` - Sent by Discord to validate your application's interaction handler
@@ -6614,7 +6614,7 @@ export namespace MessageResponse {
     export interface MessageComponentInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       interacted_message_id: string;
 
@@ -6815,7 +6815,7 @@ export namespace MessageResponse {
 
           install_params?: Application.InstallParams | null;
 
-          integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+          integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
           max_participants?: number | null;
 
@@ -7630,19 +7630,19 @@ export namespace MessageResponse {
       }
 
       export interface Resolved {
-        channels: Record<
-          string,
-          | Shared.GuildChannel
-          | UsersChannelsAPI.PrivateChannelResponse
-          | UsersChannelsAPI.PrivateGroupChannelResponse
-          | ChannelsAPI.Thread
-        >;
+        channels: {
+          [key: string]:
+            | Shared.GuildChannel
+            | UsersChannelsAPI.PrivateChannelResponse
+            | UsersChannelsAPI.PrivateGroupChannelResponse
+            | ChannelsAPI.Thread;
+        };
 
-        members: Record<string, MembersAPI.GuildMemberResponse>;
+        members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-        roles: Record<string, RolesAPI.GuildRole>;
+        roles: { [key: string]: RolesAPI.GuildRole };
 
-        users: Record<string, UsersAPI.User>;
+        users: { [key: string]: UsersAPI.User };
       }
 
       export interface StickerItem {
@@ -7955,7 +7955,7 @@ export namespace MessageResponse {
 
         install_params?: Application.InstallParams | null;
 
-        integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+        integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
         max_participants?: number | null;
 
@@ -8816,7 +8816,7 @@ export namespace MessageResponse {
     export interface ApplicationCommandInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       /**
        * - `1` - Sent by Discord to validate your application's interaction handler
@@ -8840,7 +8840,7 @@ export namespace MessageResponse {
     export interface MessageComponentInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       interacted_message_id: string;
 
@@ -8862,7 +8862,7 @@ export namespace MessageResponse {
     export interface ModalSubmitInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       triggering_interaction_metadata:
         | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
@@ -8887,7 +8887,7 @@ export namespace MessageResponse {
       export interface ApplicationCommandInteractionMetadataResponse {
         id: string;
 
-        authorizing_integration_owners: Record<string, string>;
+        authorizing_integration_owners: { [key: string]: string };
 
         /**
          * - `1` - Sent by Discord to validate your application's interaction handler
@@ -8911,7 +8911,7 @@ export namespace MessageResponse {
       export interface MessageComponentInteractionMetadataResponse {
         id: string;
 
-        authorizing_integration_owners: Record<string, string>;
+        authorizing_integration_owners: { [key: string]: string };
 
         interacted_message_id: string;
 
@@ -9112,7 +9112,7 @@ export namespace MessageResponse {
 
             install_params?: Application.InstallParams | null;
 
-            integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+            integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
             max_participants?: number | null;
 
@@ -9927,19 +9927,19 @@ export namespace MessageResponse {
         }
 
         export interface Resolved {
-          channels: Record<
-            string,
-            | Shared.GuildChannel
-            | UsersChannelsAPI.PrivateChannelResponse
-            | UsersChannelsAPI.PrivateGroupChannelResponse
-            | ChannelsAPI.Thread
-          >;
+          channels: {
+            [key: string]:
+              | Shared.GuildChannel
+              | UsersChannelsAPI.PrivateChannelResponse
+              | UsersChannelsAPI.PrivateGroupChannelResponse
+              | ChannelsAPI.Thread;
+          };
 
-          members: Record<string, MembersAPI.GuildMemberResponse>;
+          members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-          roles: Record<string, RolesAPI.GuildRole>;
+          roles: { [key: string]: RolesAPI.GuildRole };
 
-          users: Record<string, UsersAPI.User>;
+          users: { [key: string]: UsersAPI.User };
         }
 
         export interface StickerItem {
@@ -10039,19 +10039,19 @@ export namespace MessageResponse {
     }
 
     export interface Resolved {
-      channels: Record<
-        string,
-        | Shared.GuildChannel
-        | UsersChannelsAPI.PrivateChannelResponse
-        | UsersChannelsAPI.PrivateGroupChannelResponse
-        | ChannelsAPI.Thread
-      >;
+      channels: {
+        [key: string]:
+          | Shared.GuildChannel
+          | UsersChannelsAPI.PrivateChannelResponse
+          | UsersChannelsAPI.PrivateGroupChannelResponse
+          | ChannelsAPI.Thread;
+      };
 
-      members: Record<string, MembersAPI.GuildMemberResponse>;
+      members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-      roles: Record<string, RolesAPI.GuildRole>;
+      roles: { [key: string]: RolesAPI.GuildRole };
 
-      users: Record<string, UsersAPI.User>;
+      users: { [key: string]: UsersAPI.User };
     }
 
     export interface RoleSubscriptionData {
@@ -10074,19 +10074,19 @@ export namespace MessageResponse {
   }
 
   export interface Resolved {
-    channels: Record<
-      string,
-      | Shared.GuildChannel
-      | UsersChannelsAPI.PrivateChannelResponse
-      | UsersChannelsAPI.PrivateGroupChannelResponse
-      | ChannelsAPI.Thread
-    >;
+    channels: {
+      [key: string]:
+        | Shared.GuildChannel
+        | UsersChannelsAPI.PrivateChannelResponse
+        | UsersChannelsAPI.PrivateGroupChannelResponse
+        | ChannelsAPI.Thread;
+    };
 
-    members: Record<string, MembersAPI.GuildMemberResponse>;
+    members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-    roles: Record<string, RolesAPI.GuildRole>;
+    roles: { [key: string]: RolesAPI.GuildRole };
 
-    users: Record<string, UsersAPI.User>;
+    users: { [key: string]: UsersAPI.User };
   }
 
   export interface RoleSubscriptionData {
@@ -10296,7 +10296,7 @@ export namespace MessageResponse {
 
       install_params?: Application.InstallParams | null;
 
-      integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+      integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
       max_participants?: number | null;
 
@@ -11157,7 +11157,7 @@ export namespace MessageResponse {
   export interface ApplicationCommandInteractionMetadataResponse {
     id: string;
 
-    authorizing_integration_owners: Record<string, string>;
+    authorizing_integration_owners: { [key: string]: string };
 
     /**
      * - `1` - Sent by Discord to validate your application's interaction handler
@@ -11181,7 +11181,7 @@ export namespace MessageResponse {
   export interface MessageComponentInteractionMetadataResponse {
     id: string;
 
-    authorizing_integration_owners: Record<string, string>;
+    authorizing_integration_owners: { [key: string]: string };
 
     interacted_message_id: string;
 
@@ -11203,7 +11203,7 @@ export namespace MessageResponse {
   export interface ModalSubmitInteractionMetadataResponse {
     id: string;
 
-    authorizing_integration_owners: Record<string, string>;
+    authorizing_integration_owners: { [key: string]: string };
 
     triggering_interaction_metadata:
       | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
@@ -11228,7 +11228,7 @@ export namespace MessageResponse {
     export interface ApplicationCommandInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       /**
        * - `1` - Sent by Discord to validate your application's interaction handler
@@ -11252,7 +11252,7 @@ export namespace MessageResponse {
     export interface MessageComponentInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       interacted_message_id: string;
 
@@ -11453,7 +11453,7 @@ export namespace MessageResponse {
 
           install_params?: Application.InstallParams | null;
 
-          integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+          integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
           max_participants?: number | null;
 
@@ -12268,19 +12268,19 @@ export namespace MessageResponse {
       }
 
       export interface Resolved {
-        channels: Record<
-          string,
-          | Shared.GuildChannel
-          | UsersChannelsAPI.PrivateChannelResponse
-          | UsersChannelsAPI.PrivateGroupChannelResponse
-          | ChannelsAPI.Thread
-        >;
+        channels: {
+          [key: string]:
+            | Shared.GuildChannel
+            | UsersChannelsAPI.PrivateChannelResponse
+            | UsersChannelsAPI.PrivateGroupChannelResponse
+            | ChannelsAPI.Thread;
+        };
 
-        members: Record<string, MembersAPI.GuildMemberResponse>;
+        members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-        roles: Record<string, RolesAPI.GuildRole>;
+        roles: { [key: string]: RolesAPI.GuildRole };
 
-        users: Record<string, UsersAPI.User>;
+        users: { [key: string]: UsersAPI.User };
       }
 
       export interface StickerItem {
@@ -12593,7 +12593,7 @@ export namespace MessageResponse {
 
         install_params?: Application.InstallParams | null;
 
-        integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+        integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
         max_participants?: number | null;
 
@@ -13454,7 +13454,7 @@ export namespace MessageResponse {
     export interface ApplicationCommandInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       /**
        * - `1` - Sent by Discord to validate your application's interaction handler
@@ -13478,7 +13478,7 @@ export namespace MessageResponse {
     export interface MessageComponentInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       interacted_message_id: string;
 
@@ -13500,7 +13500,7 @@ export namespace MessageResponse {
     export interface ModalSubmitInteractionMetadataResponse {
       id: string;
 
-      authorizing_integration_owners: Record<string, string>;
+      authorizing_integration_owners: { [key: string]: string };
 
       triggering_interaction_metadata:
         | ModalSubmitInteractionMetadataResponse.ApplicationCommandInteractionMetadataResponse
@@ -13525,7 +13525,7 @@ export namespace MessageResponse {
       export interface ApplicationCommandInteractionMetadataResponse {
         id: string;
 
-        authorizing_integration_owners: Record<string, string>;
+        authorizing_integration_owners: { [key: string]: string };
 
         /**
          * - `1` - Sent by Discord to validate your application's interaction handler
@@ -13549,7 +13549,7 @@ export namespace MessageResponse {
       export interface MessageComponentInteractionMetadataResponse {
         id: string;
 
-        authorizing_integration_owners: Record<string, string>;
+        authorizing_integration_owners: { [key: string]: string };
 
         interacted_message_id: string;
 
@@ -13750,7 +13750,7 @@ export namespace MessageResponse {
 
             install_params?: Application.InstallParams | null;
 
-            integration_types_config?: Record<string, Application.IntegrationTypesConfig> | null;
+            integration_types_config?: { [key: string]: Application.IntegrationTypesConfig } | null;
 
             max_participants?: number | null;
 
@@ -14565,19 +14565,19 @@ export namespace MessageResponse {
         }
 
         export interface Resolved {
-          channels: Record<
-            string,
-            | Shared.GuildChannel
-            | UsersChannelsAPI.PrivateChannelResponse
-            | UsersChannelsAPI.PrivateGroupChannelResponse
-            | ChannelsAPI.Thread
-          >;
+          channels: {
+            [key: string]:
+              | Shared.GuildChannel
+              | UsersChannelsAPI.PrivateChannelResponse
+              | UsersChannelsAPI.PrivateGroupChannelResponse
+              | ChannelsAPI.Thread;
+          };
 
-          members: Record<string, MembersAPI.GuildMemberResponse>;
+          members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-          roles: Record<string, RolesAPI.GuildRole>;
+          roles: { [key: string]: RolesAPI.GuildRole };
 
-          users: Record<string, UsersAPI.User>;
+          users: { [key: string]: UsersAPI.User };
         }
 
         export interface StickerItem {
@@ -14677,19 +14677,19 @@ export namespace MessageResponse {
     }
 
     export interface Resolved {
-      channels: Record<
-        string,
-        | Shared.GuildChannel
-        | UsersChannelsAPI.PrivateChannelResponse
-        | UsersChannelsAPI.PrivateGroupChannelResponse
-        | ChannelsAPI.Thread
-      >;
+      channels: {
+        [key: string]:
+          | Shared.GuildChannel
+          | UsersChannelsAPI.PrivateChannelResponse
+          | UsersChannelsAPI.PrivateGroupChannelResponse
+          | ChannelsAPI.Thread;
+      };
 
-      members: Record<string, MembersAPI.GuildMemberResponse>;
+      members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-      roles: Record<string, RolesAPI.GuildRole>;
+      roles: { [key: string]: RolesAPI.GuildRole };
 
-      users: Record<string, UsersAPI.User>;
+      users: { [key: string]: UsersAPI.User };
     }
 
     export interface RoleSubscriptionData {
@@ -14712,19 +14712,19 @@ export namespace MessageResponse {
   }
 
   export interface Resolved {
-    channels: Record<
-      string,
-      | Shared.GuildChannel
-      | UsersChannelsAPI.PrivateChannelResponse
-      | UsersChannelsAPI.PrivateGroupChannelResponse
-      | ChannelsAPI.Thread
-    >;
+    channels: {
+      [key: string]:
+        | Shared.GuildChannel
+        | UsersChannelsAPI.PrivateChannelResponse
+        | UsersChannelsAPI.PrivateGroupChannelResponse
+        | ChannelsAPI.Thread;
+    };
 
-    members: Record<string, MembersAPI.GuildMemberResponse>;
+    members: { [key: string]: MembersAPI.GuildMemberResponse };
 
-    roles: Record<string, RolesAPI.GuildRole>;
+    roles: { [key: string]: RolesAPI.GuildRole };
 
-    users: Record<string, UsersAPI.User>;
+    users: { [key: string]: UsersAPI.User };
   }
 
   export interface RoleSubscriptionData {
@@ -14787,7 +14787,7 @@ export interface PrivateApplicationResponse {
 
   install_params?: PrivateApplicationResponse.InstallParams | null;
 
-  integration_types_config?: Record<string, PrivateApplicationResponse.IntegrationTypesConfig> | null;
+  integration_types_config?: { [key: string]: PrivateApplicationResponse.IntegrationTypesConfig } | null;
 
   interactions_endpoint_url?: string | null;
 

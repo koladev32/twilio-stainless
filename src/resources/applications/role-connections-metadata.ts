@@ -47,9 +47,9 @@ export namespace RoleConnectionsMetadataUpdateParams {
      */
     type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-    description_localizations?: Record<string, string | null> | null;
+    description_localizations?: { [key: string]: string | null } | null;
 
-    name_localizations?: Record<string, string | null> | null;
+    name_localizations?: { [key: string]: string | null } | null;
   }
 }
 

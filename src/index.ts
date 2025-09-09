@@ -110,6 +110,8 @@ export interface ClientOptions {
    *
    * Note that request timeouts are retried by default, so in a worst-case scenario you may wait
    * much longer than this timeout before the promise succeeds or fails.
+   *
+   * @unit milliseconds
    */
   timeout?: number | undefined;
 
@@ -211,6 +213,7 @@ export class DiscordAPI extends Core.APIClient {
 
     super({
       baseURL: options.baseURL!,
+      baseURLOverridden: baseURL ? baseURL !== 'https://discord.com/api/v10' : false,
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
@@ -239,6 +242,13 @@ export class DiscordAPI extends Core.APIClient {
   stickers: API.Stickers = new API.Stickers(this);
   invites: API.Invites = new API.Invites(this);
 
+  /**
+   * Check whether the base URL is set to its default.
+   */
+  #baseURLOverridden(): boolean {
+    return this.baseURL !== 'https://discord.com/api/v10';
+  }
+
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
   }
@@ -251,7 +261,18 @@ export class DiscordAPI extends Core.APIClient {
   }
 
   protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
+    return {
+      ...this.botTokenAuth(opts),
+      ...this.oAuth2Auth(opts),
+    };
+  }
+
+  protected botTokenAuth(opts: Core.FinalRequestOptions): Core.Headers {
     return { Authorization: this.botToken };
+  }
+
+  protected oAuth2Auth(opts: Core.FinalRequestOptions): Core.Headers {
+    return {};
   }
 
   protected override stringifyQuery(query: Record<string, unknown>): string {
@@ -293,6 +314,7 @@ DiscordAPI.Webhooks = Webhooks;
 DiscordAPI.Interactions = Interactions;
 DiscordAPI.Stickers = Stickers;
 DiscordAPI.Invites = Invites;
+
 export declare namespace DiscordAPI {
   export type RequestOptions = Core.RequestOptions;
 

@@ -111,7 +111,7 @@ export declare namespace InteractionCallbackParams {
 
         value: number;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
 
@@ -125,7 +125,7 @@ export declare namespace InteractionCallbackParams {
 
         value: number;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
 
@@ -139,7 +139,7 @@ export declare namespace InteractionCallbackParams {
 
         value: string;
 
-        name_localizations?: Record<string, string> | null;
+        name_localizations?: { [key: string]: string } | null;
       }
     }
   }
